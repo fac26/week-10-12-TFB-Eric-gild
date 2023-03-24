@@ -4,9 +4,9 @@ import {
   MagnifyingGlassIcon,
   UserIcon,
   BookmarkIcon,
-} from "@heroicons/react/24/solid";
+} from "@heroicons/react/24/outline";
 
-function NavItem({ href, icon: Icon, centralIcon, textIcon }) {
+function NavItem({ href, icon: Icon, centralIcon, customIcon }) {
   return (
     <li className={`text-center ${centralIcon ? "" : "flex-grow"}`}>
       <Link href={href}>
@@ -17,10 +17,15 @@ function NavItem({ href, icon: Icon, centralIcon, textIcon }) {
               : "h-24 w-24 bg-cream rounded-full p-2"
           }`}
         >
-          {textIcon ? (
-            <span className="text-purple flex items-center text-3xl font-sans">
-              {textIcon}
-            </span>
+          {customIcon ? (
+            <svg
+              width="60"
+              height="60"
+              viewBox="0 0 60 60"
+              className="text-purple flex items-center text-3xl font-sans"
+            >
+              <image href={customIcon} width="60" height="60" />
+            </svg>
           ) : (
             <Icon
               className={`text-purple ${
@@ -34,27 +39,37 @@ function NavItem({ href, icon: Icon, centralIcon, textIcon }) {
   );
 }
 
-export default function NavBar() {
+export default function NavBar({ isBusinessPage }) {
   const centralIcon = true;
-  const accountType = "user";
+  const accountType = "business";
 
-  if (accountType === "user")
-    return (
-      <nav className="fixed bottom-0 w-full bg-white border-t">
-        <ul className="flex justify-between items-center h-16 px-4">
-          <NavItem href="/" icon={HomeIcon} />
-          <NavItem href="/" textIcon="?" />
-          <NavItem
-            href="/"
-            icon={MagnifyingGlassIcon}
-            centralIcon={centralIcon}
-          />
-          <NavItem href="/" icon={BookmarkIcon} />
-          <NavItem href="/" icon={UserIcon} />
-        </ul>
-      </nav>
-    );
+  return (
+    <nav className="fixed bottom-0 w-full bg-white border-t">
+      <ul className="flex justify-between items-center h-16 px-4">
+        {!isBusinessPage ? (
+          <>
+            <NavItem href="/" icon={HomeIcon} />
+            <NavItem href="/" customIcon={"/question_icon.svg"} />
+            <NavItem
+              href="/"
+              icon={MagnifyingGlassIcon}
+              centralIcon={centralIcon}
+            />
+            <NavItem href="/" icon={BookmarkIcon} />
+            <NavItem href="/" icon={UserIcon} />
+          </>
+        ) : (
+          <>
+            <NavItem href="/" icon={HomeIcon} />
+            <NavItem
+              href="/"
+              customIcon={"/bowl_icon.svg"}
+              centralIcon={centralIcon}
+            />
+            <NavItem href="/" icon={UserIcon} />
+          </>
+        )}
+      </ul>
+    </nav>
+  );
 }
-
-
-//this is a comment
