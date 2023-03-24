@@ -9,7 +9,7 @@ import {
 
 function NavItem({ href, icon: Icon }) {
   return (
-    <li className="w-1/5 text-center">
+    <li className="w-1/5 text-center test-purple">
       <Link href={href}>
         <Icon className="h-6 w-6" />
       </Link>
