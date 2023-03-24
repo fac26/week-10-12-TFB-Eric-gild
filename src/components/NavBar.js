@@ -36,19 +36,22 @@ function NavItem({ href, icon: Icon, centralIcon, textIcon }) {
 
 export default function NavBar() {
   const centralIcon = true;
-  return (
-    <nav className="fixed bottom-0 w-full bg-white border-t">
-      <ul className="flex justify-between items-center h-16 px-4">
-        <NavItem href="/" icon={HomeIcon} />
-        <NavItem href="/" textIcon="?" />
-        <NavItem
-          href="/"
-          icon={MagnifyingGlassIcon}
-          centralIcon={centralIcon}
-        />
-        <NavItem href="/" icon={BookmarkIcon} />
-        <NavItem href="/" icon={UserIcon} />
-      </ul>
-    </nav>
-  );
+  const accountType = "user";
+
+  if (accountType === "user")
+    return (
+      <nav className="fixed bottom-0 w-full bg-white border-t">
+        <ul className="flex justify-between items-center h-16 px-4">
+          <NavItem href="/" icon={HomeIcon} />
+          <NavItem href="/" textIcon="?" />
+          <NavItem
+            href="/"
+            icon={MagnifyingGlassIcon}
+            centralIcon={centralIcon}
+          />
+          <NavItem href="/" icon={BookmarkIcon} />
+          <NavItem href="/" icon={UserIcon} />
+        </ul>
+      </nav>
+    );
 }
