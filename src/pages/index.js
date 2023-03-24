@@ -1,7 +1,4 @@
-import Head from 'next/head'
-import Image from 'next/image'
 import { Inter } from 'next/font/google'
-import styles from '@/styles/Home.module.css'
 import { Auth } from '@supabase/auth-ui-react'
 import { useSession, useSupabaseClient } from '@supabase/auth-helpers-react'
 import { useRouter } from 'next/router'
@@ -48,8 +45,7 @@ export default function Home() {
         "Name": "Pret a Manger",
         "Description": "Serves coffee and food",
         "Address": "271 Holloway Road",
-        "PhoneNumber": "020 7249 1399",
-        "ID": 1
+        "PhoneNumber": "020 7249 1399"
       }
     },
     {
@@ -58,8 +54,7 @@ export default function Home() {
         "Name": "Cafe Au leyton",
         "Description": "Doesn't exist",
         "Address": "123 Francis Road",
-        "PhoneNumber": "020 7249 1399",
-        "ID": 2
+        "PhoneNumber": "020 7249 1399"
       }
     },
     {
@@ -68,8 +63,7 @@ export default function Home() {
         "Name": "The Cafe",
         "Description": "It is a cafe",
         "Address": "671 Oxford Street",
-        "PhoneNumber": "020 7249 1399",
-        "ID": 3
+        "PhoneNumber": "020 7249 1399"
       }
     }
   ], function(err, records) {
@@ -78,7 +72,7 @@ export default function Home() {
       return;
     }
     records.forEach(function(record) {
-      console.log(record.get('ID'));
+      console.log(record.get('Name'));
     });
   });
   return (

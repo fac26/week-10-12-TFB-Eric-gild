@@ -1,18 +1,70 @@
-import { useForm } from "react-hook-form";
-import 'react-phone-number-input/style.css';
-// import { LOCAL_STORAGE_KEY } from '../components/AddDetaiils'
+import { useState } from "react";
 
 export default function FoodVendorDetails() {
-  const { register, handleSubmit, formState: { errors } } = useForm();
   
-  const handlePost = async () => {
-    const data = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY));
-    await DetailsToDB(data);
+  const [vendorDetails, setVendorDetails] = useState({ name: "", description: "", address: "", phone: "" })
+
+  const updateDetails = e => {
+    const fieldDetails = e.target.name
+    setVendorDetails(existingValues => ({
+      ...existingValues,
+      [fieldDetails]: e.target.value,
+    }))
   }
-  
 
   return (
-    <form>
+    <form onSubmit={updateDetails}>
+      <label htmlFor="companyDescription">Tell us about your company</label>
+      <br></br>
+      <input
+          type="text"
+          name="description"
+          id="companyDescription"
+          value={vendorDetails.description}
+          
+        />
+         <br></br>
+      <label htmlFor="companyName">Company name</label>
+      <br></br>
+      <input
+          type="text"
+          name="name"
+          id="companyName"
+          value={vendorDetails.name}
+         
+        />
+         <br></br>
+      <label htmlFor="companyAddress">Address</label>
+      <br></br>
+      <input
+          type="text"
+          name="address"
+          id="companyaddress"
+          value={vendorDetails.address}
+      
+        />
+         <br></br>
+      <label htmlFor="companyPhone">Phone number</label>
+      <br></br>
+      <input
+          type="text"
+          name="phone"
+          id="companyPhone"
+          value={vendorDetails.phone}
+          
+        />
+        <input type="submit" value="Update data" />
+         <br></br>
+         
+      <div>
+        Details: { vendorDetails.name } { vendorDetails.description}  { vendorDetails.address } { vendorDetails.phone }
+      </div>
+    </form>
+  );
+}
+
+
+{/* <form>
       <label htmlFor="companyDescription">Tell us about your company</label>
       {errors.name && errors.name.type === "required" && <span>This is required</span>}
       {errors.name && errors.name.type === "maxLength" && <span>Max length exceeded</span> }
@@ -58,10 +110,4 @@ export default function FoodVendorDetails() {
       <br />
       <button onClick={handleSubmit(handlePost)}>Submit</button>
      
-    </form>
-   
-  );
-}
-
-//phone number input field needs improvement
-//uploading onto airtable
+    </form> */}
