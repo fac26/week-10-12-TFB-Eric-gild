@@ -3,7 +3,7 @@ import Head from "next/head";
 
 export const siteTitle = "Hope";
 
-export default function Layout({ children, home }) {
+export default function Layout({ children, home, isBusinessPage }) {
   return (
     <>
       <Head>
@@ -17,7 +17,7 @@ export default function Layout({ children, home }) {
       </header>
       <div>
         <main>{children}</main>
-        {!home ? <NavBar /> : null}
+        {!home ? <NavBar isBusinessPage={isBusinessPage} /> : null}
       </div>
     </>
   );
