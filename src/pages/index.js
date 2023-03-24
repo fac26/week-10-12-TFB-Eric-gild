@@ -1,6 +1,6 @@
-import GreenButton from '@/components/GreenButton';
-import LogoLandingPage from '@/components/LogoLandingPage';
-import style from '@/styles/Home.module.css';
+import GreenButton from '@components/GreenButton';
+import LogoLandingPage from '@components/LogoLandingPage';
+import style from '@styles/Home.module.css';
 import Layout from 'components/Layout';
 
 export default function Home() {
