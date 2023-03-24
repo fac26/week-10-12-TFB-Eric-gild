@@ -55,6 +55,3 @@ export default function NavBar() {
       </nav>
     );
 }
-
-
-//this is a comment
