@@ -1,6 +1,6 @@
 import NavBar from "@components/NavBar";
 import Head from "next/head";
-import TopBar from "@components/topBar";
+import TopBar from "@components/TopBar";
 
 export const siteTitle = "Hope";
 
