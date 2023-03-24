@@ -1,5 +1,6 @@
 import NavBar from "@components/NavBar";
 import Head from "next/head";
+import TopBar from "@components/topBar";
 
 export const siteTitle = "Hope";
 
@@ -13,7 +14,7 @@ export default function Layout({ children, home, isBusinessPage }) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <header>
-        <h1 className="text-4xl font-bold">{siteTitle}</h1>
+        <TopBar />
       </header>
       <div>
         <main>{children}</main>

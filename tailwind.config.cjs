@@ -14,7 +14,9 @@ module.exports = {
         white: "#FFFFFF",
       },
       fontFamily: {
-        sans: ["Roboto Flex", "sans-serif"],
+        cursive: ["Jomhuria", "cursive"],
+        sans: ["Open Sans", "sans-serif"],
+        heading: ["Finger Paint", "cursive"],
       },
     },
   },
