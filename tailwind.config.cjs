@@ -11,6 +11,10 @@ module.exports = {
         green: "#A1AA91",
         purple: "#540375",
         cream: "#F5E8DA",
+        white: "#FFFFFF",
+      },
+      fontFamily: {
+        sans: ["Roboto Flex", "sans-serif"],
       },
     },
   },
