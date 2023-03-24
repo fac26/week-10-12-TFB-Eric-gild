@@ -1,17 +1,18 @@
 import { useForm } from "react-hook-form";
 import 'react-phone-number-input/style.css';
+// import { LOCAL_STORAGE_KEY } from '../components/AddDetaiils'
 
 export default function FoodVendorDetails() {
   const { register, handleSubmit, formState: { errors } } = useForm();
-  function onSubmit(data) {
-    
-    alert('thanks')
-    console.log(data)
-  };
+  
+  const handlePost = async () => {
+    const data = JSON.parse(localStorage.getItem(LOCAL_STORAGE_KEY));
+    await DetailsToDB(data);
+  }
   
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)}>
+    <form>
       <label htmlFor="companyDescription">Tell us about your company</label>
       {errors.name && errors.name.type === "required" && <span>This is required</span>}
       {errors.name && errors.name.type === "maxLength" && <span>Max length exceeded</span> }
@@ -55,7 +56,7 @@ export default function FoodVendorDetails() {
         //xxx-xxx-xxxx or xxx xxx xxxx
         />
       <br />
-      <input type="submit" />
+      <button onClick={handleSubmit(handlePost)}>Submit</button>
      
     </form>
    

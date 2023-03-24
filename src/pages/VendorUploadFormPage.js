@@ -9,11 +9,11 @@ export default function Test() {
     const router = useRouter()
     const session = useSession()
 
-	const handleSignOut = async () => {
+	  const handleSignOut = async () => {
         await supabase.auth.signOut();
         router.push('/');
       };
-      
+    
 
       return (
         <>
@@ -30,3 +30,5 @@ export default function Test() {
       );
     }
 
+
+  
