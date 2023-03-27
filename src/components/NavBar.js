@@ -14,7 +14,7 @@ function NavItem({ href, icon: Icon, centralIcon, customIcon }) {
           className={` flex items-center justify-center ${
             !centralIcon
               ? "h-6 w-6 mx-auto"
-              : "h-24 w-24 bg-accentcolor2 rounded-full p-2"
+              : "h-24 w-24 bg-accentcolor3 rounded-full p-2"
           }`}
         >
           {customIcon ? (
