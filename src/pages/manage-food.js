@@ -1,11 +1,24 @@
-import Card from 'components/Card';
 import Layout from 'components/Layout';
 import Button from 'components/Button';
 import airtableModule from 'utils/airtable';
+import ManageStockCard from 'components/ManageStockCard';
+import { useState, useEffect } from 'react';
 
 export default function FindFood() {
   const pageTitle = 'Manage Food';
-  console.log(airtableModule.getTable('Collaborators'));
+  const donor = 'pret';
+  const [menu, setMenu] = useState([]);
+  const [dataFetched, setDataFetched] = useState(false);
+
+  useEffect(() => {
+    async function getMenu() {
+      const menu = await airtableModule.getRecords(donor);
+      setMenu(menu);
+      setDataFetched(true);
+    }
+    getMenu();
+  }, []);
+
   return (
     <Layout pageTitle={pageTitle} isBusinessPage>
       <div className='flex flex-col m-4 items-center'>
@@ -14,7 +27,11 @@ export default function FindFood() {
         </p>
       </div>
       <div className='flex flex-col m-4 items-center'>
-        <Card />
+        {dataFetched ? (
+          menu.map((item) => <ManageStockCard key={item.id} record={item} />)
+        ) : (
+          <p>Loading...</p>
+        )}
       </div>
       <Button buttonName={'Save'} buttonLink='/' />
     </Layout>
