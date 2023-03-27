@@ -1,11 +1,11 @@
 import Card from 'components/Card';
 import Layout from 'components/Layout';
 import Button from 'components/Button';
-import records from '../utils/airtable';
+import airtableModule from 'utils/airtable';
 
 export default function FindFood() {
   const pageTitle = 'Manage Food';
-  console.log(records);
+  console.log(airtableModule);
   return (
     <Layout pageTitle={pageTitle} isBusinessPage>
       <div className='flex flex-col m-4 items-center'>
