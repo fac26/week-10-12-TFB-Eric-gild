@@ -6,7 +6,7 @@ import ButtonSmall from "@components/ButtonSmall";
 export default function Home() {
   const source = "/logoLandingPage.png";
   const alt =
-    "The word hope written in accentcolor3 in calligraphy style, with the letter O in the shape of a heart and the legend food. The strap line reads donate with love. ";
+    "The word hope written in white in calligraphy style, with the letter O in the shape of a heart and the legend food. The strap line reads donate with love. ";
 
   return (
     <Layout home>
