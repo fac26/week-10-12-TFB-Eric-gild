@@ -44,7 +44,7 @@ export default function NavBar({ isBusinessPage }) {
   const accountType = "business";
 
   return (
-    <nav className="fixed bottom-0 w-full bg-accentcolor3 border-t">
+    <nav className="fixed bottom-0 w-full bg-accentcolor2 border-t">
       <ul className="flex justify-between items-center h-16 px-4">
         {!isBusinessPage ? (
           <>
