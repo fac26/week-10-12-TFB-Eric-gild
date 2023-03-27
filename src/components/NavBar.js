@@ -14,7 +14,7 @@ function NavItem({ href, icon: Icon, centralIcon, customIcon }) {
           className={` flex items-center justify-center ${
             !centralIcon
               ? "h-6 w-6 mx-auto"
-              : "h-24 w-24 bg-cream rounded-full p-2"
+              : "h-24 w-24 bg-accentcolor3 rounded-full p-2"
           }`}
         >
           {customIcon ? (
@@ -22,13 +22,13 @@ function NavItem({ href, icon: Icon, centralIcon, customIcon }) {
               width="60"
               height="60"
               viewBox="0 0 60 60"
-              className="text-purple flex items-center text-3xl font-sans"
+              className="text-accentcolor1 flex items-center text-3xl font-sans"
             >
               <image href={customIcon} width="60" height="60" />
             </svg>
           ) : (
             <Icon
-              className={`text-purple ${
+              className={`text-accentcolor1 ${
                 !centralIcon ? "h-full w-full" : "h-12 w-12"
               }`}
             />
@@ -44,7 +44,7 @@ export default function NavBar({ isBusinessPage }) {
   const accountType = "business";
 
   return (
-    <nav className="fixed bottom-0 w-full bg-white border-t">
+    <nav className="fixed bottom-0 w-full bg-accentcolor2 border-t">
       <ul className="flex justify-between items-center h-16 px-4">
         {!isBusinessPage ? (
           <>
