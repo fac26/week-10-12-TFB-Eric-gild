@@ -15,10 +15,14 @@ export default function Layout({ children, pageTitle, home, isBusinessPage }) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <header>
-        {home ? null : <TopBar />}
-        <h1 className="flex justify-center font-cursive text-purple text-6xl py-6">
-          {title.toUpperCase()}
-        </h1>
+        {home ? null : (
+          <>
+            <TopBar />{" "}
+            <h1 className="flex justify-center font-cursive text-accentcolor1 text-6xl py-6">
+              {title.toUpperCase()}
+            </h1>{" "}
+          </>
+        )}
       </header>
       <div>
         <main>{children}</main>
