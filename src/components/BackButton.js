@@ -12,7 +12,7 @@ export default function BackButton() {
     <>
       <ChevronLeftIcon
         onClick={handleClick}
-        className="h-12 w-12 text-accentcolor2"
+        className='h-12 w-12 text-accentcolor2'
       />
     </>
   );
