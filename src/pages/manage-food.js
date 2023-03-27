@@ -1,7 +1,7 @@
 import Card from 'components/Card';
 import Layout from 'components/Layout';
 import Button from 'components/Button';
-import records from 'utils/airtable';
+import records from '../utils/airtable';
 
 export default function FindFood() {
   const pageTitle = 'Manage Food';
