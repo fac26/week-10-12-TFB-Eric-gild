@@ -1,9 +1,10 @@
 describe('NavBar component', () => {
   it('should exist on the page', () => {
-    cy.visit('http://localhost:3000/explore-main');
+    cy.visit('http://localhost:3000/find-food');
     cy.get('[data-cy="home"]').should('exist');
-    cy.get('[data-cy="add"]').should('exist');
-    cy.get('[data-cy="ranking-star"]').should('exist');
-    cy.get('[data-cy="book-contacts"]').should('exist');
+    cy.get('[data-cy="help"]').should('exist');
+    cy.get('[data-cy="search"]').should('exist');
+    cy.get('[data-cy="profile"]').should('exist');
+    cy.get('[data-cy="bowl-icon"]').should('exist');
   });
 });
