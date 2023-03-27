@@ -1,14 +1,41 @@
 import { useForm } from 'react-hook-form';
 import Layout from 'components/Layout';
+var Airtable = require('airtable');
+var base = new Airtable({ apiKey: 'keyPQ3ZegGxQ8Pg3j' }).base(
+  'appwjTMNZwwnhuRzz'
+);
+
 export default function App() {
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm();
-  const onSubmit = (data) => console.log(data);
+  const onSubmit = (data) => {
+    console.log(data);
 
-  //   console.log(watch('example')); // watch input value by passing the name of it
+    //   console.log(watch('example')); // watch input value by passing the name of it
+
+    //update records
+    base('Collaborators').create(
+      [
+        {
+          fields: {
+            Name: data.companyname,
+            Description: data.description,
+            Address: data.address,
+            PhoneNumber: data.phonenumber,
+          },
+        },
+      ],
+      function (err) {
+        if (err) {
+          console.error(err);
+          return;
+        }
+      }
+    );
+  };
 
   return (
     <Layout pageTitle='Vendor Details Upload'>
