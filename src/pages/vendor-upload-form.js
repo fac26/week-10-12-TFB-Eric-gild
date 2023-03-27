@@ -11,7 +11,7 @@ export default function App() {
   //   console.log(watch('example')); // watch input value by passing the name of it
 
   return (
-    <Layout>
+    <Layout pageTitle='Vendor Details Upload'>
       <form onSubmit={handleSubmit(onSubmit)}>
         <label>Company name</label>
         <br></br>
@@ -20,12 +20,12 @@ export default function App() {
         <br></br>
         <label>Tell us about your company</label>
         <br></br>
-        <input {...register('description', { required: true })} />
+        <textarea {...register('description', { required: true })} />
         {errors.exampleRequired && <span>This field is required</span>}
         <br></br>
         <label>Address</label>
         <br></br>
-        <input {...register('address', { required: true })} />
+        <textarea {...register('address', { required: true })} />
         {errors.exampleRequired && <span>This field is required</span>}
         <br></br>
         <label>Phone number</label>
