@@ -5,7 +5,7 @@ import airtableModule from 'utils/airtable';
 
 export default function FindFood() {
   const pageTitle = 'Manage Food';
-  console.log(airtableModule);
+  console.log(airtableModule.getTable('Collaborators'));
   return (
     <Layout pageTitle={pageTitle} isBusinessPage>
       <div className='flex flex-col m-4 items-center'>
