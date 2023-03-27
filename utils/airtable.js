@@ -1,7 +1,7 @@
 const Airtable = require('airtable');
 const base = new Airtable({
-  apiKey: 'key6rSDBU4oEqvOtv',
-}).base('appwjTMNZwwnhuRzz');
+  apiKey,
+}).base(apiBase);
 
 const table = base('collaborators');
 
