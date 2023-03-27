@@ -2,6 +2,11 @@ import LogoLandingPage from '@components/LogoLandingPage';
 import Layout from '@components/Layout';
 import Button from '@components/Button';
 import ButtonSmall from '@components/ButtonSmall';
+import Head from 'next/head';
+import Image from 'next/image';
+import { Inter } from 'next/font/google';
+
+const inter = Inter({ subsets: ['latin'] });
 
 export default function Home() {
   const source = '/logoLandingPage.png';
@@ -11,7 +16,7 @@ export default function Home() {
   return (
     <Layout home>
       <div className='flex flex-row justify-between gap-6 px-2 py-2'>
-        <ButtonSmall buttonName={'Vendor'} buttonLink='/' />
+        <ButtonSmall buttonName={'Vendor'} buttonLink='/sign-in' />
         <ButtonSmall buttonName={'Support Us'} buttonLink='/' />
       </div>
       <div className='flex flex-col m-16 gap-6 px-2 py-2 items-center'>
