@@ -1,11 +1,11 @@
-import NavBar from "@components/NavBar";
-import Head from "next/head";
-import TopBar from "@components/TopBar";
+import NavBar from '@components/NavBar';
+import Head from 'next/head';
+import TopBar from '@components/TopBar';
 
-export const siteTitle = "Hope";
+export const siteTitle = 'Hope';
 
 export default function Layout({ children, pageTitle, home, isBusinessPage }) {
-  const title = pageTitle || "Placeholder";
+  const title = pageTitle || 'Placeholder';
   return (
     <>
       <Head>
@@ -17,10 +17,10 @@ export default function Layout({ children, pageTitle, home, isBusinessPage }) {
       <header>
         {home ? null : (
           <>
-            <TopBar />{" "}
+            <TopBar />{' '}
             <h1 className="flex justify-center font-cursive text-accentcolor1 text-6xl py-6">
               {title.toUpperCase()}
-            </h1>{" "}
+            </h1>{' '}
           </>
         )}
       </header>

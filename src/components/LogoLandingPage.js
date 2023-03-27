@@ -1,4 +1,4 @@
-import Image from "next/image";
+import Image from 'next/image';
 
 const LogoLandingPage = (props) => {
   return (
@@ -9,7 +9,7 @@ const LogoLandingPage = (props) => {
           width={props.width}
           height={props.height}
           alt={props.alt}
-          style={{ objectFit: "cover" }}
+          style={{ objectFit: 'cover' }}
         />
       </div>
     </div>
