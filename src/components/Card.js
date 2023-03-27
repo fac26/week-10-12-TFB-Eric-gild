@@ -1,5 +1,5 @@
-import Image from "next/image";
-import Button from "./Button";
+import Image from 'next/image';
+import Button from './Button';
 
 export default function Card() {
   return (
@@ -20,7 +20,7 @@ export default function Card() {
             <div className="flex-grow">
               <p className="text-l font-sans overflow-hidden">Pret a Manger</p>
             </div>
-            <Button buttonName={"More Info"} buttonLink="/" />
+            <Button buttonName={'More Info'} buttonLink="/" />
           </div>
         </div>
       </div>

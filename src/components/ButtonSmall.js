@@ -1,13 +1,13 @@
-import React from "react";
-import Link from "next/link";
+import React from 'react';
+import Link from 'next/link';
 
 export default function Button({
   buttonName,
   buttonLink,
   ButtonOnClick = () => {},
 }) {
-  const name = buttonName || "placeholder";
-  const link = buttonLink || "/";
+  const name = buttonName || 'placeholder';
+  const link = buttonLink || '/';
   return (
     <Link
       href={link}
