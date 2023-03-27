@@ -9,9 +9,10 @@ module.exports = {
     extend: {
       colors: {
         green: "#A1AA91",
-        purple: "#540375",
-        cream: "#F5E8DA",
-        white: "#FFFFFF",
+        accentcolor1: "#540375",
+        accentcolor2: "#F9F9F9",
+        accentcolor3: "#F5E8DA",
+        accentcolor4: "#545C00ff",
       },
       fontFamily: {
         cursive: ["Jomhuria", "cursive"],
