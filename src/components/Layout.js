@@ -10,15 +10,15 @@ export default function Layout({ children, pageTitle, home, isBusinessPage }) {
     <>
       <Head>
         <title>{siteTitle}</title>
-        <meta name="description" content="Emergency food finder" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="icon" href="/favicon.ico" />
+        <meta name='description' content='Emergency food finder' />
+        <meta name='viewport' content='width=device-width, initial-scale=1' />
+        <link rel='icon' href='/favicon.ico' />
       </Head>
       <header>
         {home ? null : (
           <>
             <TopBar />{' '}
-            <h1 className="flex justify-center font-cursive text-accentcolor1 text-6xl py-6">
+            <h1 className='flex justify-center font-cursive text-accentcolor1 text-6xl py-6'>
               {title.toUpperCase()}
             </h1>{' '}
           </>

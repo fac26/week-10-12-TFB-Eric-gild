@@ -19,12 +19,12 @@ function NavItem({ href, icon: Icon, centralIcon, customIcon }) {
         >
           {customIcon ? (
             <svg
-              width="60"
-              height="60"
-              viewBox="0 0 60 60"
-              className="text-accentcolor1 flex items-center text-3xl font-sans"
+              width='60'
+              height='60'
+              viewBox='0 0 60 60'
+              className='text-accentcolor1 flex items-center text-3xl font-sans'
             >
-              <image href={customIcon} width="60" height="60" />
+              <image href={customIcon} width='60' height='60' />
             </svg>
           ) : (
             <Icon
@@ -44,29 +44,29 @@ export default function NavBar({ isBusinessPage }) {
   const accountType = 'business';
 
   return (
-    <nav className="fixed bottom-0 w-full bg-accentcolor2 border-t">
-      <ul className="flex justify-between items-center h-16 px-4">
+    <nav className='fixed bottom-0 w-full bg-accentcolor2 border-t'>
+      <ul className='flex justify-between items-center h-16 px-4'>
         {!isBusinessPage ? (
           <>
-            <NavItem href="/" icon={HomeIcon} />
-            <NavItem href="/" customIcon={'/question_icon.svg'} />
+            <NavItem href='/' icon={HomeIcon} />
+            <NavItem href='/' customIcon={'/question_icon.svg'} />
             <NavItem
-              href="/"
+              href='/'
               icon={MagnifyingGlassIcon}
               centralIcon={centralIcon}
             />
-            <NavItem href="/" icon={BookmarkIcon} />
-            <NavItem href="/" icon={UserIcon} />
+            <NavItem href='/' icon={BookmarkIcon} />
+            <NavItem href='/' icon={UserIcon} />
           </>
         ) : (
           <>
-            <NavItem href="/" icon={HomeIcon} />
+            <NavItem href='/' icon={HomeIcon} />
             <NavItem
-              href="/"
+              href='/'
               customIcon={'/bowl_icon.svg'}
               centralIcon={centralIcon}
             />
-            <NavItem href="/" icon={UserIcon} />
+            <NavItem href='/' icon={UserIcon} />
           </>
         )}
       </ul>
