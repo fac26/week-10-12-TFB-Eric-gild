@@ -70,6 +70,35 @@ async function createCollaborator(data) {
   );
 }
 
-const airtableModule = { base, getRecords, updateRecords, createCollaborator };
+async function getCollaborator(data) {
+  return new Promise((resolve, reject) => {
+    const records = [];
+    base(tableName)
+      .select({})
+      .eachPage(
+        function page(pageRecords, fetchNextPage) {
+          pageRecords.forEach(function (record) {
+            records.push(record.fields);
+          });
+          fetchNextPage();
+        },
+        function done(err) {
+          if (err) {
+            reject(err);
+            return;
+          }
+          resolve(records);
+        }
+      );
+  });
+}
+
+const airtableModule = {
+  base,
+  getRecords,
+  updateRecords,
+  createCollaborator,
+  getCollaborator,
+};
 
 export default airtableModule;

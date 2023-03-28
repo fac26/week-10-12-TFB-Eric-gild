@@ -2,16 +2,16 @@ import Button from './Button';
 
 export default function WhatsAvailableCard(props) {
   const { items } = props;
-  console.log('items', items);
   return (
     <div className='w-11/12 mx-auto max-w-screen-sm text-accentcolor1 tracking-widest bg-accentcolor2 font-cursive py-6 px-6 rounded-lg'>
-      <div className='mx-auto max-w-md'>
-        <ul className='flex flex-col'>
+      <h3 className='text-4xl'>CURRENTLY AVAILABLE</h3>
+      <div className='mx-auto'>
+        <ul className='flex flex-col font-sans'>
           {items ? (
             items.map((item) => (
               <li className='flex justify-between' key={item.id}>
-                {item.fields.name}
-                {item.fields.quantity}
+                <span>{item.fields.name}</span>
+                <span>{item.fields.quantity}</span>
               </li>
             ))
           ) : (
@@ -19,7 +19,9 @@ export default function WhatsAvailableCard(props) {
           )}
         </ul>
       </div>
-      <Button buttonName={'Update'} buttonLink='/manage-food' />
+      <div className='flex flex-col mb-10 mt-10 items-center'>
+        <Button buttonName={'Update'} buttonLink='/manage-food' />
+      </div>
     </div>
   );
 }
