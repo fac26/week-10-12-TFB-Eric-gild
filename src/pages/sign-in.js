@@ -3,6 +3,7 @@ import { useSession, useSupabaseClient } from '@supabase/auth-helpers-react';
 import { useRouter } from 'next/router';
 import { useEffect } from 'react';
 import Layout from 'components/Layout';
+import Button from '@components/Button';
 
 export default function SignIn() {
   const session = useSession();
@@ -26,11 +27,14 @@ export default function SignIn() {
               appearance={{
                 style: {
                   button: {
-                    padding: 5,
+                    padding: 10,
                     borderColor: '#540375',
                     backgroundColor: '#540375',
-                    borderRadius: 25,
-                    width: 300,
+                    borderRadius: 7,
+                    width: 200,
+                    marginLeft: 50,
+                    color: '#F5E8DA',
+                    textTransform: 'upperCase',
                   },
                   input: {
                     padding: 5,
