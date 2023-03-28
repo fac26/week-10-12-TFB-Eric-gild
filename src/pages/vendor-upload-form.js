@@ -40,7 +40,7 @@ export default function App() {
   };
 
   return (
-    <Layout pageTitle='Vendor Details Upload'>
+    <Layout pageTitle='Vendor Details Upload' isBusinessPage>
       <form
         className='h-screen flex flex-col 
         items-center font-cursive text-accentcolor1 text-base w-1/2 mx-auto'

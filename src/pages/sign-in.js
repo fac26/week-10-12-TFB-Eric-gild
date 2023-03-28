@@ -16,7 +16,7 @@ export default function SignIn() {
   }, [session]);
 
   return (
-    <Layout pageTitle='Sign in'>
+    <Layout pageTitle='Sign in' isBusinessPage>
       <div className='flex justify-center font-cursive text-custom'>
         {!session ? (
           <>
