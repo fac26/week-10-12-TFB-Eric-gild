@@ -17,6 +17,7 @@ export default function SignIn() {
 
   return (
     <Layout pageTitle='Sign in'>
+      <Button buttonName={'Sign-In'} buttonLink='/vendor-upload-form' />
       <div>
         {!session ? (
           <>
