@@ -1,9 +1,6 @@
 import { useForm } from 'react-hook-form';
 import Layout from 'components/Layout';
-var Airtable = require('airtable');
-var base = new Airtable({ apiKey: 'keyPQ3ZegGxQ8Pg3j' }).base(
-  'appwjTMNZwwnhuRzz'
-);
+import airtableModule from 'utils/airtable';
 
 export default function App() {
   const {
@@ -13,28 +10,8 @@ export default function App() {
   } = useForm();
   const onSubmit = (data) => {
     console.log(data);
-
+    airtableModule.createCollaborator(data);
     //   console.log(watch('example')); // watch input value by passing the name of it
-
-    //update records
-    base('Collaborators').create(
-      [
-        {
-          fields: {
-            Name: data.companyname,
-            Description: data.description,
-            Address: data.address,
-            PhoneNumber: data.phonenumber,
-          },
-        },
-      ],
-      function (err) {
-        if (err) {
-          console.error(err);
-          return;
-        }
-      }
-    );
   };
 
   return (
