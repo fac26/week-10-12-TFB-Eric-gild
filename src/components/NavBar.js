@@ -67,7 +67,7 @@ export default function NavBar({ isBusinessPage }) {
           <>
             <NavItem href='/' icon={HomeIcon} />
             <NavItem
-              href='/'
+              href='/available-food'
               customIcon={'/bowl_icon.svg'}
               centralIcon={centralIcon}
               data-cy='bowl-icon'

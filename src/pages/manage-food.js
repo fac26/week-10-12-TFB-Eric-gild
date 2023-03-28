@@ -1,8 +1,9 @@
 import Layout from 'components/Layout';
-import ButtonQuantity from 'components/ButtonQuantity';
+import Button from 'components/Button';
 import airtableModule from 'utils/airtable';
 import ManageStockCard from 'components/ManageStockCard';
 import { useState, useEffect } from 'react';
+import { useRouter } from 'next/router';
 
 export async function getServerSideProps() {
   const donor = 'pret';
@@ -24,6 +25,7 @@ export async function getServerSideProps() {
 export default function ManageFood({ menu }) {
   const [items, setItems] = useState([]);
   const pageTitle = 'Manage Food';
+  const router = useRouter();
 
   useEffect(() => {
     const newItems = menu.map((item) => ({
@@ -45,6 +47,7 @@ export default function ManageFood({ menu }) {
   const handleSaveClick = () => {
     const menuItems = JSON.parse(localStorage.getItem('menu-items'));
     airtableModule.updateRecords('pret', menuItems);
+    router.push('/available-food');
   };
 
   return (
@@ -54,23 +57,23 @@ export default function ManageFood({ menu }) {
           What’s available at Pret, Holloway Road?
         </p>
       </div>
-      <div className='flex flex-col m-4 items-center gap-4'>
+      <div className='flex flex-col m-10 items-center'>
+        <Button buttonName={'Save'} ButtonOnClick={handleSaveClick} />
+      </div>
+      <div className='flex flex-col m-4 items-center gap-4 mb-40'>
         {items ? (
           items.map((item) => (
             <>
               <ManageStockCard
                 key={item.fields.id}
                 item={item}
-                quantity={item.fields.quantity} //pos remove
+                quantity={item.fields.quantity}
               />
             </>
           ))
         ) : (
           <p>Loading...</p>
         )}
-      </div>
-      <div className='flex flex-col mb-40 mt-20 items-center'>
-        <ButtonQuantity buttonName={'Save'} onClick={handleSaveClick} />
       </div>
     </Layout>
   );
