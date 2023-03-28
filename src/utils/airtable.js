@@ -49,6 +49,27 @@ async function updateRecords(tableName, menuItems) {
   });
 }
 
-const airtableModule = { base, getRecords, updateRecords };
+async function createCollaborator(data) {
+  base('Collaborators').create(
+    [
+      {
+        fields: {
+          Name: data.companyname,
+          Description: data.description,
+          Address: data.address,
+          PhoneNumber: data.phonenumber,
+        },
+      },
+    ],
+    function (err) {
+      if (err) {
+        console.error(err);
+        return;
+      }
+    }
+  );
+}
+
+const airtableModule = { base, getRecords, updateRecords, createCollaborator };
 
 export default airtableModule;
