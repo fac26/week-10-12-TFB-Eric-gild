@@ -1,36 +1,84 @@
 import Image from 'next/image';
-import Button from './Button';
-import ButtonSmall from './ButtonSmall';
+import ButtonQuantity from '@components/ButtonQuantity';
+import { useState, useEffect } from 'react';
 
 export default function ManageStockCard(props) {
-  const { record } = props;
-  console.log('record', record);
-  return record ? <p>loaded</p> : <p>loading</p>;
-}
+  const { item } = props;
+  const [quantity, setQuantity] = useState(item.Quantity);
+  const foodItemName = item.Name;
 
-//    <div className='w-11/12 mx-auto max-w-screen-sm text-accentcolor1 tracking-widest bg-accentcolor2 font-cursive py-6 px-6 rounded-lg'>
-// {
-  /* <div className='mx-auto max-w-md'>
-<h3 className='font-cursive text-5xl'>CHICKEN SANDWICH</h3>
-<div className='flex flex-row gap-6 w-5/6 h-5/6'>
-  <div className=' flex items-center justify-center'>
-    <Image
-      src='/chicken-sandwich.png'
-      className=''
-      alt='chicken sandwich'
-      width={200}
-      height={200}
-    />
-  </div>
-  <div className='flex flex-col gap-2 w-full'>
-    <div className='flex-grow'>
-      <p className='text-l font-sans overflow-hidden'>Pret a Manger</p>
+  const handleDecrease = () => {
+    const newQuantity = quantity - 1;
+    console.log(newQuantity);
+    setQuantity(newQuantity);
+
+    const updatedMenuItems = JSON.parse(localStorage.getItem('menu-items')).map(
+      ({ name, quantity }) => {
+        if (name === foodItemName) {
+          return { name, quantity: newQuantity };
+        }
+        return { name, quantity };
+      }
+    );
+
+    localStorage.setItem('menu-items', JSON.stringify(updatedMenuItems));
+  };
+
+  const handleIncrease = () => {
+    const newQuantity = quantity + 1;
+    setQuantity(newQuantity);
+
+    const updatedMenuItems = JSON.parse(localStorage.getItem('menu-items')).map(
+      ({ name, quantity }) => {
+        if (name === foodItemName) {
+          return { name, quantity: newQuantity };
+        }
+        return { name, quantity };
+      }
+    );
+
+    localStorage.setItem('menu-items', JSON.stringify(updatedMenuItems));
+  };
+
+  return item ? (
+    <div className='w-11/12 mx-auto max-w-screen-sm text-accentcolor1 tracking-widest bg-accentcolor2 font-cursive py-6 px-6 rounded-lg'>
+      {
+        <div className='mx-auto max-w-md'>
+          <h3 className='font-cursive text-4xl'>
+            {foodItemName.toUpperCase()}
+          </h3>
+          <div className='flex flex-row gap-6 w-5/6 h-5/6'>
+            <div className=' flex items-center justify-center'>
+              <Image
+                src='/chicken-sandwich.png'
+                className=''
+                alt='chicken sandwich'
+                width={200}
+                height={200}
+              />
+            </div>
+            <div className='flex flex-col gap-2 w-full'>
+              <div className='flex flex-row items-center'>
+                <ButtonQuantity
+                  buttonName={'-'}
+                  onClick={handleDecrease}
+                  quantity={quantity}
+                  setQuantity={setQuantity}
+                />
+                <p className='font-sans text-l mx-4'>{quantity}</p>
+                <ButtonQuantity
+                  buttonName={'+'}
+                  onClick={handleIncrease}
+                  quantity={quantity}
+                  setQuantity={setQuantity}
+                />
+              </div>
+            </div>
+          </div>
+        </div>
+      }
     </div>
-<ButtonSmall buttonName={'-'} buttonLink='/' />
-<p>4</p>
-<ButtonSmall buttonName={'+'} buttonLink='/' />
-</div>
-</div>
-</div>
-</div> */
-// }
+  ) : (
+    <p>loading</p>
+  );
+}

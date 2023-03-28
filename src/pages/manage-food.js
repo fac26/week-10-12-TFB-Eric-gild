@@ -1,23 +1,72 @@
 import Layout from 'components/Layout';
-import Button from 'components/Button';
+import ButtonQuantity from 'components/ButtonQuantity';
 import airtableModule from 'utils/airtable';
 import ManageStockCard from 'components/ManageStockCard';
 import { useState, useEffect } from 'react';
 
-export default function FindFood() {
-  const pageTitle = 'Manage Food';
+export async function getServerSideProps() {
   const donor = 'pret';
-  const [menu, setMenu] = useState([]);
-  const [dataFetched, setDataFetched] = useState(false);
+  const menu = await airtableModule.getRecords(donor);
+  if (!menu) {
+    return {
+      notFound: true,
+    };
+  }
+  if (menu) {
+    console.log(menu);
+    return {
+      props: {
+        menu,
+      },
+    };
+  }
+}
+
+export default function ManageFood({ menu }) {
+  console.log(menu);
+  const [items, setItems] = useState(() =>
+    menu.reduce(
+      (acc, item) => ({
+        ...acc,
+        [item.ID]: { name: item.Name, quantity: item.Quantity },
+      }),
+      {}
+    )
+  );
+  const pageTitle = 'Manage Food';
 
   useEffect(() => {
-    async function getMenu() {
-      const menu = await airtableModule.getRecords(donor);
-      setMenu(menu);
-      setDataFetched(true);
-    }
-    getMenu();
-  }, []);
+    localStorage.setItem(
+      'menu-items',
+      JSON.stringify(
+        Object.values(items).map(({ name, quantity }) => ({ name, quantity }))
+      )
+    );
+  }, [items]);
+
+  const handleQuantityChange = (itemId, newQuantity) => {
+    setItems((prevItems) => ({
+      ...prevItems,
+      [itemId]: {
+        ...prevItems[itemId],
+        quantity: newQuantity,
+      },
+    }));
+
+    localStorage.setItem(
+      'menu-items',
+      JSON.stringify(
+        Object.values(prevItems).map(({ name, quantity }) => ({
+          name,
+          quantity,
+        }))
+      )
+    );
+  };
+
+  const handleSaveClick = () => {
+    airtableModule.updateRecords('pret', items);
+  };
 
   return (
     <Layout pageTitle={pageTitle} isBusinessPage>
@@ -26,14 +75,25 @@ export default function FindFood() {
           What’s available at Pret, Holloway Road?
         </p>
       </div>
-      <div className='flex flex-col m-4 items-center'>
-        {dataFetched ? (
-          menu.map((item) => <ManageStockCard key={item.id} record={item} />)
+      <div className='flex flex-col m-4 items-center gap-4'>
+        {menu ? (
+          menu.map((item) => (
+            <ManageStockCard
+              key={item.ID}
+              item={item}
+              quantity={items[item.ID].quantity}
+              onQuantityChange={(newQuantity) =>
+                handleQuantityChange(item.ID, newQuantity)
+              }
+            />
+          ))
         ) : (
           <p>Loading...</p>
         )}
       </div>
-      <Button buttonName={'Save'} buttonLink='/' />
+      <div className='flex flex-col mb-40 mt-20 items-center'>
+        <ButtonQuantity buttonName={'Save'} onClick={handleSaveClick} />
+      </div>
     </Layout>
   );
 }
