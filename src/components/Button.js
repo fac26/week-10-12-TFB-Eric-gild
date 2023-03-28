@@ -7,7 +7,7 @@ export default function Button({
   ButtonOnClick = () => {},
 }) {
   const name = buttonName || 'placeholder';
-  const link = buttonLink || '/';
+  const link = buttonLink || '/loading';
 
   return (
     <Link
