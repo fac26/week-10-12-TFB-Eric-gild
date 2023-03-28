@@ -14,7 +14,7 @@ export default function App() {
   const onSubmit = (data) => {
     console.log(data);
     airtableModule.createCollaborator(data);
-    router.push('/find-food');
+    router.push('/manage-food');
     //   console.log(watch('example')); // watch input value by passing the name of it
   };
 
