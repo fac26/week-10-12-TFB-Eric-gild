@@ -19,7 +19,11 @@ module.exports = {
         sans: ['Open Sans', 'sans-serif'],
         heading: ['Finger Paint', 'cursive'],
       },
+      fontSize: {
+        base: ['2.8rem', '1.5rem'],
+        custom: ['1.8rem', '1.25rem'],
+      },
     },
+    plugins: [],
   },
-  plugins: [],
 };

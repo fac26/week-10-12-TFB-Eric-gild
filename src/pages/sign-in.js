@@ -18,18 +18,36 @@ export default function SignIn() {
 
   return (
     <Layout pageTitle='Sign in'>
-      <div>
+      <div className='flex justify-center font-cursive text-custom'>
         {!session ? (
           <>
-            <h1>HOPE</h1>
             <Auth
               supabaseClient={supabase}
               providers
               appearance={{
                 style: {
-                  inputRef: { background: 'red', color: 'white' },
-                  anchor: { color: 'blue' },
-                  //..
+                  button: {
+                    padding: 5,
+                    borderColor: '#540375',
+                    backgroundColor: '#540375',
+                    borderRadius: 25,
+                    width: 300,
+                  },
+                  input: {
+                    padding: 5,
+                    borderColor: '#D9D9D9',
+                    backgroundColor: '#F5E8DA',
+                    borderRadius: 25,
+                    color: 'black',
+                    textAlign: 'centre',
+                    width: 300,
+                  },
+                  label: {
+                    display: 'none',
+                  },
+                  anchor: {
+                    color: '#540375',
+                  },
                 },
               }}
             />
