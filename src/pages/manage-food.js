@@ -1,5 +1,5 @@
 import Layout from 'components/Layout';
-import ButtonQuantity from 'components/ButtonQuantity';
+import Button from 'components/Button';
 import airtableModule from 'utils/airtable';
 import ManageStockCard from 'components/ManageStockCard';
 import { useState, useEffect } from 'react';
@@ -57,7 +57,10 @@ export default function ManageFood({ menu }) {
           What’s available at Pret, Holloway Road?
         </p>
       </div>
-      <div className='flex flex-col m-4 items-center gap-4'>
+      <div className='flex flex-col m-10 items-center'>
+        <Button buttonName={'Save'} ButtonOnClick={handleSaveClick} />
+      </div>
+      <div className='flex flex-col m-4 items-center gap-4 mb-40'>
         {items ? (
           items.map((item) => (
             <>
@@ -71,9 +74,6 @@ export default function ManageFood({ menu }) {
         ) : (
           <p>Loading...</p>
         )}
-      </div>
-      <div className='flex flex-col mb-40 mt-20 items-center'>
-        <ButtonQuantity buttonName={'Save'} onClick={handleSaveClick} />
       </div>
     </Layout>
   );
