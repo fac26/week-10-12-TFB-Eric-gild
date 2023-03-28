@@ -70,7 +70,7 @@ async function createCollaborator(data) {
   );
 }
 
-async function getCollaborator(data) {
+async function getCollaborator(tableName, data) {
   return new Promise((resolve, reject) => {
     const records = [];
     base(tableName)
