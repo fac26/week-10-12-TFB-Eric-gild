@@ -8,6 +8,7 @@ export default function Button({
 }) {
   const name = buttonName || 'placeholder';
   const link = buttonLink || '/';
+
   return (
     <Link
       href={link}
