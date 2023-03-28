@@ -17,7 +17,7 @@ export default function SignIn() {
   }, [session]);
 
   return (
-    <Layout pageTitle='Sign in'>
+    <Layout pageTitle='Sign In'>
       <div className='flex justify-center font-cursive text-custom'>
         {!session ? (
           <>
@@ -27,11 +27,14 @@ export default function SignIn() {
               appearance={{
                 style: {
                   button: {
-                    padding: 5,
+                    padding: 15,
                     borderColor: '#540375',
                     backgroundColor: '#540375',
-                    borderRadius: 25,
-                    width: 300,
+                    borderRadius: 7,
+                    width: 200,
+                    marginLeft: 50,
+                    color: '#F5E8DA',
+                    textTransform: 'upperCase',
                   },
                   input: {
                     padding: 5,
@@ -56,7 +59,6 @@ export default function SignIn() {
           <></>
         )}
       </div>
-      <Button buttonName={'Sign In'} buttonLink='/vendor-upload-form' />
     </Layout>
   );
 }
