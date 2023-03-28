@@ -1,25 +1,27 @@
 import Image from 'next/image';
 import ButtonQuantity from '@components/ButtonQuantity';
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 
 export default function ManageStockCard(props) {
   const { item } = props;
-  const [quantity, setQuantity] = useState(item.Quantity);
-  const foodItemName = item.Name;
+  const [quantity, setQuantity] = useState(item.fields.quantity);
+  const foodItemName = item.fields.name;
 
   const handleDecrease = () => {
     const newQuantity = quantity - 1;
-    console.log(newQuantity);
     setQuantity(newQuantity);
 
     const updatedMenuItems = JSON.parse(localStorage.getItem('menu-items')).map(
-      ({ name, quantity }) => {
-        if (name === foodItemName) {
-          return { name, quantity: newQuantity };
+      (item) => {
+        if (item.id === props.item.id) {
+          console.log('id', item.id);
+          console.log(item.fields.quantity);
+          item.fields.quantity = newQuantity;
         }
-        return { name, quantity };
+        return item;
       }
     );
+    console.log('updated', updatedMenuItems);
 
     localStorage.setItem('menu-items', JSON.stringify(updatedMenuItems));
   };
@@ -28,14 +30,8 @@ export default function ManageStockCard(props) {
     const newQuantity = quantity + 1;
     setQuantity(newQuantity);
 
-    const updatedMenuItems = JSON.parse(localStorage.getItem('menu-items')).map(
-      ({ name, quantity }) => {
-        if (name === foodItemName) {
-          return { name, quantity: newQuantity };
-        }
-        return { name, quantity };
-      }
-    );
+    const updatedMenuItems = JSON.parse(localStorage.getItem('menu-items'));
+    console.log('updated', updatedMenuItems);
 
     localStorage.setItem('menu-items', JSON.stringify(updatedMenuItems));
   };

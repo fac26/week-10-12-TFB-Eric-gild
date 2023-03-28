@@ -23,49 +23,35 @@ export async function getServerSideProps() {
 }
 
 export default function ManageFood({ menu }) {
-  console.log(menu);
-  const [items, setItems] = useState(() =>
-    menu.reduce(
-      (acc, item) => ({
-        ...acc,
-        [item.ID]: { name: item.Name, quantity: item.Quantity },
-      }),
-      {}
-    )
-  );
+  console.log('menu', menu);
+  const [items, setItems] = useState([]);
   const pageTitle = 'Manage Food';
 
   useEffect(() => {
-    localStorage.setItem(
-      'menu-items',
-      JSON.stringify(
-        Object.values(items).map(({ name, quantity }) => ({ name, quantity }))
-      )
-    );
+    const newItems = menu.map((item) => ({
+      id: item.ID,
+      fields: {
+        name: item.name,
+        quantity: item.quantity,
+      },
+    }));
+    setItems(newItems);
+    localStorage.setItem('menu-items', JSON.stringify(newItems)); // add items to local storage
+  }, [menu]);
+
+  useEffect(() => {
+    localStorage.setItem('menu-items', JSON.stringify(items));
   }, [items]);
 
   const handleQuantityChange = (itemId, newQuantity) => {
-    setItems((prevItems) => ({
-      ...prevItems,
-      [itemId]: {
-        ...prevItems[itemId],
-        quantity: newQuantity,
-      },
-    }));
+    // updates quantity of relevant item in state
 
-    localStorage.setItem(
-      'menu-items',
-      JSON.stringify(
-        Object.values(prevItems).map(({ name, quantity }) => ({
-          name,
-          quantity,
-        }))
-      )
-    );
+    localStorage.setItem('menu-items', JSON.stringify(items));
   };
 
   const handleSaveClick = () => {
-    airtableModule.updateRecords('pret', items);
+    const menuItems = JSON.parse(localStorage.getItem('menu-items'));
+    airtableModule.updateRecords('pret', menuItems);
   };
 
   return (
@@ -76,14 +62,14 @@ export default function ManageFood({ menu }) {
         </p>
       </div>
       <div className='flex flex-col m-4 items-center gap-4'>
-        {menu ? (
-          menu.map((item) => (
+        {items ? (
+          items.map((item) => (
             <ManageStockCard
-              key={item.ID}
+              key={item.id}
               item={item}
-              quantity={items[item.ID].quantity}
+              quantity={item.fields.quantity}
               onQuantityChange={(newQuantity) =>
-                handleQuantityChange(item.ID, newQuantity)
+                handleQuantityChange(item.id, newQuantity)
               }
             />
           ))
