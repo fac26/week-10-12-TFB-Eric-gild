@@ -27,7 +27,7 @@ export default function SignIn() {
               providers
               appearance={{
                 style: {
-                  email: { background: 'red', color: 'white' },
+                  inputRef: { background: 'red', color: 'white' },
                   anchor: { color: 'blue' },
                   //..
                 },
