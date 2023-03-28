@@ -13,7 +13,6 @@ export async function getServerSideProps() {
     };
   }
   if (menu) {
-    console.log(menu);
     return {
       props: {
         menu,
@@ -23,7 +22,6 @@ export async function getServerSideProps() {
 }
 
 export default function ManageFood({ menu }) {
-  console.log('menu', menu);
   const [items, setItems] = useState([]);
   const pageTitle = 'Manage Food';
 
@@ -43,12 +41,6 @@ export default function ManageFood({ menu }) {
     localStorage.setItem('menu-items', JSON.stringify(items));
   }, [items]);
 
-  const handleQuantityChange = (itemId, newQuantity) => {
-    // updates quantity of relevant item in state
-
-    localStorage.setItem('menu-items', JSON.stringify(items));
-  };
-
   const handleSaveClick = () => {
     const menuItems = JSON.parse(localStorage.getItem('menu-items'));
     airtableModule.updateRecords('pret', menuItems);
@@ -64,14 +56,14 @@ export default function ManageFood({ menu }) {
       <div className='flex flex-col m-4 items-center gap-4'>
         {items ? (
           items.map((item) => (
-            <ManageStockCard
-              key={item.id}
-              item={item}
-              quantity={item.fields.quantity}
-              onQuantityChange={(newQuantity) =>
-                handleQuantityChange(item.id, newQuantity)
-              }
-            />
+            <>
+              <ManageStockCard
+                key={item.fields.id}
+                item={item}
+                //setItems={setItems}
+                quantity={item.fields.quantity} //pos remove
+              />
+            </>
           ))
         ) : (
           <p>Loading...</p>

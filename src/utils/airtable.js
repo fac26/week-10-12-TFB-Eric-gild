@@ -26,29 +26,26 @@ async function getRecords(tableName) {
   });
 }
 
-async function updateRecords(tableName, updates) {
-  console.log('updating records', tableName, updates);
-  const mappedUpdates = Object.keys(updates).map((key) => {
-    const item = updates[key];
+async function updateRecords(tableName, menuItems) {
+  console.log('updating records', tableName, menuItems);
+  const mappedUpdates = Object.keys(menuItems).map((key) => {
+    const item = menuItems[key];
     return {
-      id: key,
+      id: item.id,
       fields: {
-        name: item.name,
-        quantity: item.quantity,
+        name: item.fields.name,
+        quantity: item.fields.quantity,
       },
     };
   });
 
   console.log(mappedUpdates);
-  return new Promise((resolve, reject) => {
-    base(tableName).update(mappedUpdates, function done(err, record) {
-      if (err) {
-        reject(err);
-        return;
-      }
-      console.log('here');
-      resolve(record);
-    });
+
+  base(tableName).update(mappedUpdates, function (err) {
+    if (err) {
+      console.error(err);
+      return;
+    }
   });
 }
 

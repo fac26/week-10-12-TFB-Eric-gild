@@ -14,14 +14,11 @@ export default function ManageStockCard(props) {
     const updatedMenuItems = JSON.parse(localStorage.getItem('menu-items')).map(
       (item) => {
         if (item.id === props.item.id) {
-          console.log('id', item.id);
-          console.log(item.fields.quantity);
           item.fields.quantity = newQuantity;
         }
         return item;
       }
     );
-    console.log('updated', updatedMenuItems);
 
     localStorage.setItem('menu-items', JSON.stringify(updatedMenuItems));
   };
@@ -30,8 +27,14 @@ export default function ManageStockCard(props) {
     const newQuantity = quantity + 1;
     setQuantity(newQuantity);
 
-    const updatedMenuItems = JSON.parse(localStorage.getItem('menu-items'));
-    console.log('updated', updatedMenuItems);
+    const updatedMenuItems = JSON.parse(localStorage.getItem('menu-items')).map(
+      (item) => {
+        if (item.id === props.item.id) {
+          item.fields.quantity = newQuantity;
+        }
+        return item;
+      }
+    );
 
     localStorage.setItem('menu-items', JSON.stringify(updatedMenuItems));
   };
