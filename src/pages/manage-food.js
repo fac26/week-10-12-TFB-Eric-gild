@@ -31,6 +31,7 @@ export default function ManageFood({ menu }) {
       fields: {
         name: item.name,
         quantity: item.quantity,
+        image: item.image,
       },
     }));
     setItems(newItems);
@@ -60,7 +61,6 @@ export default function ManageFood({ menu }) {
               <ManageStockCard
                 key={item.fields.id}
                 item={item}
-                //setItems={setItems}
                 quantity={item.fields.quantity} //pos remove
               />
             </>

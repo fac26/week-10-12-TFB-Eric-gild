@@ -48,14 +48,15 @@ export default function ManageStockCard(props) {
           </h3>
           <div className='flex flex-row gap-6 w-5/6 h-5/6'>
             <div className=' flex items-center justify-center'>
-              <Image
-                src='/chicken-sandwich.png'
+              <img
+                src={item.fields.image[0].url}
                 className=''
                 alt='chicken sandwich'
                 width={200}
                 height={200}
               />
             </div>
+            {/* <p>hey: {JSON.stringify(item.fields)}</p> */}
             <div className='flex flex-col gap-2 w-full'>
               <div className='flex flex-row items-center'>
                 <ButtonQuantity
