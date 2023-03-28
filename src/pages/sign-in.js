@@ -27,7 +27,7 @@ export default function SignIn() {
               appearance={{
                 style: {
                   button: {
-                    padding: 15,
+                    padding: 10,
                     borderColor: '#540375',
                     backgroundColor: '#540375',
                     borderRadius: 7,
