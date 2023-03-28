@@ -2,9 +2,10 @@ import { useForm } from 'react-hook-form';
 import Layout from 'components/Layout';
 import Button from 'components/Button';
 import airtableModule from 'utils/airtable';
-
+import { useRouter } from 'next/router';
 
 export default function App() {
+  const router = useRouter();
   const {
     register,
     handleSubmit,
@@ -13,6 +14,7 @@ export default function App() {
   const onSubmit = (data) => {
     console.log(data);
     airtableModule.createCollaborator(data);
+    router.push('/find-food');
     //   console.log(watch('example')); // watch input value by passing the name of it
   };
 
@@ -73,11 +75,7 @@ export default function App() {
           </span>
         )}
         <br></br>
-        <Button
-          buttonName={'Submit'}
-          buttonLink={'/find-food'}
-          ButtonOnClick={handleSubmit(onSubmit)}
-        />
+        <Button buttonName={'Submit'} ButtonOnClick={handleSubmit(onSubmit)} />
       </form>
     </Layout>
   );
