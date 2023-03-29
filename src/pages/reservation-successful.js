@@ -2,6 +2,7 @@ import Layout from 'components/Layout';
 
 const ReservationSuccessful = () => {
   const pageTitle = 'Reservation Successful';
+  let pickUpCode = Math.floor(Math.random() * 9000) + 1000;
   return (
     <>
       <Layout pageTitle={pageTitle}>
@@ -9,7 +10,7 @@ const ReservationSuccessful = () => {
           CONGRATULATIONS!
         </p>
         <p>Your reservation is successful</p>
-        <p>Your Pick Up code is:</p>
+        <p>Your Pick Up code is: {pickUpCode}</p>
       </Layout>
     </>
   );
