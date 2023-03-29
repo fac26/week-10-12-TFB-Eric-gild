@@ -14,6 +14,8 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 
 ## Clone Repo
 
+If you want to run this locally, the app depends on some environmental variables. Please let us know if require these.
+
 Please `clone` this repo to your local machine
 
 Please run `npm install` to install all dependencies
