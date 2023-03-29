@@ -1,3 +1,5 @@
+# HOPE THE APP
+
 ## Deployment
 
 Please follow this link to our [deployed site](https://week-10-12-tfb-eric-gild.vercel.app)
@@ -21,6 +23,8 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
     Next.JS - Framework
 
     VsCode - The code editor used
+    
+    Airtable - database
 
     Vercel - The deployment platform used
 
@@ -28,15 +32,16 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 
 We used Miro and Figma to record our user research and usability testing.
 
-Miro: [Miro board](https://miro.com/app/board/uXjVPkoAI88=/)
+Miro: ...add link?
 
-Figma: [Figma board](https://www.figma.com/file/wVdBFVqoaLtPQPA0bq4ZY3/Untitled?node-id=0%3A1&t=eSBWnVZF4j4wmwCg-0)
+Figma: ...add link?
 
-Clickable prototype: [Figma clickable prototype](https://www.figma.com/proto/wVdBFVqoaLtPQPA0bq4ZY3/Untitled?node-id=51%3A448&scaling=scale-down&page-id=0%3A1&starting-point-node-id=51%3A448)
+Clickable prototype: ...add link?
 
 
 
 # PROJECT DOCUMENTATION
+
 ## Introduction
 
 <details>
