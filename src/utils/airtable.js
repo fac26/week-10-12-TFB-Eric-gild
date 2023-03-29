@@ -94,23 +94,12 @@ async function getCollaborator(tableName, data) {
   });
 }
 
-async function getFoodItem(tableName, data) {
-  base('pret').find('recBiet2k0xjcnyEo', function (err, record) {
-    if (err) {
-      console.error(err);
-      return;
-    }
-    console.log('Retrieved', record.id);
-  });
-}
-
 const airtableModule = {
   base,
   getRecords,
   updateRecords,
   createCollaborator,
   getCollaborator,
-  getFoodItem,
 };
 
 export default airtableModule;

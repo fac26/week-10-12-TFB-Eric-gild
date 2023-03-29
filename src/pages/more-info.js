@@ -26,6 +26,7 @@ export default function MoreInfo({ menu }) {
   const [foodname, setFoodname] = useState([]);
   const [fooddescription, setFoodDescription] = useState([]);
   const [foodImage, setFoodImage] = useState([]);
+  const [foodHours, setFoodHours] = useState([]);
 
   useEffect(() => {
     const newFood = menu.map((item) => ({
@@ -35,16 +36,19 @@ export default function MoreInfo({ menu }) {
         description: item.description,
         allergens: item.allergens,
         image: item.image,
+        hours: item.hours,
       },
     }));
+    console.log(newFood);
     const foodName = newFood[0].fields.name;
     setFoodname(foodName);
     const foodDescription = newFood[0].fields.description;
     setFoodDescription(foodDescription);
     const foodimage = newFood[0].fields.image[0].url;
     setFoodImage(foodimage);
-  });
-  console.log(foodImage);
+    const foodhours = newFood[0].fields.hours;
+    setFoodHours(foodhours);
+  }, [menu]);
   //   console.log(foodImage.fields.image[0].url);
 
   return (
@@ -65,7 +69,7 @@ export default function MoreInfo({ menu }) {
           <p>Pret a Manger</p> {/* should show table name */}
           <p>271 Holloway Road, London N7, UK</p>
           {/* show address from collaborators */}
-          <p>Collect: 10:00 - 16:30</p>
+          <p>Collect: {foodHours}</p>
           {/* show opening hours from collaborators */}
           <p>Click here for ingredients and allergens</p>
           {/* open a modal */}
