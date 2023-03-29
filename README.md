@@ -36,17 +36,6 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 
     Vercel - The deployment platform used
 
-## Design
-
-We used Miro and Figma to record our user research and usability testing.
-
-Miro: ...add link?
-
-Figma: ...add link?
-
-Clickable prototype: ...add link?
-
-
 
 # PROJECT DOCUMENTATION
 
@@ -56,7 +45,7 @@ Clickable prototype: ...add link?
 
 #### What are you building?
 
-A web app that ...
+A web app that 
 
 #### Why are you building it?
 
