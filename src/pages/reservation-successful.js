@@ -1,6 +1,7 @@
 import Layout from 'components/Layout';
 
 const ReservationSuccessful = () => {
+  const pageTitle = 'Reservation Successful';
   return (
     <>
       <Layout pageTitle={pageTitle}>
