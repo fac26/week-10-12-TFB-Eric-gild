@@ -1,6 +1,5 @@
 import Layout from 'components/Layout';
 import { useState, useEffect } from 'react';
-import { Inter } from 'next/font/google';
 
 const ReservationSuccessful = () => {
   const pageTitle = 'Reservation Successful';
