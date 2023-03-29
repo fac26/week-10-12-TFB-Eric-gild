@@ -1,7 +1,19 @@
 import Layout from 'components/Layout';
+import { useState, useEffect } from 'react';
 
-const ReservationSuccessfulPage = ({ pickUpCode }) => {
+const ReservationSuccessful = () => {
   const pageTitle = 'Reservation Successful';
+  const [num, setNum] = useState(0);
+
+  function randomNumberInRange(min, max) {
+    // 👇️ get number between min (inclusive) and max (inclusive)
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+  }
+
+  useEffect(() => {
+    setNum(randomNumberInRange(1000, 9000));
+  }, []);
+
   return (
     <>
       <Layout pageTitle={pageTitle}>
@@ -9,19 +21,10 @@ const ReservationSuccessfulPage = ({ pickUpCode }) => {
           CONGRATULATIONS!
         </p>
         <p>Your reservation is successful</p>
-        <p>Your Pick Up code is: {pickUpCode}</p>
+        <p>Your Pick Up code is: {num}</p>
       </Layout>
     </>
   );
 };
 
-export default ReservationSuccessfulPage;
-
-export async function getStaticProps() {
-  const pickUpCode = Math.floor(Math.random() * 9000) + 1000;
-  return {
-    props: {
-      pickUpCode,
-    },
-  };
-}
+export default ReservationSuccessful;
