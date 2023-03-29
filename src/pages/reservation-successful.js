@@ -1,5 +1,6 @@
 import Layout from 'components/Layout';
 import { useState, useEffect } from 'react';
+import { Inter } from 'next/font/google';
 
 const ReservationSuccessful = () => {
   const pageTitle = 'Reservation Successful';
@@ -15,8 +16,12 @@ const ReservationSuccessful = () => {
         <p className='flex justify-center font-cursive text-accentcolor1 text-4xl py-6'>
           CONGRATULATIONS!
         </p>
-        <p>Your reservation is successful</p>
-        <p>Your Pick Up code is:{pickUpCode}</p>
+        <p className='text-accentcolor2 text-center font-sans text-lg leading-1.5 m-0 max-w-30rem px-6 mx-auto'>
+          Your reservation is successful
+        </p>
+        <p className='text-accentcolor2 text-center font-sans text-lg leading-1.5 m-0 max-w-30rem px-6 mx-auto'>
+          Your Pick Up code is:{pickUpCode}
+        </p>
       </Layout>
     </>
   );
