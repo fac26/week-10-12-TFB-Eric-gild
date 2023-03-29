@@ -3,24 +3,28 @@ import Layout from 'components/Layout';
 import airtableModule from 'utils/airtable';
 
 export async function getServerSideProps() {
-  const tableName = 'menus';
-  const getDonorsPromise = airtableModule.getRecords(tableName);
+  const getCollaboratorsPromise = airtableModule.getRecords('Collaborators');
+  const getDonorsPromise = airtableModule.getRecords('menus');
   const availableFood = [];
 
-  const [getDonors] = await Promise.all([getDonorsPromise]); // Wait for all promises to resolve
+  const [collaborators] = await Promise.all([getCollaboratorsPromise]); // Wait for all promises to resolve
+  const [donors] = await Promise.all([getDonorsPromise]); // Wait for all promises to resolve
 
-  for (const record of getDonors) {
+  for (const record of donors) {
     const getMenuItemsPromise = airtableModule.getRecords(record.menuName);
     const [getMenuItems] = await Promise.all([getMenuItemsPromise]);
+    //add menuName to each object inside of menuItemsValues
 
-    // Extract an array of values from the getMenuItems object
-    const menuItemsValues = Object.values(getMenuItems);
+    for (const menuItem of getMenuItems) {
+      menuItem.menuID = record.ID;
+    }
 
-    // Push each object within the getMenuItems object directly to the availableFood array
-    availableFood.push(...menuItemsValues);
+    const menuItemsValues = Object.values(getMenuItems); // Extract an array of values from the getMenuItems objec
+
+    availableFood.push(...menuItemsValues); // Push each object within the getMenuItems object directly to the availableFood array
   }
 
-  if (getDonors.length === 0) {
+  if (donors.length === 0) {
     return {
       notFound: true,
     };
@@ -28,12 +32,13 @@ export async function getServerSideProps() {
 
   return {
     props: {
+      collaborators,
       availableFood,
     },
   };
 }
 
-export default function FindFood({ availableFood }) {
+export default function FindFood({ collaborators, availableFood }) {
   const pageTitle = 'Find Food';
 
   return (
@@ -45,11 +50,15 @@ export default function FindFood({ availableFood }) {
       </div>
       <div className='flex flex-col m-4 items-center gap-4 mb-40'>
         {availableFood ? (
-          availableFood.map((item) => (
-            <>
-              <Card key={'temp'} item={item} />
-            </>
-          ))
+          availableFood.map((item) => {
+            const collaborator = collaborators.find(
+              (c) => c.menus[0] === item.menuID
+            );
+            console.log('item menu id', item.menuID);
+            return (
+              <Card key={item.ID} item={item} collaborator={collaborator} />
+            );
+          })
         ) : (
           <p>Loading...</p>
         )}
