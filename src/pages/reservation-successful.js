@@ -1,8 +1,7 @@
 import Layout from 'components/Layout';
 
-const ReservationSuccessful = () => {
+const ReservationSuccessfulPage = ({ pickUpCode }) => {
   const pageTitle = 'Reservation Successful';
-  let pickUpCode = Math.floor(Math.random() * 9000) + 1000;
   return (
     <>
       <Layout pageTitle={pageTitle}>
@@ -16,4 +15,13 @@ const ReservationSuccessful = () => {
   );
 };
 
-export default ReservationSuccessful;
+export default ReservationSuccessfulPage;
+
+export async function getStaticProps() {
+  const pickUpCode = Math.floor(Math.random() * 9000) + 1000;
+  return {
+    props: {
+      pickUpCode,
+    },
+  };
+}
