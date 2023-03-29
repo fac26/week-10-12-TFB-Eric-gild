@@ -20,7 +20,7 @@ const ReservationSuccessful = () => {
           Your reservation is successful
         </p>
         <p className='text-accentcolor2 text-center font-sans text-lg leading-1.5 m-0 max-w-30rem px-6 mx-auto'>
-          Your Pick Up code is:{pickUpCode}
+          Your Pick Up code is: {pickUpCode}
         </p>
       </Layout>
     </>
