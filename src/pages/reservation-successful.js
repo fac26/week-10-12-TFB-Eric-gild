@@ -3,15 +3,10 @@ import { useState, useEffect } from 'react';
 
 const ReservationSuccessful = () => {
   const pageTitle = 'Reservation Successful';
-  const [num, setNum] = useState(0);
-
-  function randomNumberInRange(min, max) {
-    // 👇️ get number between min (inclusive) and max (inclusive)
-    return Math.floor(Math.random() * (max - min + 1)) + min;
-  }
+  const [pickUpCode, setPickUpCode] = useState(0);
 
   useEffect(() => {
-    setNum(randomNumberInRange(1000, 9000));
+    setPickUpCode(Math.floor(Math.random() * 9000) + 1000);
   }, []);
 
   return (
@@ -21,7 +16,7 @@ const ReservationSuccessful = () => {
           CONGRATULATIONS!
         </p>
         <p>Your reservation is successful</p>
-        <p>Your Pick Up code is: {num}</p>
+        <p>Your Pick Up code is:{pickUpCode}</p>
       </Layout>
     </>
   );
