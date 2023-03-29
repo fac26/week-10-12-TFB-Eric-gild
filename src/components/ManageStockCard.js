@@ -56,7 +56,6 @@ export default function ManageStockCard(props) {
                 height={200}
               />
             </div>
-            {/* <p>hey: {JSON.stringify(item.fields)}</p> */}
             <div className='flex flex-col gap-2 w-full'>
               <div className='flex flex-row items-center'>
                 <ButtonQuantity
