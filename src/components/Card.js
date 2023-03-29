@@ -20,7 +20,7 @@ export default function Card() {
             <div className='flex-grow'>
               <p className='text-l font-sans overflow-hidden'>Pret a Manger</p>
             </div>
-            <Button buttonName={'More Info'} buttonLink='/' />
+            <Button buttonName={'More Info'} buttonLink='/more-info' />
           </div>
         </div>
       </div>

@@ -5,7 +5,7 @@ import TopBar from '@components/TopBar';
 export const siteTitle = 'Hope';
 
 export default function Layout({ children, pageTitle, home, isBusinessPage }) {
-  const title = pageTitle || 'Placeholder';
+  const title = pageTitle || null;
   return (
     <>
       <Head>
@@ -17,10 +17,16 @@ export default function Layout({ children, pageTitle, home, isBusinessPage }) {
       <header>
         {home ? null : (
           <>
-            <TopBar />{' '}
-            <h1 className='flex justify-center font-cursive text-accentcolor1 text-6xl py-6'>
-              {title.toUpperCase()}
-            </h1>{' '}
+            <div>
+              <TopBar />
+            </div>
+            <br />
+            <br />
+            {pageTitle != null && (
+              <h1 className='flex justify-center font-cursive text-accentcolor1 text-6xl py-6'>
+                {title.toUpperCase()}
+              </h1>
+            )}
           </>
         )}
       </header>

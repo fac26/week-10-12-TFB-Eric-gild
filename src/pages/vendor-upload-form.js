@@ -19,13 +19,13 @@ export default function App() {
   };
 
   return (
-    <Layout pageTitle='Vendor Details Upload' isBusinessPage>
+    <Layout pageTitle={'Vendor Details Upload'} isBusinessPage>
       <form
         className='h-screen flex flex-col 
         items-center font-cursive text-accentcolor1 text-base w-1/2 mx-auto'
       >
         <label>Company name</label>
-        <br></br>
+        <br />
         <input
           defaultValue='Pret'
           {...register('companyname')}
@@ -36,11 +36,11 @@ export default function App() {
             This field is required
           </span>
         )}
-        <br></br>
+        <br />
         <center>
           <label>Tell us about your company</label>
         </center>
-        <br></br>
+        <br />
         <textarea
           {...register('description', { required: true })}
           className='bg-accentcolor3 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-purple-500 focus:border-purple-500 block w-full font-sans'
@@ -50,9 +50,23 @@ export default function App() {
             This field is required
           </span>
         )}
-        <br></br>
+        <br />
+        <center>
+          <label>Opening hours</label>
+        </center>
+        <br />
+        <input
+          {...register('companyhours')}
+          className='bg-accentcolor3 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-purple-500 focus:border-purple-500 block w-full font-sans'
+        />
+        {errors.hours && (
+          <span className='text-red-600 text-custom'>
+            This field is required
+          </span>
+        )}
+        <br />
         <label>Address</label>
-        <br></br>
+        <br />
         <textarea
           {...register('address', { required: true })}
           className='bg-accentcolor3 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-purple-500 focus:border-purple-500 block w-full font-sans'
@@ -62,9 +76,9 @@ export default function App() {
             This field is required
           </span>
         )}
-        <br></br>
+        <br />
         <label>Phone number</label>
-        <br></br>
+        <br />
         <input
           {...register('phonenumber', { required: true })}
           className='bg-accentcolor3 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-purple-500 focus:border-purple-500 block w-full font-sans'
@@ -74,7 +88,7 @@ export default function App() {
             This field is required
           </span>
         )}
-        <br></br>
+        <br />
         <Button buttonName={'Submit'} ButtonOnClick={handleSubmit(onSubmit)} />
       </form>
     </Layout>
