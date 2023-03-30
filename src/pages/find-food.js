@@ -12,7 +12,6 @@ export async function getServerSideProps() {
   const availableFood = [];
 
   const [collaborators] = await Promise.all([getCollaboratorsPromise]); // Wait for all promises to resolve
-  // const [menus] = await Promise.all([getMenusPromise]); // Wait for all promises to resolve
 
   for (const collaborator of collaborators) {
     for (const menuID of collaborator.menus) {
@@ -28,10 +27,6 @@ export async function getServerSideProps() {
 
       availableFood.push(...menuItemsValues);
     }
-    const temp = 'value';
-    // console.log(availableFood);
-
-    //availableFood.push(...menuItemsValues); // Push each object within the getMenuItems object directly to the availableFood array
   }
 
   if (availableFood.length === 0) {
