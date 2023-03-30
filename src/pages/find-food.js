@@ -4,27 +4,37 @@ import airtableModule from 'utils/airtable';
 
 export async function getServerSideProps() {
   const getCollaboratorsPromise = airtableModule.getRecords('Collaborators');
-  const getDonorsPromise = airtableModule.getRecords('menus');
+  const getMenusPromise = airtableModule.getRecords('menus');
+  const [getMenuNames] = await Promise.all([
+    getMenusPromise,
+    getCollaboratorsPromise,
+  ]);
   const availableFood = [];
 
   const [collaborators] = await Promise.all([getCollaboratorsPromise]); // Wait for all promises to resolve
-  const [donors] = await Promise.all([getDonorsPromise]); // Wait for all promises to resolve
+  // const [menus] = await Promise.all([getMenusPromise]); // Wait for all promises to resolve
 
-  for (const record of donors) {
-    const getMenuItemsPromise = airtableModule.getRecords(record.menuName);
-    const [getMenuItems] = await Promise.all([getMenuItemsPromise]);
-    //add menuName to each object inside of menuItemsValues
+  for (const collaborator of collaborators) {
+    for (const menuID of collaborator.menus) {
+      const menuName = getMenuNames.find((menu) => menu.ID === menuID);
+      const getMenuItemsPromise = airtableModule.getRecords(menuName.menuName);
+      const [getMenuItems] = await Promise.all([getMenuItemsPromise]);
+      const menuItemsValues = Object.values(getMenuItems); // Extract an array of values from the getMenuItems object
+      for (const menuItem of menuItemsValues) {
+        menuItem.menuID = menuID;
+        menuItem.menuName = menuName.menuName;
+        menuItem.collaboratorID = collaborator.ID;
+      }
 
-    for (const menuItem of getMenuItems) {
-      menuItem.menuID = record.ID;
+      availableFood.push(...menuItemsValues);
     }
+    const temp = 'value';
+    // console.log(availableFood);
 
-    const menuItemsValues = Object.values(getMenuItems); // Extract an array of values from the getMenuItems objec
-
-    availableFood.push(...menuItemsValues); // Push each object within the getMenuItems object directly to the availableFood array
+    //availableFood.push(...menuItemsValues); // Push each object within the getMenuItems object directly to the availableFood array
   }
 
-  if (donors.length === 0) {
+  if (availableFood.length === 0) {
     return {
       notFound: true,
     };
@@ -54,9 +64,12 @@ export default function FindFood({ collaborators, availableFood }) {
             const collaborator = collaborators.find(
               (c) => c.menus[0] === item.menuID
             );
-            console.log('item menu id', item.menuID);
             return (
-              <Card key={item.ID} item={item} collaborator={collaborator} />
+              <Card
+                key={`${item.collaboratorID}-${item.ID}`}
+                item={item}
+                collaborator={collaborator}
+              />
             );
           })
         ) : (
