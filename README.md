@@ -1,7 +1,7 @@
 # HOPE THE APP
 
 
-We have created an app called Hope. The app allows users to find emergency food. We are building Hope as our Tech for Better Project for [Founders & Coders FAC26](https://github.com/fac26).
+We have created an app called Hope. It puts those in need of food directly in touch with retailers that find themselves with excess stock at the end of the day. We are building Hope as our Tech for Better Project for [Founders & Coders FAC26](https://github.com/fac26).
 
 Contributors [Laura Keating](https://github.com/LauraK0), [Iman Ghellache](https://github.com/ighellache), [Dominic Simpson](https://github.com/DominicSimpson), [Gal K Jones](https://github.com/GalKJ)
 
