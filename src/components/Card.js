@@ -24,7 +24,13 @@ export default function Card(props) {
                 {collaborator.Name}
               </p>
             </div>
-            <Button buttonName={'More Info'} buttonLink='/' />
+            <Button
+              buttonName={'More Info'}
+              buttonLink={{
+                pathname: '/more-info',
+                query: item, // the data
+              }}
+            />
           </div>
         </div>
       </div>
