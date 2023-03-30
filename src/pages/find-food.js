@@ -18,14 +18,12 @@ export async function getServerSideProps() {
       const menuName = getMenuNames.find((menu) => menu.ID === menuID);
       const getMenuItemsPromise = airtableModule.getRecords(menuName.menuName);
       const [getMenuItems] = await Promise.all([getMenuItemsPromise]);
-      const menuItemsValues = Object.values(getMenuItems); // Extract an array of values from the getMenuItems object
-      for (const menuItem of menuItemsValues) {
+      getMenuItems.forEach((menuItem) => {
         menuItem.menuID = menuID;
         menuItem.menuName = menuName.menuName;
         menuItem.collaboratorID = collaborator.ID;
-      }
-
-      availableFood.push(...menuItemsValues);
+        availableFood.push(menuItem);
+      });
     }
   }
 
@@ -56,14 +54,13 @@ export default function FindFood({ collaborators, availableFood }) {
       <div className='flex flex-col m-4 items-center gap-4 mb-40'>
         {availableFood ? (
           availableFood.map((item) => {
-            const collaborator = collaborators.find(
-              (c) => c.menus[0] === item.menuID
-            );
             return (
               <Card
                 key={`${item.collaboratorID}-${item.ID}`}
                 item={item}
-                collaborator={collaborator}
+                collaborator={collaborators.find(
+                  (c) => c.ID === item.collaboratorID
+                )}
               />
             );
           })
