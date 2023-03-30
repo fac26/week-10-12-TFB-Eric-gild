@@ -8,7 +8,7 @@ export default function TopBar() {
   const router = useRouter();
 
   return (
-    <nav className='sticky w-11/12 mx-auto border-b flex justify-between items-center h-16 px-4'>
+    <nav className='fixed bg-green w-screen mx-auto border-b flex justify-between items-center h-16 px-4'>
       <BackButton className='flex-none' />
       <button
         className={`text-white`}

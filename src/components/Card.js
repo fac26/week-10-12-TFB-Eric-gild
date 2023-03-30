@@ -24,7 +24,7 @@ export default function Card(props) {
                 {collaborator.Name}
               </p>
             </div>
-            <Button buttonName={'More Info'} buttonLink='/' />
+            <Button buttonName={'More Info'} buttonLink='/more-info' />
           </div>
         </div>
       </div>
