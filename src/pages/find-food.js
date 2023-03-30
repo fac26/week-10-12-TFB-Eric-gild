@@ -54,6 +54,9 @@ export default function FindFood({ collaborators, availableFood }) {
             const collaborator = collaborators.find(
               (c) => c.menus[0] === item.menuID
             );
+            availableFood.map((i) => console.log(i));
+            console.log(availableFood);
+
             console.log('item menu id', item.menuID);
             return (
               <Card key={item.ID} item={item} collaborator={collaborator} />
