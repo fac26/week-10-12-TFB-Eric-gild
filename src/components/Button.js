@@ -13,7 +13,7 @@ export default function Button({
     <Link
       href={link}
       onClick={ButtonOnClick}
-      className='flex items-center justify-center max-w-xs w-40 bg-dim-black font-cursive text-accentcolor3 tracking-widest text-3xl bg-accentcolor1 py-2 px-2 rounded-lg hover:bg-white hover:text-accentcolor1'
+      className='flex items-center justify-center max-w-xs w-40 bg-dim-black font-cursive text-accentcolor3 tracking-widest text-3xl bg-accentcolor1 py-2 px-2 rounded-lg hover:bg-cream hover:text-accentcolor1'
     >
       {name.toUpperCase()}
     </Link>
