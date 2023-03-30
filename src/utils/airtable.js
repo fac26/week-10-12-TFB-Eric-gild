@@ -58,6 +58,7 @@ async function createCollaborator(data) {
           Description: data.description,
           Address: data.address,
           PhoneNumber: data.phonenumber,
+          Hours: data.hours,
         },
       },
     ],

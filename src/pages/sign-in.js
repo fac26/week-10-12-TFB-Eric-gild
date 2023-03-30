@@ -20,6 +20,9 @@ export default function SignIn() {
   return (
     <>
       <TopBar />
+      <br />
+      <br />
+      <br />
       <Layout home>
         <div className='flex items-center justify-center font-cursive text-custom'>
           {!session ? (
