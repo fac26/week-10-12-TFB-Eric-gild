@@ -1,85 +1,46 @@
 import Layout from 'components/Layout';
-import Image from 'next/image';
-import Button from 'components/Button';
-import airtableModule from 'utils/airtable';
-import { useEffect } from 'react';
+import { useRouter } from 'next/router';
+import Modal from 'react-modal';
 import { useState } from 'react';
 
-export async function getServerSideProps() {
-  const donor = 'pret';
-  const menu = await airtableModule.getRecords(donor);
-  if (!menu) {
-    return {
-      notFound: true,
-    };
-  }
-  if (menu) {
-    return {
-      props: {
-        menu,
-      },
-    };
-  }
-}
-
-export default function MoreInfo({ menu }) {
-  const [foodname, setFoodname] = useState([]);
-  const [fooddescription, setFoodDescription] = useState([]);
-  const [foodImage, setFoodImage] = useState([]);
-  const [foodHours, setFoodHours] = useState([]);
-
-  useEffect(() => {
-    const newFood = menu.map((item) => ({
-      id: item.ID,
-      fields: {
-        name: item.name,
-        description: item.description,
-        allergens: item.allergens,
-        image: item.image,
-        hours: item.hours,
-      },
-    }));
-    console.log(newFood);
-    const foodName = newFood[0].fields.name;
-    setFoodname(foodName);
-    const foodDescription = newFood[0].fields.description;
-    setFoodDescription(foodDescription);
-    const foodimage = newFood[0].fields.image[0].url;
-    setFoodImage(foodimage);
-    const foodhours = newFood[0].fields.hours;
-    setFoodHours(foodhours);
-  }, [menu]);
-  //   console.log(foodImage.fields.image[0].url);
+export default function MoreInfo() {
+  const router = useRouter();
+  const { item, collaborator } = router.query;
+  const { name, description, image, allergens } = item ? JSON.parse(item) : {};
+  const { Name, Address, Hours, PhoneNumber } = collaborator
+    ? JSON.parse(collaborator)
+    : {};
+  const [modalOpen, setModalOpen] = useState(false);
 
   return (
     <Layout>
-      <div className='bg-white flex flex-col items-center justify-center gap-2 w-full'>
-        <img
-          src={foodImage}
-          className=''
-          alt='chicken sandwich'
-          width={400}
-          height={100}
-        />
-        <h1 className='font-cursive text-accentcolor1 text-5xl'>{foodname}</h1>
+      <div className='bg-white flex flex-col items-center justify-center gap-2 w-full h-screen'>
+        <div className='h-1/2 w-screen flex items-center justify-center'>
+          <img src={image?.[0]?.url} alt={name} className='h-full' />
+        </div>
+        <h1 className='font-cursive text-accentcolor1 text-5xl'>{name}</h1>
         <p className='flex justify-center text-center text-accentcolor1 text-sm'>
-          {fooddescription}
+          {description}
         </p>
         <div className='text-accentcolor1 text-center text-sm mb-40'>
-          <p>Pret a Manger</p> {/* should show table name */}
-          <p>271 Holloway Road, London N7, UK</p>
-          {/* show address from collaborators */}
-          <p>Collect: {foodHours}</p>
-          {/* show opening hours from collaborators */}
-          <p>Click here for ingredients and allergens</p>
-          {/* open a modal */}
-          <br></br>
-          <div className='flex justify-center '>
-            <Button buttonName={'Reserve'} buttonLink='/reservation-successful'>
-              Reserve
-            </Button>
-            {/* button should also run a function to add that food item to an array to be rendered in profiles tab */}
-          </div>
+          <p>{Name}</p>
+          <p>{Address}</p>
+          <p>Collect: {Hours}</p>
+          <p>Contact: {PhoneNumber}</p>
+          <button onClick={setModalOpen}>
+            Click here for ingredients and allergens
+          </button>
+          <Modal isOpen={modalOpen} onRequestClose={() => setModalOpen(false)}>
+            <div>{allergens}</div>
+            <div className='flex justify-end mt-4'>
+              <button
+                className='flex items-center justify-center max-w-xs w-40 bg-dim-black font-cursive text-accentcolor3 tracking-widest text-3xl bg-accentcolor1 py-2 px-2 rounded-lg hover:bg-green hover:text-accentcolor1'
+                onClick={() => setModalOpen(false)}
+              >
+                Close
+              </button>
+            </div>
+          </Modal>
         </div>
       </div>
     </Layout>
