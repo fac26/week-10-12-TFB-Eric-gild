@@ -4,7 +4,13 @@ import TopBar from '@components/TopBar';
 
 export const siteTitle = 'Hope';
 
-export default function Layout({ children, pageTitle, home, isBusinessPage }) {
+export default function Layout({
+  id,
+  children,
+  pageTitle,
+  home,
+  isBusinessPage,
+}) {
   const title = pageTitle || null;
   return (
     <>

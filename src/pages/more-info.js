@@ -4,6 +4,7 @@ import Button from 'components/Button';
 import airtableModule from 'utils/airtable';
 import { useEffect } from 'react';
 import { useState } from 'react';
+import Modal from 'react-modal';
 
 export async function getServerSideProps() {
   const donor = 'pret';
@@ -27,6 +28,7 @@ export default function MoreInfo({ menu }) {
   const [fooddescription, setFoodDescription] = useState([]);
   const [foodImage, setFoodImage] = useState([]);
   const [foodHours, setFoodHours] = useState([]);
+  const [modalOpen, setModalOpen] = useState(false);
 
   useEffect(() => {
     const newFood = menu.map((item) => ({
@@ -71,8 +73,21 @@ export default function MoreInfo({ menu }) {
           {/* show address from collaborators */}
           <p>Collect: {foodHours}</p>
           {/* show opening hours from collaborators */}
-          <p>Click here for ingredients and allergens</p>
+          <button onClick={setModalOpen}>
+            Click here for ingredients and allergens
+          </button>
           {/* open a modal */}
+          <Modal isOpen={modalOpen} onRequestClose={() => setModalOpen(false)}>
+            <div>Ingredients and allergens go here</div>
+            <div className='flex justify-end mt-4'>
+              <button
+                className='flex items-center justify-center max-w-xs w-40 bg-dim-black font-cursive text-accentcolor3 tracking-widest text-3xl bg-accentcolor1 py-2 px-2 rounded-lg hover:bg-green hover:text-accentcolor1'
+                onClick={() => setModalOpen(false)}
+              >
+                Close Modal
+              </button>
+            </div>
+          </Modal>
           <br></br>
           <div className='flex justify-center '>
             <Button buttonName={'Reserve'} buttonLink='/reservation-successful'>
