@@ -4,30 +4,31 @@ const base = new Airtable({ apiKey: process.env.AIRTABLE_API_KEY }).base(
 );
 
 async function getRecords(tableName) {
-  return new Promise((resolve, reject) => {
-    const records = [];
-    base(tableName)
-      .select({})
-      .eachPage(
-        function page(pageRecords, fetchNextPage) {
-          pageRecords.forEach(function (record) {
-            records.push(record.fields);
-          });
-          fetchNextPage();
-        },
-        function done(err) {
-          if (err) {
-            reject(err);
-            return;
-          }
-          resolve(records);
-        }
-      );
+  if (tableName) {
+    throw new Error(
+      'Cannot get records: tableName is missing [airtable, getRecords]'
+    );
+  }
+  const records = [];
+  const query = base(tableName).select({});
+
+  await new Promise((resolve, reject) => {
+    query.eachPage(
+      function page(pageRecords, fetchNextPage) {
+        pageRecords.forEach(function (record) {
+          records.push(record.fields);
+        });
+        fetchNextPage();
+      },
+      function done(err) {
+        err ? reject(err) : resolve(records);
+      }
+    );
   });
+  return records;
 }
 
 async function updateRecords(tableName, menuItems) {
-  console.log('updating records', tableName, menuItems);
   const mappedUpdates = Object.keys(menuItems).map((key) => {
     const item = menuItems[key];
     return {
@@ -91,29 +92,6 @@ async function getCollaborator(tableName) {
 
   return records;
 }
-
-// async function getCollaborator(tableName, data) {
-//   return new Promise((resolve, reject) => {
-//     const records = [];
-//     base(tableName)
-//       .select({})
-//       .eachPage(
-//         function page(pageRecords, fetchNextPage) {
-//           pageRecords.forEach(function (record) {
-//             records.push(record.fields);
-//           });
-//           fetchNextPage();
-//         },
-//         function done(err) {
-//           if (err) {
-//             reject(err);
-//             return;
-//           }
-//           resolve(records);
-//         }
-//       );
-//   });
-// }
 
 const airtableModule = {
   base,
