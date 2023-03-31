@@ -1,4 +1,4 @@
-import { ManageStockCard } from '../src/components/ManageStockCard';
+import { ManageStockCard } from '../../src/components/ManageStockCard';
 
 it('mounts', () => {
   cy.mount(<ManageStockCard />);
