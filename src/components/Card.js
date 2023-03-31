@@ -9,7 +9,7 @@ export default function Card(props) {
 
   const handleMoreInfoClick = () => {
     router.push({
-      pathname: '/test',
+      pathname: '/more-info',
       query: {
         item: JSON.stringify(item),
         collaborator: JSON.stringify(collaborator),
