@@ -2,28 +2,32 @@ import Layout from 'components/Layout';
 import Button from 'components/Button';
 import airtableModule from 'utils/airtable';
 import ManageStockCard from 'components/ManageStockCard';
+import Filter from 'components/Filter';
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
 
 export async function getServerSideProps() {
   const donor = 'pret';
   const menu = await airtableModule.getRecords(donor);
+  const filters = await airtableModule.getRecords('menu-filters');
   if (!menu) {
     return {
       notFound: true,
     };
   }
-  if (menu) {
+  if (menu && filters) {
     return {
       props: {
+        filters,
         menu,
       },
     };
   }
 }
 
-export default function ManageFood({ menu }) {
+export default function ManageFood({ filters, menu }) {
   const [items, setItems] = useState([]);
+  const [foodFilter, setFoodFilter] = useState({ Filter: 'All' });
   const pageTitle = 'Manage Food';
   const router = useRouter();
 
@@ -57,6 +61,11 @@ export default function ManageFood({ menu }) {
           What’s available at Pret, Holloway Road?
         </p>
       </div>
+      <Filter
+        foodFilter={foodFilter}
+        setFoodFilter={setFoodFilter}
+        filters={filters}
+      />
       <div className='flex flex-col m-10 items-center'>
         <Button buttonName={'Save'} ButtonOnClick={handleSaveClick} />
       </div>

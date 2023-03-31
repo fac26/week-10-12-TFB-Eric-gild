@@ -18,7 +18,7 @@ export default function Filter(props) {
       >
         <select
           {...register('Filter')}
-          className='bg-accentcolor3 text-gray-900 text-sm rounded-md block w-full font-sans h-8 mb-3'
+          className='text-center bg-accentcolor2 text-gray-900 text-sm rounded-md block w-full font-sans h-8 mb-3'
         >
           <option value='All'>All</option>
           {filters
