@@ -1,9 +1,17 @@
 import Button from './Button';
 
 export default function Card(props) {
-  const { item, collaborator } = props;
+  const { filters, item, collaborator, foodFilter } = props;
+  const { dietaryRestriction } = item;
   const foodItemName = item.name;
 
+  const filterData = dietaryRestriction
+    ? dietaryRestriction.map((filter) => {
+        console.log(filter);
+      })
+    : null;
+  // console.log(filterData);
+  // console.log(item, 'dietary requirement');
   return (
     <div className='w-11/12 mx-auto max-w-screen-sm text-accentcolor1 tracking-widest bg-accentcolor2 font-cursive py-6 px-6 rounded-lg'>
       <div className='mx-auto max-w-md'>

@@ -6,7 +6,7 @@ export default function Filter(props) {
   return (
     <form
       onSubmit={handleSubmit((data) => {
-        console.log(data);
+        setFoodFilter(data);
       })}
     >
       <select {...register('Filter')}>

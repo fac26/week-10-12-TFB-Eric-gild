@@ -24,7 +24,6 @@ export async function getServerSideProps() {
       const [getMenuItems] = await Promise.all([getMenuItemsPromise]);
       getMenuItems.forEach((menuItem) => {
         menuItem.menuID = menuID;
-        menuItem.menuName = menuName.menuName;
         menuItem.collaboratorID = collaborator.ID;
         availableFood.push(menuItem);
       });
@@ -67,6 +66,8 @@ export default function FindFood({ filters, collaborators, availableFood }) {
           availableFood.map((item) =>
             item.quantity === 0 ? null : (
               <Card
+                filters={filters}
+                foodFilter={foodFilter}
                 key={`${item.collaboratorID}-${item.ID}`}
                 item={item}
                 collaborator={collaborators.find(
