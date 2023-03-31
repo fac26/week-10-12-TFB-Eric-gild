@@ -1,8 +1,12 @@
 import Card from 'components/Card';
 import Layout from 'components/Layout';
 import airtableModule from 'utils/airtable';
+import Filter from 'components/Filter';
+import { useState } from 'react';
 
 export async function getServerSideProps() {
+  const getFoodFiltersPromise = airtableModule.getRecords('Dietary Options');
+  const [filters] = await Promise.all([getFoodFiltersPromise]);
   const getCollaboratorsPromise = airtableModule.getRecords('Collaborators');
   const getMenusPromise = airtableModule.getRecords('menus');
   const [getMenuNames] = await Promise.all([
@@ -35,17 +39,24 @@ export async function getServerSideProps() {
 
   return {
     props: {
+      filters,
       collaborators,
       availableFood,
     },
   };
 }
 
-export default function FindFood({ collaborators, availableFood }) {
+export default function FindFood({ filters, collaborators, availableFood }) {
   const pageTitle = 'Find Food';
+  const [foodFilter, setFoodFilter] = useState('All');
 
   return (
     <Layout pageTitle={pageTitle}>
+      <Filter
+        foodFilter={foodFilter}
+        setFoodFilter={setFoodFilter}
+        filters={filters}
+      />
       <div className='flex flex-col m-4 items-center'>
         <p className='text-accentcolor2 text-center font-sans text-lg leading-1.5 m-0 max-w-30rem px-6 mx-auto'>
           Look through the available foods to find the best food for you.
