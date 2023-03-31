@@ -1,8 +1,17 @@
-import Button from './Button';
+import ButtonQuantity from 'components/ButtonQuantity';
+import { useRouter } from 'next/router';
 
 export default function Card(props) {
   const { item, collaborator } = props;
   const foodItemName = item.name;
+  const router = useRouter();
+
+  const handleMoreInfoClick = () => {
+    router.push({
+      pathname: '/test',
+      query: { item: JSON.stringify(item) },
+    });
+  };
 
   return (
     <div className='w-11/12 mx-auto max-w-screen-sm text-accentcolor1 tracking-widest bg-accentcolor2 font-cursive py-6 px-6 rounded-lg'>
@@ -24,7 +33,10 @@ export default function Card(props) {
                 {collaborator.Name}
               </p>
             </div>
-            <Button buttonName={'More Info'} buttonLink='/more-info' />
+            <ButtonQuantity
+              buttonName={'More Info'}
+              onClick={handleMoreInfoClick}
+            />
           </div>
         </div>
       </div>
