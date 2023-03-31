@@ -1,10 +1,13 @@
 import Button from './Button';
 import ButtonQuantity from 'components/ButtonQuantity';
 import { useRouter } from 'next/router';
+import { useEffect } from 'react';
 
 export default function Card(props) {
   const { filters, item, collaborator, foodFilter } = props;
   const { dietaryRestriction = [] } = item;
+  const filter = filters.find((filter) => filter.Name === foodFilter.Filter);
+  const filterID = filter ? filter.ID : null;
   const foodItemName = item.name;
   const router = useRouter();
 
@@ -18,14 +21,11 @@ export default function Card(props) {
     });
   };
 
-  if (dietaryRestriction.length > 0) {
-    const matchesFilter = dietaryRestriction.some((restriction) =>
-      filters.some((filter) => filter.ID === restriction)
-    );
-    if (matchesFilter) {
-      console.log(matchesFilter);
-    }
-  }
+  const matchesFilter = dietaryRestriction
+    ? dietaryRestriction.some((restriction) => restriction === filterID)
+    : false;
+
+  if (foodFilter.Filter !== 'All' && !matchesFilter) return null;
 
   return (
     <div className='w-11/12 mx-auto max-w-screen-sm text-accentcolor1 tracking-widest bg-accentcolor2 font-cursive py-6 px-6 rounded-lg'>

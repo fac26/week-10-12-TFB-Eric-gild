@@ -47,7 +47,7 @@ export async function getServerSideProps() {
 
 export default function FindFood({ filters, collaborators, availableFood }) {
   const pageTitle = 'Find Food';
-  const [foodFilter, setFoodFilter] = useState('All');
+  const [foodFilter, setFoodFilter] = useState({ Filter: 'All' });
 
   return (
     <Layout pageTitle={pageTitle}>

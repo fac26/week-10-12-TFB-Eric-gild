@@ -1,8 +1,14 @@
 import { useForm } from 'react-hook-form';
+import Button from 'components/Button';
 
 export default function Filter(props) {
   const { filters, foodFilter, setFoodFilter } = props;
   const { register, handleSubmit } = useForm();
+
+  const onSubmit = (data) => {
+    setFoodFilter(data);
+  };
+
   return (
     <form
       onSubmit={handleSubmit((data) => {
@@ -20,7 +26,7 @@ export default function Filter(props) {
           : null}
         <option value='Test'>Test</option>
       </select>
-      <button type='submit'>Filter</button>
+      <Button buttonName={'Filter'} ButtonOnClick={handleSubmit(onSubmit)} />
     </form>
   );
 }
