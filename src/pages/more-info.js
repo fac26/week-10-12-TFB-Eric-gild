@@ -1,7 +1,7 @@
 import Layout from 'components/Layout';
 import Image from 'next/image';
 import Button from 'components/Button';
-import airtableModule from 'utils/airtable';
+import airtableModule from 'services/airtable';
 import { useEffect } from 'react';
 import { useState } from 'react';
 

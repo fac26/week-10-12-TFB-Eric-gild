@@ -1,6 +1,6 @@
 import Card from 'components/Card';
 import Layout from 'components/Layout';
-import airtableModule from 'utils/airtable';
+import airtableModule from 'services/airtable';
 
 export async function getServerSideProps() {
   const getCollaboratorsPromise = airtableModule.getRecords('Collaborators');

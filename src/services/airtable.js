@@ -71,28 +71,49 @@ async function createCollaborator(data) {
   );
 }
 
-async function getCollaborator(tableName, data) {
-  return new Promise((resolve, reject) => {
-    const records = [];
-    base(tableName)
-      .select({})
-      .eachPage(
-        function page(pageRecords, fetchNextPage) {
-          pageRecords.forEach(function (record) {
-            records.push(record.fields);
-          });
-          fetchNextPage();
-        },
-        function done(err) {
-          if (err) {
-            reject(err);
-            return;
-          }
-          resolve(records);
-        }
-      );
+async function getCollaborator(tableName) {
+  const records = [];
+  const query = base(tableName).select({});
+
+  await new Promise((resolve, reject) => {
+    query.eachPage(
+      (pageRecords, fetchNextPage) => {
+        pageRecords.forEach((record) => {
+          records.push(record.fields);
+        });
+        fetchNextPage();
+      },
+      (err) => {
+        err ? reject(err) : resolve();
+      }
+    );
   });
+
+  return records;
 }
+
+// async function getCollaborator(tableName, data) {
+//   return new Promise((resolve, reject) => {
+//     const records = [];
+//     base(tableName)
+//       .select({})
+//       .eachPage(
+//         function page(pageRecords, fetchNextPage) {
+//           pageRecords.forEach(function (record) {
+//             records.push(record.fields);
+//           });
+//           fetchNextPage();
+//         },
+//         function done(err) {
+//           if (err) {
+//             reject(err);
+//             return;
+//           }
+//           resolve(records);
+//         }
+//       );
+//   });
+// }
 
 const airtableModule = {
   base,

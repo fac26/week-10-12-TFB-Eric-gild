@@ -1,11 +1,12 @@
 import Layout from 'components/Layout';
-import airtableModule from 'utils/airtable';
+import airtable from 'services/airtable';
 import WhatsAvailable from 'components/WhatsAvailableCard';
 import { useState, useEffect } from 'react';
+import styles from '../styles';
 
 export async function getServerSideProps() {
   const donor = 'pret';
-  const menu = await airtableModule.getRecords(donor);
+  const menu = await airtable.getRecords(donor);
   if (!menu) {
     return {
       notFound: true,
@@ -37,15 +38,13 @@ export default function ManageFood({ menu }) {
 
   return (
     <Layout pageTitle={pageTitle} isBusinessPage>
-      <div className='flex flex-col m-4 items-center'>
-        <p className='text-accentcolor2 text-center font-sans text-lg leading-1.5 m-0 max-w-30rem px-6 mx-auto'>
-          Pret
-        </p>
-        <p className='text-accentcolor2 text-center font-sans text-lg leading-1.5 m-0 max-w-30rem px-6 mx-auto'>
+      <div className={styles.availableFood.div}>
+        <p className={styles.availableFood.p}>Pret</p>
+        <p className={styles.availableFood.p}>
           271 Holloway Road, London N7 8JL
         </p>
       </div>
-      <div className='flex flex-col m-4 items-center gap-4'>
+      <div className={`${styles.availableFood.div} gap-4`}>
         {items ? <WhatsAvailable items={items} /> : <p>Loading...</p>}
       </div>
     </Layout>

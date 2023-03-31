@@ -1,6 +1,6 @@
 import Layout from 'components/Layout';
 import Button from 'components/Button';
-import airtableModule from 'utils/airtable';
+import airtableModule from 'services/airtable';
 import ManageStockCard from 'components/ManageStockCard';
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';

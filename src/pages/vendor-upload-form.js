@@ -1,7 +1,7 @@
 import { useForm } from 'react-hook-form';
 import Layout from 'components/Layout';
 import Button from 'components/Button';
-import airtableModule from 'utils/airtable';
+import airtable from 'services/airtable';
 import { useRouter } from 'next/router';
 
 export default function App() {
@@ -11,11 +11,11 @@ export default function App() {
     handleSubmit,
     formState: { errors },
   } = useForm();
-  const onSubmit = (data) => {
-    console.log(data);
-    airtableModule.createCollaborator(data);
+
+  const onSubmitHandler = async (data) => {
+    // code-review: don't forget that airtable is a promise. It's best to resolve it first and update collaborator data before showing manage food page
+    await airtable.createCollaborator(data);
     router.push('/manage-food');
-    //   console.log(watch('example')); // watch input value by passing the name of it
   };
 
   return (
@@ -89,7 +89,10 @@ export default function App() {
           </span>
         )}
         <br />
-        <Button buttonName={'Submit'} ButtonOnClick={handleSubmit(onSubmit)} />
+        <Button
+          buttonName={'Submit'}
+          ButtonOnClick={handleSubmit(onSubmitHandler)}
+        />
       </form>
     </Layout>
   );
