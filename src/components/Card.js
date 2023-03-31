@@ -10,15 +10,19 @@ export default function Card(props) {
   const handleMoreInfoClick = () => {
     router.push({
       pathname: '/test',
-      query: { item: JSON.stringify(item) },
+      query: {
+        item: JSON.stringify(item),
+        collaborator: JSON.stringify(collaborator),
+      },
     });
-    console.log(item);
   };
 
   return (
     <div className='w-11/12 mx-auto max-w-screen-sm text-accentcolor1 tracking-widest bg-accentcolor2 font-cursive py-6 px-6 rounded-lg'>
       <div className='mx-auto max-w-md'>
-        <h3 className='font-cursive text-5xl'>{foodItemName.toUpperCase()}</h3>
+        <h3 className='font-cursive text-5xl'>
+          {item && item.name && item.name.toUpperCase()}
+        </h3>
         <div className='flex flex-row gap-6 w-5/6 h-5/6'>
           <div className=' flex items-center justify-center'>
             <img
