@@ -53,8 +53,8 @@ export default function FindFood({ collaborators, availableFood }) {
       </div>
       <div className='flex flex-col m-4 items-center gap-4 mb-40'>
         {availableFood ? (
-          availableFood.map((item) => {
-            return (
+          availableFood.map((item) =>
+            item.quantity === 0 ? null : (
               <Card
                 key={`${item.collaboratorID}-${item.ID}`}
                 item={item}
@@ -62,8 +62,8 @@ export default function FindFood({ collaborators, availableFood }) {
                   (c) => c.ID === item.collaboratorID
                 )}
               />
-            );
-          })
+            )
+          )
         ) : (
           <p>Loading...</p>
         )}
