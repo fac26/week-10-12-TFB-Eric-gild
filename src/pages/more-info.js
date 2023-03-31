@@ -6,15 +6,17 @@ import { useState } from 'react';
 export default function MoreInfo() {
   const router = useRouter();
   const { item, collaborator } = router.query;
-  const { name, description, image, allergens } = JSON.parse(item);
-  const { Name, Address, Hours, PhoneNumber } = JSON.parse(collaborator);
+  const { name, description, image, allergens } = item ? JSON.parse(item) : {};
+  const { Name, Address, Hours, PhoneNumber } = collaborator
+    ? JSON.parse(collaborator)
+    : {};
   const [modalOpen, setModalOpen] = useState(false);
 
   return (
     <Layout>
       <div className='bg-white flex flex-col items-center justify-center gap-2 w-full h-screen'>
         <div className='h-1/2 w-screen flex items-center justify-center'>
-          <img src={image[0].url} alt={name} className='h-full' />
+          <img src={image?.[0]?.url} alt={name} className='h-full' />
         </div>
         <h1 className='font-cursive text-accentcolor1 text-5xl'>{name}</h1>
         <p className='flex justify-center text-center text-accentcolor1 text-sm'>
