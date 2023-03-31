@@ -10,7 +10,6 @@ export default function SignIn() {
   const session = useSession();
   const supabase = useSupabaseClient();
   const router = useRouter();
-  console.log('session', session);
 
   useEffect(() => {
     if (session) {
