@@ -10,12 +10,16 @@ export default function TopBar() {
   return (
     <nav className='fixed bg-green w-screen mx-auto border-b flex justify-between items-center h-16 px-4'>
       <BackButton className='flex-none' />
-      <button
-        className={`text-white`}
-        onClick={() => supabase.auth.signOut() && router.push('/')}
-      >
-        Sign Out
-      </button>
+      {session ? (
+        <button
+          className={`text-white`}
+          onClick={() => supabase.auth.signOut() && router.push('/')}
+        >
+          Sign Out
+        </button>
+      ) : (
+        ''
+      )}
       <h3 className='text-right text-accentcolor2 text-2xl font-heading'>
         HOPE
       </h3>
