@@ -7,18 +7,12 @@ import styles from '../styles';
 export async function getServerSideProps() {
   const donor = 'pret';
   const menu = await airtable.getRecords(donor);
-  if (!menu) {
-    return {
-      notFound: true,
-    };
-  }
-  if (menu) {
-    return {
-      props: {
-        menu,
-      },
-    };
-  }
+
+  return {
+    props: {
+      menu: menu || [],
+    },
+  };
 }
 
 export default function ManageFood({ menu }) {
@@ -45,7 +39,7 @@ export default function ManageFood({ menu }) {
         </p>
       </div>
       <div className={`${styles.availableFood.div} gap-4`}>
-        {items ? <WhatsAvailable items={items} /> : <p>Loading...</p>}
+        {items.length ? <WhatsAvailable items={items} /> : <p>Loading...</p>}
       </div>
     </Layout>
   );

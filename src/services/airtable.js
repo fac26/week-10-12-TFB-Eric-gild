@@ -4,7 +4,7 @@ const base = new Airtable({ apiKey: process.env.AIRTABLE_API_KEY }).base(
 );
 
 async function getRecords(tableName) {
-  if (tableName) {
+  if (!tableName) {
     throw new Error(
       'Cannot get records: tableName is missing [airtable, getRecords]'
     );
