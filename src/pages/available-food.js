@@ -8,9 +8,15 @@ export async function getServerSideProps() {
   const donor = 'pret';
   const menu = await airtable.getRecords(donor);
 
+  if (!menu) {
+    return {
+      notFound: true,
+    };
+  }
+
   return {
     props: {
-      menu: menu || [],
+      menu: menu,
     },
   };
 }
