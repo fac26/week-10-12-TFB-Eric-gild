@@ -1,5 +1,5 @@
 import { useForm } from 'react-hook-form';
-import Button from 'components/Button';
+import ButtonLink from '@components/ButtonLink';
 
 export default function Filter(props) {
   const { filters, foodFilter, setFoodFilter } = props;
@@ -10,7 +10,7 @@ export default function Filter(props) {
   };
 
   return (
-    <div className='flex flex-col items-center'>
+    <div className='flex flex-col items-center justify-center'>
       <form
         onSubmit={handleSubmit((data) => {
           setFoodFilter(data);
@@ -18,7 +18,7 @@ export default function Filter(props) {
       >
         <select
           {...register('Filter')}
-          className='text-center bg-accentcolor2 text-gray-900 text-sm rounded-md block w-full font-sans h-8 mb-3'
+          className='text-center bg-accentcolor2 text-gray-900 text-sm rounded-md block w-full font-sans h-8 mb-3 '
         >
           <option value='All'>All</option>
           {filters
@@ -30,7 +30,12 @@ export default function Filter(props) {
             : null}
           <option value='Test'>Test</option>
         </select>
-        <Button buttonName={'Filter'} ButtonOnClick={handleSubmit(onSubmit)} />
+        <div className='flex flex-col items-center justify-center'>
+          <ButtonLink
+            buttonName={'Filter'}
+            ButtonOnClick={handleSubmit(onSubmit)}
+          />
+        </div>
       </form>
     </div>
   );

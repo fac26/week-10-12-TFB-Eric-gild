@@ -3,7 +3,6 @@ import { useSession, useSupabaseClient } from '@supabase/auth-helpers-react';
 import { useRouter } from 'next/router';
 import { useEffect } from 'react';
 import Layout from 'components/Layout';
-import Button from '@components/Button';
 import TopBar from 'components/TopBar';
 
 export default function SignIn() {

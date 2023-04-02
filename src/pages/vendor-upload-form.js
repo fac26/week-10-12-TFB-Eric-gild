@@ -1,6 +1,6 @@
 import { useForm } from 'react-hook-form';
 import Layout from 'components/Layout';
-import Button from 'components/Button';
+import ButtonLink from 'components/ButtonLink';
 import airtableModule from 'utils/airtable';
 import { useRouter } from 'next/router';
 
@@ -87,7 +87,10 @@ export default function App() {
           </span>
         )}
         <br />
-        <Button buttonName={'Submit'} ButtonOnClick={handleSubmit(onSubmit)} />
+        <ButtonLink
+          buttonName={'Submit'}
+          ButtonOnClick={handleSubmit(onSubmit)}
+        />
       </form>
     </Layout>
   );

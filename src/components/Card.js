@@ -1,7 +1,5 @@
-import Button from './Button';
-import ButtonQuantity from 'components/ButtonQuantity';
+import Button from '@components/Button';
 import { useRouter } from 'next/router';
-import { useEffect } from 'react';
 
 export default function Card(props) {
   const { filters, item, collaborator, foodFilter } = props;
@@ -49,10 +47,7 @@ export default function Card(props) {
                 {collaborator.Name}
               </p>
             </div>
-            <ButtonQuantity
-              buttonName={'More Info'}
-              onClick={handleMoreInfoClick}
-            />
+            <Button buttonName={'More Info'} onClick={handleMoreInfoClick} />
           </div>
         </div>
       </div>
