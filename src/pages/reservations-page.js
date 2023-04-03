@@ -11,7 +11,7 @@ export default function ReservationsPage() {
   }, []);
 
   return (
-    <Layout pageTitle={'Welcome{companyname}'}>
+    <Layout pageTitle={'Your reservations'}>
       <h1 className='flex justify-center font-cursive text-accentcolor1 text-6xl py-6'>
         Food reserved:
       </h1>
@@ -31,3 +31,6 @@ export default function ReservationsPage() {
     </Layout>
   );
 }
+
+//collaborator id where they ordered the food from
+//and item/food id

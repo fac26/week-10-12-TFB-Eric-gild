@@ -2,7 +2,7 @@ import Layout from 'components/Layout';
 import { useRouter } from 'next/router';
 import Modal from 'react-modal';
 import { useState } from 'react';
-import { useEffect } from 'react';
+import airtableModule from 'utils/airtable';
 
 export default function MoreInfo() {
   const router = useRouter();
@@ -17,23 +17,19 @@ export default function MoreInfo() {
   const foodreservation = [];
 
   const handleReservation = () => {
-    // Do any necessary reservation logic here
     setReservationMade(true);
     const newCode = Math.floor(Math.random() * 9000) + 1000;
     setPickUpCode(newCode);
     foodreservation.push(name, Name, Address, newCode);
-    localStorage.setItem('orderedItem', foodreservation);
+    localStorage.setItem('orderedItem', JSON.stringify(foodreservation));
     console.log(foodreservation);
-    // storeReservations();
-    // console.log(name); //name of food
-    // console.log(Name); //name of restaurant
-    // console.log(Address); //address
+    airtableModule.createReservation({
+      name: name,
+      Name: Name,
+      Address: Address,
+      newCode: newCode,
+    });
   };
-
-  // const storeReservations = () => {
-  //   localStorage.setItem('listofstoredreservations', listoffoodreservations);
-  //   listoffoodreservations.push(foodreservation);
-  // };
 
   return (
     <Layout>
