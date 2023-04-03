@@ -14,6 +14,7 @@ export default function BusinessAccountDetails(props) {
       <p className='text-l font-sans overflow-hidden'>
         Pret a Manger is a sandwich shop serving soup, sandwiches, hot drinks,
         and more.
+        {Description}
       </p>
       <div className='flex flex-col mb-10 mt-10 items-center'>
         <div className='ml-auto'>
@@ -23,6 +24,7 @@ export default function BusinessAccountDetails(props) {
       <h3 className='text-4xl'>Address</h3>
       <p className='text-l font-sans overflow-hidden'>
         271 Holloway Road, London, N7 8JL
+        {Address}
       </p>
       <div className='flex flex-col mb-10 mt-10 items-center'>
         <div className='ml-auto'>
