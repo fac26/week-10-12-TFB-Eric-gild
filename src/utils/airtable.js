@@ -136,6 +136,16 @@ async function getReservation(tableName, data) {
   });
 }
 
+async function removeAReservation() {
+  base('reservations').destroy(recordId, function (err, deletedRecord) {
+    if (err) {
+      console.error(err);
+      return;
+    }
+    console.log('Deleted record', deletedRecord.id);
+  });
+}
+
 const airtableModule = {
   base,
   getRecords,
@@ -144,6 +154,7 @@ const airtableModule = {
   getCollaborator,
   createReservation,
   getReservation,
+  removeAReservation,
 };
 
 export default airtableModule;
