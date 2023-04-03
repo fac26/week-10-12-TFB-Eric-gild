@@ -1,6 +1,13 @@
 import ButtonSmall from '@components/ButtonSmall';
+import Layout from 'components/Layout';
+import { useRouter } from 'next/router';
+import Modal from 'react-modal';
+import { useState } from 'react';
+import { useEffect } from 'react';
+import airtableModule from 'utils/airtable';
 
 export default function BusinessAccountDetails(props) {
+  const { Description, Address } = collaborator ? JSON.parse(collaborator) : {};
   return (
     <div className='w-11/12 mx-auto max-w-screen-sm text-accentcolor1 tracking-widest bg-accentcolor2 font-cursive py-6 px-6 rounded-lg'>
       <h3 className='text-4xl'>Description</h3>
