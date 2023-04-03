@@ -56,6 +56,7 @@ async function createCollaborator(data) {
           Address: data.address,
           PhoneNumber: data.phonenumber,
           Hours: data.hours,
+          Email: data.email,
         },
       },
     ],

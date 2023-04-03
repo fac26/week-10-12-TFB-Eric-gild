@@ -3,8 +3,11 @@ import Layout from 'components/Layout';
 import ButtonLink from 'components/ButtonLink';
 import airtableModule from 'utils/airtable';
 import { useRouter } from 'next/router';
+import { useSession, useSupabaseClient } from '@supabase/auth-helpers-react';
 
 export default function App() {
+  const session = useSession();
+  const supabase = useSupabaseClient();
   const router = useRouter();
   const {
     register,
@@ -12,6 +15,7 @@ export default function App() {
     formState: { errors },
   } = useForm();
   const onSubmit = (data) => {
+    data.email = session.user.email; //push session.user.email into data object
     airtableModule.createCollaborator(data);
     router.push('/manage-food');
   };
