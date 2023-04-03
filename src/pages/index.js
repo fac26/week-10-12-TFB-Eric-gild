@@ -6,7 +6,7 @@ import Head from 'next/head';
 import Image from 'next/image';
 
 export default function Home() {
-  const source = '/updatedlogo.png';
+  const source = '/logo.png';
   const alt =
     'The word hope written in white in calligraphy style, with the letter O in the shape of a heart and the legend food. The strap line reads donate with love. ';
 
