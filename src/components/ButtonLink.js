@@ -11,15 +11,15 @@ export default function ButtonLink({
 }) {
   const name = buttonName || 'placeholder';
   const link = buttonLink || '/loading';
-  const router = useRouter();
+  // const router = useRouter();
 
-  console.log(router.asPath);
-  console.log(link);
+  // console.log(router.asPath);
+  // console.log(link);
 
-  if (router.asPath == link) {
-    return <Loading />;
-  }
-  //this doesnt work?
+  // if (router.asPath == link) {
+  //   return <Loading />;
+  // }
+  // //this doesnt work?
 
   return (
     <Link

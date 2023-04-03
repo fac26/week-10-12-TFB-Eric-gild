@@ -14,22 +14,26 @@ export default function MoreInfo() {
   const [modalOpen, setModalOpen] = useState(false);
   const [reservationMade, setReservationMade] = useState(false);
   const [pickUpCode, setPickUpCode] = useState(0);
+  const foodreservation = [];
 
   const handleReservation = () => {
     // Do any necessary reservation logic here
     setReservationMade(true);
+    const newCode = Math.floor(Math.random() * 9000) + 1000;
+    setPickUpCode(newCode);
+    foodreservation.push(name, Name, Address, newCode);
+    localStorage.setItem('orderedItem', foodreservation);
+    console.log(foodreservation);
+    // storeReservations();
+    // console.log(name); //name of food
+    // console.log(Name); //name of restaurant
+    // console.log(Address); //address
   };
 
-  useEffect(() => {
-    const code = localStorage.getItem('pickup');
-    if (code) {
-      setPickUpCode(code);
-    } else {
-      const newCode = Math.floor(Math.random() * 9000) + 1000;
-      setPickUpCode(newCode);
-      localStorage.setItem('pickup', newCode);
-    }
-  }, []);
+  // const storeReservations = () => {
+  //   localStorage.setItem('listofstoredreservations', listoffoodreservations);
+  //   listoffoodreservations.push(foodreservation);
+  // };
 
   return (
     <Layout>
