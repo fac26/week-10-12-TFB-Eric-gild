@@ -1,6 +1,7 @@
 import Layout from 'components/Layout';
 import airtableModule from 'utils/airtable';
 import { useState, useEffect } from 'react';
+import BusinessAccountDetails from 'components/BusinessAccountDetails';
 
 export async function getServerSideProps() {
   const donor = 'pret';
@@ -45,6 +46,7 @@ export default function VendorAccountDetails({ menu }) {
         </p>
       </div>
       <div className='flex flex-col m-4 items-center gap-4'></div>
+      <BusinessAccountDetails />
     </Layout>
   );
 }
