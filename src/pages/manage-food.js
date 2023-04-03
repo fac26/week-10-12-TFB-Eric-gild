@@ -1,29 +1,33 @@
 import Layout from 'components/Layout';
-import Button from 'components/Button';
+import ButtonLink from 'components/ButtonLink';
 import airtableModule from 'utils/airtable';
 import ManageStockCard from 'components/ManageStockCard';
+import Filter from 'components/Filter';
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
 
 export async function getServerSideProps() {
   const donor = 'pret';
   const menu = await airtableModule.getRecords(donor);
+  const filters = await airtableModule.getRecords('menuCategories');
   if (!menu) {
     return {
       notFound: true,
     };
   }
-  if (menu) {
+  if (menu && filters) {
     return {
       props: {
+        filters,
         menu,
       },
     };
   }
 }
 
-export default function ManageFood({ menu }) {
+export default function ManageFood({ filters, menu }) {
   const [items, setItems] = useState([]);
+  const [foodFilter, setFoodFilter] = useState({ Filter: 'All' });
   const pageTitle = 'Manage Food';
   const router = useRouter();
 
@@ -34,6 +38,7 @@ export default function ManageFood({ menu }) {
         name: item.name,
         quantity: item.quantity,
         image: item.image,
+        menuCategories: item.menuCategories,
       },
     }));
     setItems(newItems);
@@ -57,8 +62,13 @@ export default function ManageFood({ menu }) {
           What’s available at Pret, Holloway Road?
         </p>
       </div>
+      <Filter
+        foodFilter={foodFilter}
+        setFoodFilter={setFoodFilter}
+        filters={filters}
+      />
       <div className='flex flex-col m-10 items-center'>
-        <Button buttonName={'Save'} ButtonOnClick={handleSaveClick} />
+        <ButtonLink buttonName={'Save'} ButtonOnClick={handleSaveClick} />
       </div>
       <div className='flex flex-col m-4 items-center gap-4 mb-40'>
         {items ? (
@@ -68,6 +78,8 @@ export default function ManageFood({ menu }) {
                 key={item.fields.id}
                 item={item}
                 quantity={item.fields.quantity}
+                filters={filters}
+                foodFilter={foodFilter}
               />
             </>
           ))

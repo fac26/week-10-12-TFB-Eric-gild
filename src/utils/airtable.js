@@ -27,7 +27,6 @@ async function getRecords(tableName) {
 }
 
 async function updateRecords(tableName, menuItems) {
-  console.log('updating records', tableName, menuItems);
   const mappedUpdates = Object.keys(menuItems).map((key) => {
     const item = menuItems[key];
     return {
@@ -38,8 +37,6 @@ async function updateRecords(tableName, menuItems) {
       },
     };
   });
-
-  console.log(mappedUpdates);
 
   base(tableName).update(mappedUpdates, function (err) {
     if (err) {

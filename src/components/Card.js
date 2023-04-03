@@ -1,9 +1,11 @@
-import Button from './Button';
-import ButtonQuantity from 'components/ButtonQuantity';
+import Button from '@components/Button';
 import { useRouter } from 'next/router';
 
 export default function Card(props) {
-  const { item, collaborator } = props;
+  const { filters, item, collaborator, foodFilter } = props;
+  const { dietaryRestriction = [] } = item;
+  const filter = filters.find((filter) => filter.Name === foodFilter.Filter);
+  const filterID = filter ? filter.ID : null;
   const foodItemName = item.name;
   const router = useRouter();
 
@@ -16,6 +18,12 @@ export default function Card(props) {
       },
     });
   };
+
+  const matchesFilter = dietaryRestriction
+    ? dietaryRestriction.some((restriction) => restriction === filterID)
+    : false;
+
+  if (foodFilter.Filter !== 'All' && !matchesFilter) return null;
 
   return (
     <div className='w-11/12 mx-auto max-w-screen-sm text-accentcolor1 tracking-widest bg-accentcolor2 font-cursive py-6 px-6 rounded-lg'>
@@ -39,10 +47,7 @@ export default function Card(props) {
                 {collaborator.Name}
               </p>
             </div>
-            <ButtonQuantity
-              buttonName={'More Info'}
-              onClick={handleMoreInfoClick}
-            />
+            <Button buttonName={'More Info'} onClick={handleMoreInfoClick} />
           </div>
         </div>
       </div>

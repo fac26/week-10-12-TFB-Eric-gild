@@ -1,11 +1,19 @@
-import Image from 'next/image';
-import ButtonQuantity from '@components/ButtonQuantity';
+import Button from '@components/Button';
 import { useState } from 'react';
 
 export default function ManageStockCard(props) {
-  const { item } = props;
+  const { item, filters, foodFilter } = props;
   const [quantity, setQuantity] = useState(item.fields.quantity);
+  const { menuCategories = [] } = item.fields;
+  const filter = filters.find((filter) => filter.Name === foodFilter.Filter);
+  const filterID = filter ? filter.ID : null;
   const foodItemName = item.fields.name;
+
+  const matchesFilter = menuCategories
+    ? menuCategories.some((category) => category === filterID)
+    : false;
+
+  if (foodFilter.Filter !== 'All' && !matchesFilter) return null;
 
   const handleDecrease = () => {
     const newQuantity = quantity - 1;
@@ -58,14 +66,14 @@ export default function ManageStockCard(props) {
             </div>
             <div className='flex flex-col gap-2 w-full'>
               <div className='flex flex-row items-center'>
-                <ButtonQuantity
+                <Button
                   buttonName={'-'}
                   onClick={handleDecrease}
                   quantity={quantity}
                   setQuantity={setQuantity}
                 />
                 <p className='font-sans text-l mx-4'>{quantity}</p>
-                <ButtonQuantity
+                <Button
                   buttonName={'+'}
                   onClick={handleIncrease}
                   quantity={quantity}

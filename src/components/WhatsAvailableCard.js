@@ -1,4 +1,4 @@
-import Button from './Button';
+import ButtonLink from '@components/ButtonLink';
 
 export default function WhatsAvailableCard(props) {
   const { items } = props;
@@ -20,7 +20,7 @@ export default function WhatsAvailableCard(props) {
         </ul>
       </div>
       <div className='flex flex-col mb-10 mt-10 items-center'>
-        <Button buttonName={'Update'} buttonLink='/manage-food' />
+        <ButtonLink buttonName={'Update'} buttonLink='/manage-food' />
       </div>
     </div>
   );

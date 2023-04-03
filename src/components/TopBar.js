@@ -1,4 +1,4 @@
-import BackButton from './BackButton';
+import BackButton from '@components/BackButton';
 import { useRouter } from 'next/router';
 import { useSession, useSupabaseClient } from '@supabase/auth-helpers-react';
 
