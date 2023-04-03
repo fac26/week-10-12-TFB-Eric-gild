@@ -23,6 +23,10 @@ module.exports = {
         base: ['2.8rem', '1.5rem'],
         custom: ['1.8rem', '1.25rem'],
       },
+      backgroundImage: {
+        'hero-image': "url('/bg-image.png')",
+        'hero-image-phone': "url('/bg-image-phone-new.png')",
+      },
     },
     plugins: [],
   },
