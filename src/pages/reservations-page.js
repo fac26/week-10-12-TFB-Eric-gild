@@ -1,6 +1,6 @@
 import Layout from 'components/Layout';
 import ButtonSmall from 'components/ButtonSmall';
-import { useEffect } from 'react';
+import { useEffect, useState } from 'react';
 
 export default function ReservationsPage() {
   //   if (typeof window !== 'undefined') {
@@ -8,7 +8,10 @@ export default function ReservationsPage() {
     // Perform localStorage action
     const pickupcode = localStorage.getItem('pickup');
     console.log(pickupcode);
-  }, []);
+    setnewcode(pickupcode);
+  });
+
+  const [newcode, setnewcode] = useState('');
 
   return (
     <Layout pageTitle={'Welcome{companyname}'}>
@@ -19,7 +22,7 @@ export default function ReservationsPage() {
         <h2 className='font-cursive  text-3xl'>Chicken sandwich</h2>
         <p className=' text-1xl'>Address</p>
         <h1 className='font-cursive text-4xl'>
-          Your Pick up code is: pickupcode
+          Your Pick up code is: {newcode}
         </h1>
         <div className='flex justify-end'>
           <ButtonSmall buttonName='Cancel' className='ml-4' />
