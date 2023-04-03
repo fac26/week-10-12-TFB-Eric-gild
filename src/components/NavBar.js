@@ -48,15 +48,20 @@ export default function NavBar({ isBusinessPage }) {
       <ul className='flex justify-between items-center h-16 px-4'>
         {!isBusinessPage ? (
           <>
-            <NavItem href='/' icon={HomeIcon} />
-            <NavItem href='/' customIcon={'/question_icon.svg'} />
+            <NavItem href='/' icon={HomeIcon} data-cy='home' />
+            <NavItem
+              href='/'
+              customIcon={'/question_icon.svg'}
+              data-cy='help'
+            />
             <NavItem
               href='/'
               icon={MagnifyingGlassIcon}
               centralIcon={centralIcon}
+              data-cy='search'
             />
-            <NavItem href='/' icon={BookmarkIcon} />
-            <NavItem href='/' icon={UserIcon} />
+            <NavItem href='/' icon={BookmarkIcon} data-cy='bookmark' />
+            <NavItem href='/' icon={UserIcon} data-cy='profile' />
           </>
         ) : (
           <>
@@ -65,6 +70,7 @@ export default function NavBar({ isBusinessPage }) {
               href='/available-food'
               customIcon={'/bowl_icon.svg'}
               centralIcon={centralIcon}
+              data-cy='bowl-icon'
             />
             <NavItem href='/' icon={UserIcon} />
           </>
