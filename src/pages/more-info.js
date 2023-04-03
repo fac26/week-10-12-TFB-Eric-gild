@@ -21,7 +21,7 @@ export default function MoreInfo() {
     const newCode = Math.floor(Math.random() * 9000) + 1000;
     setPickUpCode(newCode);
     foodreservation.push(name, Name, Address, newCode);
-    localStorage.setItem('orderedItem', JSON.stringify(foodreservation));
+    localStorage.setItem('orderedItem', foodreservation);
     console.log(foodreservation);
     airtableModule.createReservation({
       name: name,
