@@ -4,28 +4,27 @@ import { useState, useEffect } from 'react';
 import BusinessAccountDetails from 'components/BusinessAccountDetails';
 
 export async function getServerSideProps() {
-  const donor = 'pret';
-  const menu = await airtableModule.getRecords(donor);
-  if (!menu) {
+  const description = await airtableModule.getRecords('Collaborators');
+  if (!description) {
     return {
       notFound: true,
     };
   }
-  if (menu) {
+  if (description) {
     return {
       props: {
-        menu,
+        description,
       },
     };
   }
 }
 
-export default function VendorAccountDetails({ menu }) {
+export default function VendorAccountDetails({ description }) {
   const [items, setItems] = useState([]);
   const pageTitle = 'Business Account Page';
 
   useEffect(() => {
-    const newItems = menu.map((item) => ({
+    const newItems = description.map((item) => ({
       id: item.ID,
       fields: {
         name: item.name,
@@ -33,7 +32,7 @@ export default function VendorAccountDetails({ menu }) {
       },
     }));
     setItems(newItems);
-  }, [menu]);
+  }, [description]);
 
   return (
     <Layout pageTitle={pageTitle} isBusinessPage>
