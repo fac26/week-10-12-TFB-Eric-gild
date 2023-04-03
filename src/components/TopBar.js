@@ -2,7 +2,7 @@ import BackButton from '@components/BackButton';
 import { useRouter } from 'next/router';
 import { useSession, useSupabaseClient } from '@supabase/auth-helpers-react';
 
-export default function TopBar() {
+export default function TopBar({ isBusinessPage }) {
   const supabase = useSupabaseClient();
   const session = useSession();
   const router = useRouter();
@@ -10,7 +10,7 @@ export default function TopBar() {
   return (
     <nav className='fixed bg-green w-screen mx-auto border-b flex justify-between items-center h-16 px-4'>
       <BackButton className='flex-none' />
-      {session ? (
+      {session && isBusinessPage ? (
         <button
           className={`text-white`}
           onClick={() => supabase.auth.signOut() && router.push('/')}
