@@ -23,7 +23,7 @@ export default function ReservationsPage() {
       {reservations.map((reservation, index) => (
         <div
           key={index}
-          className='w-11/12 mx-auto max-w-screen-sm text-accentcolor1 tracking-widest bg-accentcolor2 py-6 px-6 rounded-lg'
+          className='w-11/12 mx-auto max-w-screen-sm text-accentcolor1 tracking-widest bg-accentcolor2 py-6 px-6 rounded-lg mb-4'
         >
           <h2 className='font-cursive  text-4xl'>{reservation.foodName}</h2>
           <p className=' text-1xl'>
