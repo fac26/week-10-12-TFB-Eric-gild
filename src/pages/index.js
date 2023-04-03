@@ -1,6 +1,6 @@
 import LogoLandingPage from '@components/LogoLandingPage';
 import Layout from '@components/Layout';
-import Button from '@components/Button';
+import ButtonLink from '@components/ButtonLink';
 import ButtonSmall from '@components/ButtonSmall';
 import Head from 'next/head';
 import Image from 'next/image';
@@ -24,7 +24,7 @@ export default function Home() {
         <p className='text-accentcolor2 text-center font-cursive text-6xl leading-1.5 m-0 max-w-40rem mx-auto'>
           READY FOR FOOD?
         </p>
-        <Button buttonName={'Go'} buttonLink='/find-food' />
+        <ButtonLink buttonName={'Go'} buttonLink='/find-food' />
       </div>
     </Layout>
   );
