@@ -9,21 +9,27 @@ export default function BusinessAccountDetails(props) {
         and more.
       </p>
       <div className='flex flex-col mb-10 mt-10 items-center'>
-        <ButtonSmall buttonName={'Edit'} buttonLink='/' />
+        <div className='ml-auto'>
+          <ButtonSmall buttonName={'Edit'} buttonLink='/' />
+        </div>
       </div>
       <h3 className='text-4xl'>Address</h3>
       <p className='flex justify-start text-center text-accentcolor1 text-2xl'>
         271 Holloway Road, London, N7 8JL
       </p>
       <div className='flex flex-col mb-10 mt-10 items-center'>
-        <ButtonSmall buttonName={'Edit'} buttonLink='/' />
+        <div className='ml-auto'>
+          <ButtonSmall buttonName={'Edit'} buttonLink='/' />
+        </div>
       </div>
       <h3 className='text-4xl'>Frequently Asked Qs</h3>
       <p className='flex justify-start text-center text-accentcolor1 text-2xl'>
         Description
       </p>
       <div className='flex flex-col mb-10 mt-10 items-center'>
-        <ButtonSmall buttonName={'Edit'} buttonLink='/' />
+        <div className='ml-auto'>
+          <ButtonSmall buttonName={'Edit'} buttonLink='/' />
+        </div>
       </div>
     </div>
   );
