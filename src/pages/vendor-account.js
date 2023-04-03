@@ -21,7 +21,7 @@ export async function getServerSideProps() {
 
 export default function VendorAccountDetails({ menu }) {
   const [items, setItems] = useState([]);
-  const pageTitle = 'Vendor Account Details';
+  const pageTitle = 'Business Account Page';
 
   useEffect(() => {
     const newItems = menu.map((item) => ({
