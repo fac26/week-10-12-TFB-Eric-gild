@@ -26,25 +26,20 @@ export default function VendorDetails({ collaborators }) {
   const pageTitle = 'Vendor account';
   const session = useSession();
   const supabase = useSupabaseClient();
-  const [collaborator, setCollaborator] = useState(null);
-  useEffect(() => {
-    if (collaborators && session && session.user) {
-      const foundCollaborator = collaborators.find(
+  const collaborator = session
+    ? collaborators.find(
         (collaborator) => collaborator.Name === session.user.name
-      );
-      setCollaborator(foundCollaborator || {});
-    }
-  }, [collaborators, session]);
+      )
+    : undefined;
+  console.log(collaborator);
 
-  return (
+  // console.log(collaborator.Name);
+
+  return session ? (
     <Layout pageTitle={pageTitle} isBusinessPage>
-      {collaborator && collaborator.Name ? (
-        <div>
-          <p>Collaborator: {collaborator.Name}</p>
-        </div>
-      ) : (
-        <div>Loading...</div>
-      )}
+      <div>
+        <p>{collaborator?.Name}</p>
+      </div>
       {/* <div className='flex flex-col m-4 items-center'>
         <p className='text-accentcolor2 text-center font-sans text-lg leading-1.5 m-0 max-w-30rem px-6 mx-auto'>
           {nameFields.name}
@@ -56,5 +51,7 @@ export default function VendorDetails({ collaborators }) {
       <div className='flex flex-col m-4 items-center gap-4'></div>
       <BusinessAccountDetails /> */}
     </Layout>
+  ) : (
+    <p>Loading...</p>
   );
 }
