@@ -136,7 +136,7 @@ async function getReservation(tableName, data) {
   });
 }
 
-async function removeAReservation() {
+async function removeAReservation(recordId) {
   base('reservations').destroy(recordId, function (err, deletedRecord) {
     if (err) {
       console.error(err);
