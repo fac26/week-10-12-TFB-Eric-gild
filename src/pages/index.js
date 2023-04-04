@@ -17,7 +17,7 @@ export default function Home() {
       >
         <div className='flex flex-row justify-between gap-6 px-2 py-2'>
           <ButtonSmall buttonName={'Vendor'} buttonLink='/sign-in' />
-          <ButtonSmall buttonName={'Support Us'} buttonLink='/' />
+          <ButtonSmall buttonName={'Donate Food Voucher'} buttonLink='/' />
         </div>
         <div className='flex flex-col m-10 gap-10 px-2 py-2 items-center'>
           <LogoLandingPage src={source} width={500} height={131} alt={alt} />
