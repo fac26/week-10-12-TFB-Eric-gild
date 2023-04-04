@@ -76,7 +76,7 @@ export default function NavBar({ isBusinessPage }) {
               centralIcon={centralIcon}
               data-cy='bowl-icon'
             />
-            <NavItem href='/' icon={UserIcon} />
+            <NavItem href='/vendor-account' icon={UserIcon} />
           </>
         )}
       </ul>
