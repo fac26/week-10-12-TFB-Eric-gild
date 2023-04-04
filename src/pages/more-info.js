@@ -54,7 +54,7 @@ export default function MoreInfo() {
           <BackButton colour={'text-accentcolor4'} />
         </div>
         <h1 className={`${cards.headingWithinImage} ${cards.heading}`}>
-          {name.toUpperCase()}
+          {!name ? null : name.toUpperCase()}
         </h1>
       </div>
       <div className='bg-white items-center justify-center w-full h-screen'>
