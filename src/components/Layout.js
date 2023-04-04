@@ -18,7 +18,7 @@ export default function Layout({ children, pageTitle, home, isBusinessPage }) {
         {home ? null : (
           <>
             <div>
-              <TopBar />
+              <TopBar isBusinessPage={isBusinessPage} />
             </div>
             <br />
             <br />

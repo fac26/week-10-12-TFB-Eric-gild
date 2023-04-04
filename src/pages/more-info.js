@@ -31,12 +31,27 @@ export default function MoreInfo() {
     });
   };
 
+  const handleModal = () => {
+    setModalOpen(true);
+  };
+
   return (
     <Layout>
       <div className='bg-white flex flex-col items-center justify-center gap-2 w-full h-screen'>
         <div className='h-1/2 w-screen flex items-center justify-center'>
           <img src={image?.[0]?.url} alt={name} className='h-full' />
         </div>
+        <Modal isOpen={modalOpen} onRequestClose={() => setModalOpen(false)}>
+          <div>{allergens}</div>
+          <div className='flex justify-end mt-4'>
+            <button
+              className='flex items-center justify-center max-w-xs w-40 bg-dim-black font-cursive text-accentcolor3 tracking-widest text-3xl bg-accentcolor1 py-2 px-2 rounded-lg hover:bg-green hover:text-accentcolor1'
+              onClick={() => setModalOpen(false)}
+            >
+              Close
+            </button>
+          </div>
+        </Modal>
         {reservationMade ? (
           <div className='text-accentcolor1 flex flex-col items-center justify-center mb-40'>
             <h1 className='font-cursive text-accentcolor1 text-5xl'>
@@ -49,20 +64,6 @@ export default function MoreInfo() {
             <h2 className='font-cursive text-accentcolor1 text-4xl'>
               Your Pick Up code is: {pickUpCode}
             </h2>
-            <Modal
-              isOpen={modalOpen}
-              onRequestClose={() => setModalOpen(false)}
-            >
-              <div>{allergens}</div>
-              <div className='flex justify-end mt-4'>
-                <button
-                  className='flex items-center justify-center max-w-xs w-40 bg-dim-black font-cursive text-accentcolor3 tracking-widest text-3xl bg-accentcolor1 py-2 px-2 rounded-lg hover:bg-green hover:text-accentcolor1'
-                  onClick={() => setModalOpen(false)}
-                >
-                  Close
-                </button>
-              </div>
-            </Modal>
           </div>
         ) : (
           <div className='text-accentcolor1 flex flex-col items-center justify-center mb-40'>
@@ -76,7 +77,7 @@ export default function MoreInfo() {
             <p>Collect: {Hours}</p>
             <p>Contact: {PhoneNumber}</p>
             <br></br>
-            <button onClick={setModalOpen}>
+            <button onClick={handleModal}>
               Click here for ingredients and allergens
             </button>
             <br></br>
