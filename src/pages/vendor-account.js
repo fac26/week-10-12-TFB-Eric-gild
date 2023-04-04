@@ -24,21 +24,20 @@ export async function getServerSideProps() {
 
 export default function VendorDetails({ collaborators }) {
   const pageTitle = 'Vendor account';
-  const session = useSession();
   const supabase = useSupabaseClient();
-  const collaborator = session
-    ? collaborators.find(
-        (collaborator) => collaborator.Name === session.user.name
-      )
-    : undefined;
-  console.log(collaborator);
+  const session = useSession();
+  const collaborator = collaborators.find(
+    (collaborator) => collaborator.Email === session.user.email
+  );
+  console.log('collaborator', collaborator);
+  console.log('session', session);
 
   // console.log(collaborator.Name);
 
-  return session ? (
+  return (
     <Layout pageTitle={pageTitle} isBusinessPage>
       <div>
-        <p>{collaborator?.Name}</p>
+        <p>{JSON.stringify(collaborator)}</p>
       </div>
       {/* <div className='flex flex-col m-4 items-center'>
         <p className='text-accentcolor2 text-center font-sans text-lg leading-1.5 m-0 max-w-30rem px-6 mx-auto'>
@@ -51,7 +50,5 @@ export default function VendorDetails({ collaborators }) {
       <div className='flex flex-col m-4 items-center gap-4'></div>
       <BusinessAccountDetails /> */}
     </Layout>
-  ) : (
-    <p>Loading...</p>
   );
 }
