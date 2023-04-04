@@ -7,11 +7,6 @@ export default function ReservationsPage() {
   //airtable extraction instead
   const [reservations, setReservations] = useState([]);
 
-  //   function removeReservation() {
-  //     console.log(recordId);
-  //     // removeAReservation(recordId);
-  //   }
-
   useEffect(() => {
     async function fetchReservations() {
       const records = await airtableModule.getReservation('reservations');
@@ -21,6 +16,13 @@ export default function ReservationsPage() {
   }, []);
   console.log(reservations);
 
+  const removeReservation = async (recordId) => {
+    console.log(recordId);
+    await airtableModule.removeAReservation(recordId);
+    setReservations(
+      reservations.filter((reservation) => reservation.ID !== recordId)
+    );
+  };
   return (
     <Layout pageTitle={'Your reservations'}>
       <div className='pb-10'>
@@ -43,7 +45,7 @@ export default function ReservationsPage() {
               <Button
                 buttonName='Cancel'
                 className='ml-4'
-                // ButtonOnClick={removeReservation(reservation.ID)}
+                onClick={() => removeReservation(reservation.ID)}
               />
             </div>
           </div>
