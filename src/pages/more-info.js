@@ -2,7 +2,7 @@ import Layout from 'components/Layout';
 import { useRouter } from 'next/router';
 import Modal from 'react-modal';
 import { useState } from 'react';
-import { useEffect } from 'react';
+import airtableModule from 'utils/airtable';
 
 export default function MoreInfo() {
   const router = useRouter();
@@ -14,26 +14,26 @@ export default function MoreInfo() {
   const [modalOpen, setModalOpen] = useState(false);
   const [reservationMade, setReservationMade] = useState(false);
   const [pickUpCode, setPickUpCode] = useState(0);
+  const foodreservation = [];
 
   const handleReservation = () => {
-    // Do any necessary reservation logic here
     setReservationMade(true);
+    const newCode = Math.floor(Math.random() * 9000) + 1000;
+    setPickUpCode(newCode);
+    foodreservation.push(name, Name, Address, newCode);
+    localStorage.setItem('orderedItem', foodreservation);
+    console.log(foodreservation);
+    airtableModule.createReservation({
+      name: name,
+      Name: Name,
+      Address: Address,
+      newCode: newCode,
+    });
   };
 
   const handleModal = () => {
     setModalOpen(true);
   };
-
-  useEffect(() => {
-    const code = localStorage.getItem('pickup');
-    if (code) {
-      setPickUpCode(code);
-    } else {
-      const newCode = Math.floor(Math.random() * 9000) + 1000;
-      setPickUpCode(newCode);
-      localStorage.setItem('pickup', newCode);
-    }
-  }, []);
 
   return (
     <Layout>
