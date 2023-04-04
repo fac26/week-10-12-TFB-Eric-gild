@@ -38,10 +38,10 @@ export default function VendorDetails({ collaborators }) {
       <Layout pageTitle={pageTitle} isBusinessPage>
         <div className='flex flex-col m-4 items-center'>
           <p className='text-accentcolor2 text-center font-sans text-lg leading-1.5 m-0 max-w-30rem px-6 mx-auto'>
-            {collaborator.Name}
+            Name: {collaborator.Name}
           </p>
           <p className='text-accentcolor2 text-center font-sans text-lg leading-1.5 m-0 max-w-30rem px-6 mx-auto'>
-            {collaborator.Address}
+            Address: {collaborator.Address}
           </p>
         </div>
         <div className='flex flex-col m-4 items-center gap-4'></div>
