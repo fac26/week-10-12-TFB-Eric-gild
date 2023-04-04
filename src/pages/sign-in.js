@@ -47,6 +47,7 @@ export default function SignIn() {
                         borderRadius: 15,
                         color: 'black',
                         textAlign: 'centre',
+                        fontSize: 14,
                         width: 300,
                       },
                       label: {
