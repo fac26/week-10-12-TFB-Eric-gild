@@ -1,6 +1,9 @@
 import React from 'react';
 import Link from 'next/link';
 import { buttons } from '@styles/index.js';
+import Loading from 'pages/loading';
+import { useState } from 'react';
+import { useRouter } from 'next/router';
 
 export default function ButtonLink({
   whiteBackground,
@@ -10,6 +13,15 @@ export default function ButtonLink({
 }) {
   const name = buttonName || 'placeholder';
   const link = buttonLink || '/loading';
+  // const router = useRouter();
+
+  // console.log(router.asPath);
+  // console.log(link);
+
+  // if (router.asPath == link) {
+  //   return <Loading />;
+  // }
+  // //this doesnt work?
 
   return (
     <Link

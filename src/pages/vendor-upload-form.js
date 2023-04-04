@@ -14,7 +14,7 @@ export default function App() {
   const {
     register,
     handleSubmit,
-    formState: { errors },
+    formState: { errors, isDirty },
   } = useForm();
 
   const onSubmit = (data) => {
@@ -79,13 +79,10 @@ export default function App() {
           {...register('phonenumber', { required: true })}
           className={forms.input}
         />
-
-        <div className={forms.div}>
-          <ButtonLink
-            buttonName={'Submit'}
-            ButtonOnClick={handleSubmit(onSubmit)}
-          />
-        </div>
+        <ButtonLink
+          buttonName={'Submit'}
+          ButtonOnClick={handleSubmit(onSubmit)}
+        />
       </form>
     </Layout>
   );

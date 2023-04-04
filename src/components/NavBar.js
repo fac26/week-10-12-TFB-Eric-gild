@@ -55,12 +55,16 @@ export default function NavBar({ isBusinessPage }) {
               data-cy='help'
             />
             <NavItem
-              href='/'
+              href='/find-food'
               icon={MagnifyingGlassIcon}
               centralIcon={centralIcon}
               data-cy='search'
             />
-            <NavItem href='/' icon={BookmarkIcon} data-cy='bookmark' />
+            <NavItem
+              href='/reservations-page'
+              icon={BookmarkIcon}
+              data-cy='bookmark'
+            />
             <NavItem href='/' icon={UserIcon} data-cy='profile' />
           </>
         ) : (

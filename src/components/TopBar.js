@@ -2,7 +2,7 @@ import BackButton from '@components/BackButton';
 import { useRouter } from 'next/router';
 import { useSession, useSupabaseClient } from '@supabase/auth-helpers-react';
 
-export default function TopBar() {
+export default function TopBar({ isBusinessPage }) {
   const supabase = useSupabaseClient();
   const session = useSession();
   const router = useRouter();

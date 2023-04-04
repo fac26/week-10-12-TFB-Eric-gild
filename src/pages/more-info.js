@@ -2,7 +2,7 @@ import Layout from 'components/Layout';
 import { useRouter } from 'next/router';
 import Modal from 'react-modal';
 import { useState } from 'react';
-import { useEffect } from 'react';
+import airtableModule from 'utils/airtable';
 
 export default function MoreInfo() {
   const router = useRouter();
@@ -14,22 +14,26 @@ export default function MoreInfo() {
   const [modalOpen, setModalOpen] = useState(false);
   const [reservationMade, setReservationMade] = useState(false);
   const [pickUpCode, setPickUpCode] = useState(0);
+  const foodreservation = [];
 
   const handleReservation = () => {
-    // Do any necessary reservation logic here
     setReservationMade(true);
+    const newCode = Math.floor(Math.random() * 9000) + 1000;
+    setPickUpCode(newCode);
+    foodreservation.push(name, Name, Address, newCode);
+    localStorage.setItem('orderedItem', foodreservation);
+    console.log(foodreservation);
+    airtableModule.createReservation({
+      name: name,
+      Name: Name,
+      Address: Address,
+      newCode: newCode,
+    });
   };
 
-  useEffect(() => {
-    const code = localStorage.getItem('pickup');
-    if (code) {
-      setPickUpCode(code);
-    } else {
-      const newCode = Math.floor(Math.random() * 9000) + 1000;
-      setPickUpCode(newCode);
-      localStorage.setItem('pickup', newCode);
-    }
-  }, []);
+  const handleModal = () => {
+    setModalOpen(true);
+  };
 
   return (
     <Layout>
@@ -37,6 +41,17 @@ export default function MoreInfo() {
         <div className='h-1/2 w-screen flex items-center justify-center'>
           <img src={image?.[0]?.url} alt={name} className='h-full' />
         </div>
+        <Modal isOpen={modalOpen} onRequestClose={() => setModalOpen(false)}>
+          <div>{allergens}</div>
+          <div className='flex justify-end mt-4'>
+            <button
+              className='flex items-center justify-center max-w-xs w-40 bg-dim-black font-cursive text-accentcolor3 tracking-widest text-3xl bg-accentcolor1 py-2 px-2 rounded-lg hover:bg-green hover:text-accentcolor1'
+              onClick={() => setModalOpen(false)}
+            >
+              Close
+            </button>
+          </div>
+        </Modal>
         {reservationMade ? (
           <div className='text-accentcolor1 flex flex-col items-center justify-center mb-40'>
             <h1 className='font-cursive text-accentcolor1 text-5xl'>
@@ -49,20 +64,6 @@ export default function MoreInfo() {
             <h2 className='font-cursive text-accentcolor1 text-4xl'>
               Your Pick Up code is: {pickUpCode}
             </h2>
-            <Modal
-              isOpen={modalOpen}
-              onRequestClose={() => setModalOpen(false)}
-            >
-              <div>{allergens}</div>
-              <div className='flex justify-end mt-4'>
-                <button
-                  className='flex items-center justify-center max-w-xs w-40 bg-dim-black font-cursive text-accentcolor3 tracking-widest text-3xl bg-accentcolor1 py-2 px-2 rounded-lg hover:bg-green hover:text-accentcolor1'
-                  onClick={() => setModalOpen(false)}
-                >
-                  Close
-                </button>
-              </div>
-            </Modal>
           </div>
         ) : (
           <div className='text-accentcolor4 flex flex-col items-center justify-center mb-40'>
@@ -76,7 +77,7 @@ export default function MoreInfo() {
             <p>Collect: {Hours}</p>
             <p>Contact: {PhoneNumber}</p>
             <br></br>
-            <button onClick={setModalOpen}>
+            <button onClick={handleModal}>
               Click here for ingredients and allergens
             </button>
             <br></br>
