@@ -9,8 +9,8 @@ export default function TopBar({ isBusinessPage }) {
 
   return (
     <div className='fixed'>
-      <nav className='bg-green text-accentcolor3 w-screen flex justify-between items-center h-16 px-10'>
-        <BackButton className='flex-none' />
+      <nav className='bg-green text-accentcolor3 w-screen flex justify-between items-center h-16 px-6'>
+        <BackButton colour={'text-accentcolour3'} />
         {session && isBusinessPage ? (
           <button onClick={() => supabase.auth.signOut() && router.push('/')}>
             Sign Out

@@ -29,13 +29,14 @@ export default function SignIn() {
                     style: {
                       button: {
                         padding: 0,
-                        borderColor: '#A881B1',
-                        backgroundColor: '#A881B1',
+                        borderColor: 'white',
+                        borderWidth: 1,
+                        backgroundColor: '#540375',
                         borderRadius: 15,
                         width: 300,
                         alignItems: 'center',
                         justifyContent: 'center',
-                        color: '#F5E8DA',
+                        color: 'white',
                         fontFamily: 'Jomhuria',
                         fontSize: 40,
                         textTransform: 'upperCase',

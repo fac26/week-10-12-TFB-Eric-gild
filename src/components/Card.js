@@ -1,4 +1,4 @@
-import Button from '@components/Button';
+import ButtonSmall from '@components/Button';
 import { useRouter } from 'next/router';
 import { cards } from '@styles/index.js';
 
@@ -42,13 +42,13 @@ export default function Card(props) {
               height={200}
             />
           </div>
-          <div className='flex flex-col gap-2 w-full'>
+          <div className='flex flex-col gap-2 w-full items-center'>
             <div className='flex-grow'>
               <p className='text-l font-sans overflow-hidden'>
                 {collaborator.Name}
               </p>
             </div>
-            <Button
+            <ButtonSmall
               whiteBackground={'true'}
               buttonName={'More Info'}
               onClick={handleMoreInfoClick}

@@ -62,7 +62,7 @@ export default function ManageStockCard(props) {
               height={200}
             />
           </div>
-          <div className='flex flex-col gap-2 w-full'>
+          <div className='flex flex-col gap-2 w-full items-center justify-between'>
             <div className='flex flex-row items-center my-auto'>
               <ButtonSmall
                 whiteBackground={'true'}

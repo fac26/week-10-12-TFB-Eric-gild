@@ -10,6 +10,7 @@ export default function Layout({
   pageTitle,
   home,
   auth,
+  noTopBar,
   isBusinessPage,
 }) {
   const title = pageTitle || null;
@@ -23,7 +24,7 @@ export default function Layout({
       </Head>
 
       <header>
-        {home ? null : (
+        {home || noTopBar ? null : (
           <>
             <TopBar />
           </>

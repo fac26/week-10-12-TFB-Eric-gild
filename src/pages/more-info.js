@@ -1,8 +1,11 @@
 import Layout from 'components/Layout';
 import { useRouter } from 'next/router';
-import Modal from 'react-modal';
+import ModalComponent from 'components/ModalComponent';
 import { useState } from 'react';
 import airtableModule from 'utils/airtable';
+import { cards } from '@styles/index.js';
+import Button from 'components/Button';
+import BackButton from 'components/BackButton';
 
 export default function MoreInfo() {
   const router = useRouter();
@@ -22,7 +25,6 @@ export default function MoreInfo() {
     setPickUpCode(newCode);
     foodreservation.push(name, Name, Address, newCode);
     localStorage.setItem('orderedItem', foodreservation);
-    console.log(foodreservation);
     airtableModule.createReservation({
       name: name,
       Name: Name,
@@ -36,59 +38,64 @@ export default function MoreInfo() {
   };
 
   return (
-    <Layout>
-      <div className='bg-white flex flex-col items-center justify-center gap-2 w-full h-screen'>
-        <div className='h-1/2 w-screen flex items-center justify-center'>
-          <img src={image?.[0]?.url} alt={name} className='h-full' />
+    <Layout noTopBar>
+      <ModalComponent
+        allergens={allergens}
+        modalOpen={modalOpen}
+        setModalOpen={setModalOpen}
+      />
+      <div className='relative'>
+        <img
+          src={image?.[0]?.url}
+          alt={name}
+          className='w-full md:max-h-96 object-contain bg-white'
+        />
+        <div className='absolute top-4 left-2'>
+          <BackButton colour={'text-accentcolor4'} />
         </div>
-        <Modal isOpen={modalOpen} onRequestClose={() => setModalOpen(false)}>
-          <div>{allergens}</div>
-          <div className='flex justify-end mt-4'>
-            <button
-              className='flex items-center justify-center max-w-xs w-40 bg-dim-black font-cursive text-accentcolor3 tracking-widest text-3xl bg-accentcolor1 py-2 px-2 rounded-lg hover:bg-green hover:text-accentcolor1'
-              onClick={() => setModalOpen(false)}
-            >
-              Close
-            </button>
-          </div>
-        </Modal>
-        {reservationMade ? (
-          <div className='text-accentcolor1 flex flex-col items-center justify-center mb-40'>
-            <h1 className='font-cursive text-accentcolor1 text-5xl'>
-              CONGRATULATIONS!
-            </h1>
-            <p className='flex justify-center text-center text-accentcolor1 text-sm'>
-              You have successfully reserved this {name.toLowerCase()}!
-            </p>
-            <br></br>
-            <h2 className='font-cursive text-accentcolor1 text-4xl'>
-              Your Pick Up code is: {pickUpCode}
-            </h2>
-          </div>
-        ) : (
-          <div className='text-accentcolor4 flex flex-col items-center justify-center mb-40'>
-            <h1 className='font-cursive text-accentcolor4 text-5xl'>{name}</h1>
-            <p className='flex justify-center text-center text-accentcolor4 text-sm'>
-              {description}
-            </p>
-            <br></br>
-            <p>{Name}</p>
-            <p>{Address}</p>
-            <p>Collect: {Hours}</p>
-            <p>Contact: {PhoneNumber}</p>
-            <br></br>
-            <button onClick={handleModal}>
-              Click here for ingredients and allergens
-            </button>
-            <br></br>
-            <button
-              className='flex items-center justify-center max-w-xs w-40 bg-dim-black font-cursive text-accentcolor3 tracking-widest text-3xl bg-accentcolor4 py-2 px-2 rounded-lg hover:bg-green hover:text-accentcolor1'
-              onClick={handleReservation}
-            >
-              Reserve
-            </button>
-          </div>
-        )}
+        <h1 className={`${cards.headingWithinImage} ${cards.heading}`}>
+          {name.toUpperCase()}
+        </h1>
+      </div>
+      <div className='bg-white items-center justify-center w-full h-screen'>
+        <div className={`${cards.infoDiv} pl-4 pr-8 py-4`}>
+          {reservationMade ? (
+            <>
+              <h1 className={`${cards.heading} text-left text-2xl`}>
+                CONGRATULATIONS!
+              </h1>
+              <p className={cards.normalText}>
+                You have successfully reserved this {name.toLowerCase()}!
+              </p>
+              <h2 className={`${cards.heading} text-2xl`}>
+                Your Pick Up code is: {pickUpCode}
+              </h2>
+            </>
+          ) : (
+            <>
+              <p className={cards.normalText}>{description}</p>
+              <hr className={cards.line} />
+              <p className={cards.normalText}>{Name}</p>
+              <p className={cards.normalText}>{Address}</p>
+              <p className={cards.normalText}>Collect: {Hours}</p>
+              <p className={cards.normalText}>Contact: {PhoneNumber}</p>
+              <button
+                className={`text-left p-0 m-0 ${cards.underlineLink}`}
+                onClick={handleModal}
+              >
+                Click here for ingredients and allergens
+              </button>
+              <hr className={cards.line} />
+              <div className='flex items-center justify-center'>
+                <Button
+                  whiteBackground={'true'}
+                  buttonName={'Reserve'}
+                  onClick={handleReservation}
+                />
+              </div>
+            </>
+          )}
+        </div>
       </div>
     </Layout>
   );

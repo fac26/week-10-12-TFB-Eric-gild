@@ -10,7 +10,7 @@ export default function Filter(props) {
   };
 
   return (
-    <div className='flex flex-col items-center justify-center'>
+    <div className='flex flex-col items-center justify-center w-11/12 mx-auto'>
       <form
         className='flex flex-row gap-2'
         onSubmit={handleSubmit((data) => {
