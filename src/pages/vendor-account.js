@@ -29,8 +29,8 @@ export default function VendorDetails({ collaborators }) {
   const collaborator = collaborators.find(
     (collaborator) => collaborator.Email === session?.user?.email
   );
+  console.log('collaborators', collaborators);
   console.log('collaborator', collaborator);
-  console.log('session', session);
 
   // console.log(collaborator.Name);
 
@@ -41,15 +41,15 @@ export default function VendorDetails({ collaborators }) {
         <p>{JSON.stringify(collaborator.Address)}</p>
       </div>
       {/* <div className='flex flex-col m-4 items-center'>
-        <p className='text-accentcolor2 text-center font-sans text-lg leading-1.5 m-0 max-w-30rem px-6 mx-auto'>
-          {nameFields.name}
-        </p>
-        <p className='text-accentcolor2 text-center font-sans text-lg leading-1.5 m-0 max-w-30rem px-6 mx-auto'>
-          {addressFields.name}
-        </p>
-      </div>
-      <div className='flex flex-col m-4 items-center gap-4'></div>
-      <BusinessAccountDetails /> */}
+          <p className='text-accentcolor2 text-center font-sans text-lg leading-1.5 m-0 max-w-30rem px-6 mx-auto'>
+            {nameFields.name}
+          </p>
+          <p className='text-accentcolor2 text-center font-sans text-lg leading-1.5 m-0 max-w-30rem px-6 mx-auto'>
+            {addressFields.name}
+          </p>
+        </div>
+        <div className='flex flex-col m-4 items-center gap-4'></div>
+        <BusinessAccountDetails /> */}
     </Layout>
   );
 }
