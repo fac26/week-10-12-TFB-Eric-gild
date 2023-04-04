@@ -23,7 +23,7 @@ export default function ReservationsPage() {
 
   return (
     <Layout pageTitle={'Your reservations'}>
-      <div className='pb-20'>
+      <div className='pb-10'>
         <h1 className='flex justify-center font-cursive text-accentcolor1 text-6xl'>
           Food reserved:
         </h1>
@@ -49,13 +49,13 @@ export default function ReservationsPage() {
           </div>
         ))}
         <div>
-          <h1 className='flex justify-center font-cursive text-accentcolor1 text-6xl'>
+          <h1 className='flex justify-center font-cursive text-accentcolor1 text-5xl'>
             Frequently Asked Questions
           </h1>
           <p className='flex justify-center text-accentcolor1 font-cursive text-4xl'>
             How do I collect my food?
           </p>
-          <p className='flex justify-center text-accentcolor1'>
+          <p className='flex justify-center text-accentcolor1 mb-20 ml-7'>
             Simply turn up at the shop before the closing time and show them
             your pick up code.
           </p>
