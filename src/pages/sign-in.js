@@ -3,7 +3,6 @@ import { useSession, useSupabaseClient } from '@supabase/auth-helpers-react';
 import { useRouter } from 'next/router';
 import { useEffect } from 'react';
 import Layout from 'components/Layout';
-import TopBar from 'components/TopBar';
 
 export default function SignIn() {
   const session = useSession();
@@ -18,38 +17,34 @@ export default function SignIn() {
 
   return (
     <>
-      <TopBar />
-      <br />
-      <br />
-      <br />
-      <Layout home>
-        <div className='flex items-center justify-center font-cursive text-custom'>
+      <Layout Auth pageTitle='Sign In'>
+        <div className='flex items-center justify-center font-sans text-cutom'>
           {!session ? (
             <>
               <div>
-                <h1 className='flex justify-center font-cursive text-accentcolor1 text-6xl py-6'>
-                  SIGN IN
-                </h1>
                 <Auth
                   supabaseClient={supabase}
                   providers
                   appearance={{
                     style: {
                       button: {
-                        padding: 10,
-                        borderColor: '#540375',
-                        backgroundColor: '#540375',
-                        borderRadius: 7,
-                        width: 200,
-                        marginLeft: 50,
+                        padding: 0,
+                        borderColor: '#A881B1',
+                        backgroundColor: '#A881B1',
+                        borderRadius: 15,
+                        width: 300,
+                        alignItems: 'center',
+                        justifyContent: 'center',
                         color: '#F5E8DA',
+                        fontFamily: 'Jomhuria',
+                        fontSize: 40,
                         textTransform: 'upperCase',
                       },
                       input: {
                         padding: 5,
-                        borderColor: '#D9D9D9',
+                        borderColor: '#F5E8DA',
                         backgroundColor: '#F5E8DA',
-                        borderRadius: 25,
+                        borderRadius: 15,
                         color: 'black',
                         textAlign: 'centre',
                         width: 300,
@@ -58,7 +53,7 @@ export default function SignIn() {
                         display: 'none',
                       },
                       anchor: {
-                        color: '#540375',
+                        color: '#F5E8DA',
                       },
                     },
                   }}

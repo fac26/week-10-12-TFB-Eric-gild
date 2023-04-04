@@ -8,23 +8,26 @@ export default function TopBar() {
   const router = useRouter();
 
   return (
-    <nav className='fixed bg-green w-screen mx-auto border-b flex justify-between items-center h-16 px-4'>
-      <BackButton className='flex-none' />
-      {session ? (
-        <button
-          className={`text-white`}
-          onClick={() => supabase.auth.signOut() && router.push('/')}
-        >
-          Sign Out
-        </button>
-      ) : (
-        ''
-      )}
-      <h3 className='text-right text-accentcolor2 text-2xl font-heading'>
-        HOPE
-      </h3>
-    </nav>
+    <div className='fixed'>
+      <nav className='bg-green text-accentcolor3 w-screen flex justify-between items-center h-16 px-4'>
+        <BackButton className='flex-none ' />
+        {session ? (
+          <button onClick={() => supabase.auth.signOut() && router.push('/')}>
+            Sign Out
+          </button>
+        ) : (
+          ''
+        )}
+        <div>
+          <h3 className='text-right text-accentcolor3 text-2xl font-heading'>
+            HOPE
+          </h3>
+        </div>
+      </nav>
+      <hr className='w-11/12 h-px mx-auto bg-accentcolor3 border-0' />
+    </div>
   );
 }
 
 // flex justify-between items-center
+//border-b border-solid border-accentcolor3
