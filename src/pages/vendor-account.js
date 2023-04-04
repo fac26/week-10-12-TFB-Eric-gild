@@ -49,8 +49,9 @@ export default function VendorDetails({ collaborators }) {
           <div className='w-11/12 mx-auto max-w-screen-sm text-accentcolor1 tracking-widest bg-accentcolor2 font-cursive py-6 px-6 rounded-lg'>
             <h3 className='text-4xl'>Description</h3>
             <p className='text-l font-sans overflow-hidden'>
-              Pret a Manger is a sandwich shop serving soup, sandwiches, hot
-              drinks, and more.
+              <div>Description: {collaborator.Description}</div>
+              Hard-coded text: Pret a Manger is a sandwich shop serving soup,
+              sandwiches, hot drinks, and more.
             </p>
             <div className='flex flex-col mb-10 mt-10 items-center'>
               <div className='ml-auto'>
@@ -59,7 +60,8 @@ export default function VendorDetails({ collaborators }) {
             </div>
             <h3 className='text-4xl'>Address</h3>
             <p className='text-l font-sans overflow-hidden'>
-              271 Holloway Road, London, N7 8JL
+              Address: {collaborator.Address}
+              <div>271 Holloway Road, London, N7 8JL</div>
             </p>
             <div className='flex flex-col mb-10 mt-10 items-center'>
               <div className='ml-auto'>
@@ -67,7 +69,7 @@ export default function VendorDetails({ collaborators }) {
               </div>
             </div>
             <h3 className='text-4xl'>Frequently Asked Qs</h3>
-            <p className='text-l font-sans overflow-hidden'>Description</p>
+            <p className='text-l font-sans overflow-hidden'>Add FAQs here</p>
             <div className='flex flex-col mb-10 mt-10 items-center'>
               <div className='ml-auto'>
                 <ButtonSmall buttonName={'Edit'} buttonLink='/' />
