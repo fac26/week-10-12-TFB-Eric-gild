@@ -12,7 +12,7 @@ export default function App() {
   const {
     register,
     handleSubmit,
-    formState: { errors },
+    formState: { errors, isDirty },
   } = useForm();
   const onSubmit = (data) => {
     data.email = session.user.email; //push session.user.email into data object
@@ -93,6 +93,7 @@ export default function App() {
         <br />
         <ButtonLink
           buttonName={'Submit'}
+          disabled={!isDirty}
           ButtonOnClick={handleSubmit(onSubmit)}
         />
       </form>
