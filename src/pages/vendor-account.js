@@ -27,7 +27,7 @@ export default function VendorDetails({ collaborators }) {
   const supabase = useSupabaseClient();
   const session = useSession();
   const collaborator = collaborators.find(
-    (collaborator) => collaborator.Email === session.user.email
+    (collaborator) => collaborator.Email === session?.user?.email
   );
   console.log('collaborator', collaborator);
   console.log('session', session);
