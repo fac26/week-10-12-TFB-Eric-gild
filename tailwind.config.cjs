@@ -10,7 +10,7 @@ module.exports = {
     extend: {
       colors: {
         green: '#3E625C', //green
-        accentcolor1: '#A881B1', //purple
+        accentcolor1: '#73059E', //purple
         accentcolor2: '#F9F9F9', //off-white
         accentcolor3: '#F5E8DA', //cream
         accentcolor4: '#540375', //dark-purple
@@ -28,6 +28,9 @@ module.exports = {
       backgroundImage: {
         'hero-image': "url('/bg-image.png')",
         'hero-image-phone': "url('/bg-image-phone-new.png')",
+      },
+      boxShadow: {
+        custom: '0 1px 3px 0 rgba(255, 255, 255, 0.3)',
       },
     },
     plugins: [],

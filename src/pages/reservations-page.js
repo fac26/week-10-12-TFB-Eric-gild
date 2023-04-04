@@ -2,6 +2,7 @@ import Layout from 'components/Layout';
 import Button from 'components/Button';
 import { useEffect, useState } from 'react';
 import airtableModule from 'utils/airtable';
+import { cards } from '@styles/index.js';
 
 export default function ReservationsPage() {
   //airtable extraction instead

@@ -1,23 +1,18 @@
 import React from 'react';
-import Link from 'next/link';
 import { buttons } from '@styles/index.js';
 
-export default function ButtonSmall({
-  whiteBackground,
-  buttonName,
-  buttonLink,
-  ButtonOnClick = () => {},
-}) {
-  const name = buttonName || 'placeholder';
-  const link = buttonLink || '/';
+export default function ButtonSmall(props) {
+  const title = props.buttonName || 'placeholder';
   return (
-    <Link
-      href={link}
-      onClick={ButtonOnClick}
-      className={`${!whiteBackground && buttons.small}
-    ${whiteBackground && buttons.whiteBackgroundSmall}`}
+    <button
+      className={`${!props.whiteBackground && buttons.small}
+      ${props.whiteBackground && buttons.whiteBackgroundSmall}  ${
+        props.quantity === 0 && props.buttonName === '-' && buttons.disabled
+      }`}
+      onClick={props.onClick}
+      disabled={props.quantity === 0 && props.buttonName === '-'}
     >
-      {name.toUpperCase()}
-    </Link>
+      {title.toUpperCase()}
+    </button>
   );
 }

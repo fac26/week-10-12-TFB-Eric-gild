@@ -10,7 +10,7 @@ export default function App() {
   const session = useSession();
   const supabase = useSupabaseClient();
   const router = useRouter();
-  const errorMessage = ' * This field is required';
+  const errorMessage = ' * Required field';
   const {
     register,
     handleSubmit,
@@ -79,10 +79,12 @@ export default function App() {
           {...register('phonenumber', { required: true })}
           className={forms.input}
         />
-        <ButtonLink
-          buttonName={'Submit'}
-          ButtonOnClick={handleSubmit(onSubmit)}
-        />
+        <div className={forms.div}>
+          <ButtonLink
+            buttonName={'Submit'}
+            ButtonOnClick={handleSubmit(onSubmit)}
+          />
+        </div>
       </form>
     </Layout>
   );

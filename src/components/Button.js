@@ -11,6 +11,7 @@ export default function Button(props) {
       }`}
       onClick={props.onClick}
       disabled={props.quantity === 0 && props.buttonName === '-'}
+
     >
       {title.toUpperCase()}
     </button>

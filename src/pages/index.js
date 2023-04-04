@@ -1,7 +1,7 @@
 import LogoLandingPage from '@components/LogoLandingPage';
 import Layout from '@components/Layout';
 import ButtonLink from '@components/ButtonLink';
-import ButtonSmall from '@components/ButtonSmall';
+import ButtonLinkSmall from '@components/ButtonLinkSmall';
 import Head from 'next/head';
 import Image from 'next/image';
 
@@ -16,8 +16,8 @@ export default function Home() {
         className={`h-screen w-screen bg-cover bg-hero-image-phone lg:bg-hero-image`}
       >
         <div className='flex flex-row justify-between gap-6 px-2 py-2'>
-          <ButtonSmall buttonName={'Vendor'} buttonLink='/sign-in' />
-          <ButtonSmall buttonName={'Donate Food Voucher'} buttonLink='/' />
+          <ButtonLinkSmall buttonName={'Vendor'} buttonLink='/sign-in' />
+          <ButtonLinkSmall buttonName={'Donate Food Voucher'} buttonLink='/' />
         </div>
         <div className='flex flex-col m-10 gap-10 px-2 py-2 items-center'>
           <LogoLandingPage src={source} width={500} height={131} alt={alt} />

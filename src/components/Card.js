@@ -1,5 +1,6 @@
 import Button from '@components/Button';
 import { useRouter } from 'next/router';
+import { cards } from '@styles/index.js';
 
 export default function Card(props) {
   const { filters, item, collaborator, foodFilter } = props;
@@ -26,13 +27,13 @@ export default function Card(props) {
   if (foodFilter.Filter !== 'All' && !matchesFilter) return null;
 
   return (
-    <div className='w-11/12 mx-auto max-w-screen-sm text-accentcolor4 tracking-widest bg-accentcolor2 font-cursive py-6 px-6 rounded-lg'>
-      <div className='mx-auto max-w-md'>
-        <h3 className='font-cursive text-5xl'>
+    <div className={cards.containerDiv}>
+      <div className={cards.infoDiv}>
+        <h3 className={cards.heading}>
           {item && item.name && item.name.toUpperCase()}
         </h3>
-        <div className='flex flex-row gap-6 w-5/6 h-5/6'>
-          <div className=' flex items-center justify-center'>
+        <div className={cards.flexRowDiv}>
+          <div className={cards.imageDiv}>
             <img
               src={item.image[0].url}
               className=''
