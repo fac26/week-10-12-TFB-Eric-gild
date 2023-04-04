@@ -2,8 +2,8 @@ import Layout from 'components/Layout';
 import airtableModule from 'utils/airtable';
 import { useState, useEffect } from 'react';
 import { useSession, useSupabaseClient } from '@supabase/auth-helpers-react';
-import BusinessAccountDetails from 'components/BusinessAccountDetails';
 import React from 'react';
+import ButtonSmall from '@components/ButtonSmall';
 
 export async function getServerSideProps() {
   const collaborators = await airtableModule.getRecords('Collaborators');
@@ -45,7 +45,34 @@ export default function VendorDetails({ collaborators }) {
           </p>
         </div>
         <div className='flex flex-col m-4 items-center gap-4'></div>
-        <BusinessAccountDetails />
+        <div className='w-11/12 mx-auto max-w-screen-sm text-accentcolor1 tracking-widest bg-accentcolor2 font-cursive py-6 px-6 rounded-lg'>
+          <h3 className='text-4xl'>Description</h3>
+          <p className='text-l font-sans overflow-hidden'>
+            Pret a Manger is a sandwich shop serving soup, sandwiches, hot
+            drinks, and more.
+          </p>
+          <div className='flex flex-col mb-10 mt-10 items-center'>
+            <div className='ml-auto'>
+              <ButtonSmall buttonName={'Edit'} buttonLink='/' />
+            </div>
+          </div>
+          <h3 className='text-4xl'>Address</h3>
+          <p className='text-l font-sans overflow-hidden'>
+            271 Holloway Road, London, N7 8JL
+          </p>
+          <div className='flex flex-col mb-10 mt-10 items-center'>
+            <div className='ml-auto'>
+              <ButtonSmall buttonName={'Edit'} buttonLink='/' />
+            </div>
+          </div>
+          <h3 className='text-4xl'>Frequently Asked Qs</h3>
+          <p className='text-l font-sans overflow-hidden'>Description</p>
+          <div className='flex flex-col mb-10 mt-10 items-center'>
+            <div className='ml-auto'>
+              <ButtonSmall buttonName={'Edit'} buttonLink='/' />
+            </div>
+          </div>
+        </div>
       </Layout>
     </>
   ) : null;
