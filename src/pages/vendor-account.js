@@ -50,8 +50,6 @@ export default function VendorDetails({ collaborators }) {
             <h3 className='text-4xl'>Description</h3>
             <p className='text-l font-sans overflow-hidden'>
               <div>Description: {collaborator.Description}</div>
-              Hard-coded text: Pret a Manger is a sandwich shop serving soup,
-              sandwiches, hot drinks, and more.
             </p>
             <div className='flex flex-col mb-10 mt-10 items-center'>
               <div className='ml-auto'>
@@ -61,7 +59,6 @@ export default function VendorDetails({ collaborators }) {
             <h3 className='text-4xl'>Address</h3>
             <p className='text-l font-sans overflow-hidden'>
               Address: {collaborator.Address}
-              <div>Hard-coded text: 271 Holloway Road, London, N7 8JL</div>
             </p>
             <div className='flex flex-col mb-10 mt-10 items-center'>
               <div className='ml-auto'>
