@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { buttons } from '@styles/index.js';
 
 export default function ButtonSmall({
+  whiteBackground,
   buttonName,
   buttonLink,
   ButtonOnClick = () => {},
@@ -10,7 +11,12 @@ export default function ButtonSmall({
   const name = buttonName || 'placeholder';
   const link = buttonLink || '/';
   return (
-    <Link href={link} onClick={ButtonOnClick} className={`${buttons.small}`}>
+    <Link
+      href={link}
+      onClick={ButtonOnClick}
+      className={`${!whiteBackground && buttons.small}
+    ${whiteBackground && buttons.whiteBackgroundSmall}`}
+    >
       {name.toUpperCase()}
     </Link>
   );

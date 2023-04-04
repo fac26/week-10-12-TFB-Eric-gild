@@ -15,5 +15,7 @@ export const buttons = {
     'flex items-center justify-center max-w-xs w-40 bg-dim-black font-cursive text-accentcolor2 tracking-widest text-3xl bg-accentcolor4 py-2 px-2 rounded-lg hover:bg-accentcolor3 hover:text-accentcolor1',
   disabled: 'opacity-50 cursor-not-allowed',
   small:
-    'flex items-center justify-center max-w-xsbg-dim-black font-cursive text-accentcolor2 tracking-widest text-xl bg-accentcolor4 py-1 px-4 rounded-lg hover:bg-accentcolor3 hover:text-accentcolor1',
+    'flex items-center justify-center max-w-xs bg-dim-black font-cursive text-accentcolor2 tracking-widest text-xl bg-accentcolor1 py-1 px-4 rounded-lg hover:bg-accentcolor3 hover:text-accentcolor1',
+  whiteBackgroundSmall:
+    'flex items-center justify-center max-w-xs bg-dim-black font-cursive text-accentcolor2 tracking-widest text-3xl bg-accentcolor4 py-2 px-2 rounded-lg hover:bg-accentcolor3 hover:text-accentcolor1',
 };
