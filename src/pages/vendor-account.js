@@ -28,10 +28,6 @@ export default function VendorDetails({ collaborators }) {
   const collaborator = collaborators.find(
     (collaborator) => collaborator.Email === session?.user?.email
   );
-  console.log('collaborators', collaborators);
-  console.log('collaborator', collaborator);
-
-  // console.log(collaborator.Name);
 
   return (
     collaborator && (
