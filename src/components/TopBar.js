@@ -9,7 +9,7 @@ export default function TopBar() {
 
   return (
     <div className='fixed'>
-      <nav className='bg-green text-accentcolor3 w-screen flex justify-between items-center h-16 px-4'>
+      <nav className='bg-green text-accentcolor3 w-screen flex justify-between items-center h-16 px-10'>
         <BackButton className='flex-none ' />
         {session ? (
           <button onClick={() => supabase.auth.signOut() && router.push('/')}>

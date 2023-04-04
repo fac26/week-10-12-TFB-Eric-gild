@@ -26,7 +26,7 @@ export default function Card(props) {
   if (foodFilter.Filter !== 'All' && !matchesFilter) return null;
 
   return (
-    <div className='w-11/12 mx-auto max-w-screen-sm text-accentcolor1 tracking-widest bg-accentcolor2 font-cursive py-6 px-6 rounded-lg'>
+    <div className='w-11/12 mx-auto max-w-screen-sm text-accentcolor4 tracking-widest bg-accentcolor2 font-cursive py-6 px-6 rounded-lg'>
       <div className='mx-auto max-w-md'>
         <h3 className='font-cursive text-5xl'>
           {item && item.name && item.name.toUpperCase()}
@@ -47,7 +47,11 @@ export default function Card(props) {
                 {collaborator.Name}
               </p>
             </div>
-            <Button buttonName={'More Info'} onClick={handleMoreInfoClick} />
+            <Button
+              whiteBackground={'true'}
+              buttonName={'More Info'}
+              onClick={handleMoreInfoClick}
+            />
           </div>
         </div>
       </div>

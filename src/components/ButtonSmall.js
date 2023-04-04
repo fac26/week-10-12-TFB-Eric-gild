@@ -1,5 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
+import { buttons } from '@styles/index.js';
 
 export default function ButtonSmall({
   buttonName,
@@ -9,11 +10,7 @@ export default function ButtonSmall({
   const name = buttonName || 'placeholder';
   const link = buttonLink || '/';
   return (
-    <Link
-      href={link}
-      onClick={ButtonOnClick}
-      className='flex items-center justify-center max-w-xs bg-dim-black font-cursive text-accentcolor2 tracking-widest text-xl bg-accentcolor1 py-1 px-4 rounded-lg hover:bg-accentcolor3 hover:text-accentcolor1'
-    >
+    <Link href={link} onClick={ButtonOnClick} className={`${buttons.small}`}>
       {name.toUpperCase()}
     </Link>
   );

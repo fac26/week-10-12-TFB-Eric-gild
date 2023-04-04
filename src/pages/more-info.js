@@ -65,9 +65,9 @@ export default function MoreInfo() {
             </Modal>
           </div>
         ) : (
-          <div className='text-accentcolor1 flex flex-col items-center justify-center mb-40'>
-            <h1 className='font-cursive text-accentcolor1 text-5xl'>{name}</h1>
-            <p className='flex justify-center text-center text-accentcolor1 text-sm'>
+          <div className='text-accentcolor4 flex flex-col items-center justify-center mb-40'>
+            <h1 className='font-cursive text-accentcolor4 text-5xl'>{name}</h1>
+            <p className='flex justify-center text-center text-accentcolor4 text-sm'>
               {description}
             </p>
             <br></br>
@@ -81,7 +81,7 @@ export default function MoreInfo() {
             </button>
             <br></br>
             <button
-              className='flex items-center justify-center max-w-xs w-40 bg-dim-black font-cursive text-accentcolor3 tracking-widest text-3xl bg-accentcolor1 py-2 px-2 rounded-lg hover:bg-green hover:text-accentcolor1'
+              className='flex items-center justify-center max-w-xs w-40 bg-dim-black font-cursive text-accentcolor3 tracking-widest text-3xl bg-accentcolor4 py-2 px-2 rounded-lg hover:bg-green hover:text-accentcolor1'
               onClick={handleReservation}
             >
               Reserve

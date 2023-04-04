@@ -1,4 +1,4 @@
-import Button from '@components/Button';
+import ButtonSmall from '@components/ButtonSmall';
 import { useState } from 'react';
 
 export default function ManageStockCard(props) {
@@ -48,13 +48,13 @@ export default function ManageStockCard(props) {
   };
 
   return item ? (
-    <div className='w-11/12 mx-auto max-w-screen-sm text-accentcolor1 tracking-widest bg-accentcolor2 font-cursive py-6 px-6 rounded-lg'>
+    <div className='w-11/12 mx-auto max-w-screen-sm text-accentcolor4 tracking-widest bg-accentcolor2 font-cursive py-6 px-6 rounded-lg'>
       {
-        <div className='mx-auto max-w-md'>
+        <div className='mx-auto max-w-md text-center'>
           <h3 className='font-cursive text-4xl'>
             {foodItemName.toUpperCase()}
           </h3>
-          <div className='flex flex-row gap-6 w-5/6 h-5/6'>
+          <div className='flex flex-row gap-6 w-5/6 h-5/6 mx-auto'>
             <div className=' flex items-center justify-center'>
               <img
                 src={item.fields.image[0].url}
@@ -65,15 +65,17 @@ export default function ManageStockCard(props) {
               />
             </div>
             <div className='flex flex-col gap-2 w-full'>
-              <div className='flex flex-row items-center'>
-                <Button
+              <div className='flex flex-row items-center my-auto'>
+                <ButtonSmall
+                  whiteBackground={'true'}
                   buttonName={'-'}
                   onClick={handleDecrease}
                   quantity={quantity}
                   setQuantity={setQuantity}
                 />
                 <p className='font-sans text-l mx-4'>{quantity}</p>
-                <Button
+                <ButtonSmall
+                  whiteBackground={'true'}
                   buttonName={'+'}
                   onClick={handleIncrease}
                   quantity={quantity}
