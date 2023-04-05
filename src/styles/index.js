@@ -39,8 +39,7 @@ export const cards = {
 };
 
 export const signIn = {
-  div: 'flex items-center justify-center font-cursive text-custom',
-  h1: 'flex justify-center font-cursive text-accentcolor1 text-6xl py-6',
+  div: 'flex items-center justify-center font-sans text-cutom',
   supabase: {
     style: {
       button: {

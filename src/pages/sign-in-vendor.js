@@ -3,7 +3,7 @@ import { useSession, useSupabaseClient } from '@supabase/auth-helpers-react';
 import { useRouter } from 'next/router';
 import { useEffect } from 'react';
 import Layout from 'components/Layout';
-import { signIn } from '@styles/index.js';
+import { signIn, cards } from '@styles/index.js';
 
 export default function SignIn() {
   const session = useSession();

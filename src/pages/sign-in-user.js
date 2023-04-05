@@ -20,7 +20,7 @@ export default function SignIn() {
   return (
     <>
       <Layout Auth pageTitle='Sign In'>
-        <div className='mx-auto max-w-md items-center text-accentcolor3'>
+        <div className={signIn.div}>
           {!session ? (
             <>
               <div>
