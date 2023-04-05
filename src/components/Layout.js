@@ -1,10 +1,18 @@
 import NavBar from '@components/NavBar';
 import Head from 'next/head';
 import TopBar from '@components/TopBar';
+import Home from 'pages';
 
 export const siteTitle = 'Hope';
 
-export default function Layout({ children, pageTitle, home, isBusinessPage }) {
+export default function Layout({
+  children,
+  pageTitle,
+  home,
+  auth,
+  noTopBar,
+  isBusinessPage,
+}) {
   const title = pageTitle || null;
   return (
     <>
@@ -14,25 +22,24 @@ export default function Layout({ children, pageTitle, home, isBusinessPage }) {
         <meta name='viewport' content='width=device-width, initial-scale=1' />
         <link rel='icon' href='/favicon.ico' />
       </Head>
+
       <header>
-        {home ? null : (
+        {home || noTopBar ? null : (
           <>
-            <div>
-              <TopBar isBusinessPage={isBusinessPage} />
-            </div>
-            <br />
-            <br />
-            {pageTitle != null && (
-              <h1 className='flex justify-center font-cursive text-accentcolor1 text-6xl py-6'>
-                {title.toUpperCase()}
-              </h1>
-            )}
+            <TopBar />
           </>
+        )}
+        {pageTitle != null && (
+          <div className='pt-20'>
+            <h1 className='flex justify-center font-cursive text-accentcolor3 text-6xl py-4'>
+              {title.toUpperCase()}
+            </h1>
+          </div>
         )}
       </header>
       <div>
         <main>{children}</main>
-        {!home ? <NavBar isBusinessPage={isBusinessPage} /> : null}
+        {home || auth ? null : <NavBar isBusinessPage={isBusinessPage} />}
       </div>
     </>
   );

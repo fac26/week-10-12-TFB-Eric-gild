@@ -1,7 +1,7 @@
 import { useRouter } from 'next/router';
 import { ChevronLeftIcon } from '@heroicons/react/24/outline';
 
-export default function BackButton() {
+export default function BackButton({ colour }) {
   const router = useRouter();
 
   function handleClick() {
@@ -12,7 +12,7 @@ export default function BackButton() {
     <>
       <ChevronLeftIcon
         onClick={handleClick}
-        className='h-12 w-12 text-accentcolor2 cursor-pointer'
+        className={`h-12 w-12 cursor-pointer ${colour}`}
       />
     </>
   );

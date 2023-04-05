@@ -1,7 +1,8 @@
 import Layout from 'components/Layout';
-import Button from 'components/Button';
+import ButtonSmall from 'components/ButtonSmall';
 import { useEffect, useState } from 'react';
 import airtableModule from 'utils/airtable';
+import { cards } from '@styles/index.js';
 
 export default function ReservationsPage() {
   //airtable extraction instead
@@ -23,24 +24,18 @@ export default function ReservationsPage() {
   };
   return (
     <Layout pageTitle={'Your reservations'}>
-      <div className='pb-10'>
-        <h1 className='flex justify-center font-cursive text-accentcolor1 text-6xl'>
-          Food reserved:
-        </h1>
+      <div className={cards.flexDiv}>
         {reservations.map((reservation, index) => (
-          <div
-            key={index}
-            className='w-11/12 mx-auto max-w-screen-sm text-accentcolor1 tracking-widest bg-accentcolor2 py-6 px-6 rounded-lg mb-4'
-          >
-            <h2 className='font-cursive  text-4xl'>{reservation.foodName}</h2>
-            <p className=' text-1xl'>
+          <div key={index} className={cards.containerDiv}>
+            <h2 className={cards.headingSmall}>{reservation.foodName}</h2>
+            <p className={`font-sans ${cards.normalText}`}>
               {reservation.restaurantName},{reservation.Address}
             </p>
-            <h1 className='font-cursive text-4xl'>
+            <h1 className={cards.headingXSmall}>
               Your Pick up code is: {reservation.pickupcode}
             </h1>
             <div className='flex justify-end'>
-              <Button
+              <ButtonSmall
                 buttonName='Cancel'
                 className='ml-4'
                 onClick={() => removeReservation(reservation.ID)}
@@ -48,14 +43,12 @@ export default function ReservationsPage() {
             </div>
           </div>
         ))}
-        <div>
-          <h1 className='flex justify-center font-cursive text-accentcolor1 text-5xl'>
-            Frequently Asked Questions
-          </h1>
-          <p className='flex justify-center text-accentcolor1 font-cursive text-4xl'>
+        <div className={cards.containerDiv}>
+          <h1 className={cards.headingSmall}>Frequently Asked Questions</h1>
+          <p className={`font-sans ${cards.normalText}`}>
             How do I collect my food?
           </p>
-          <p className='flex justify-center text-accentcolor1 mb-20 ml-7'>
+          <p className={`font-sans ${cards.normalText}`}>
             Simply turn up at the shop before the closing time and show them
             your pick up code.
           </p>
@@ -64,6 +57,3 @@ export default function ReservationsPage() {
     </Layout>
   );
 }
-//rememebr to merge with main before pushing final changes
-//collaborator id where they ordered the food from
-//and item/food id

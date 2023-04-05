@@ -1,20 +1,19 @@
 import React from 'react';
-import Link from 'next/link';
+import { buttons } from '@styles/index.js';
 
-export default function ButtonSmall({
-  buttonName,
-  buttonLink,
-  ButtonOnClick = () => {},
-}) {
-  const name = buttonName || 'placeholder';
-  const link = buttonLink || '/';
+export default function ButtonSmall(props) {
+  const { whiteBackground, quantity, buttonName } = props;
+  const title = props.buttonName || 'placeholder';
   return (
-    <Link
-      href={link}
-      onClick={ButtonOnClick}
-      className='flex items-center justify-center max-w-xs bg-dim-black font-cursive text-accentcolor2 tracking-widest text-xl bg-accentcolor1 py-1 px-4 rounded-lg hover:bg-accentcolor3 hover:text-accentcolor1'
+    <button
+      className={`${!whiteBackground && buttons.small}
+      ${whiteBackground && buttons.whiteBackgroundSmall} ${
+        quantity === 0 && buttonName === '-' && buttons.disabled
+      }`}
+      onClick={props.onClick}
+      disabled={quantity === 0 && buttonName === '-'}
     >
-      {name.toUpperCase()}
-    </Link>
+      {title.toUpperCase()}
+    </button>
   );
 }

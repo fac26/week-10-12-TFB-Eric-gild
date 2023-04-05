@@ -22,13 +22,13 @@ function NavItem({ href, icon: Icon, centralIcon, customIcon }) {
               width='60'
               height='60'
               viewBox='0 0 60 60'
-              className='text-accentcolor1 flex items-center text-3xl font-sans'
+              className='text-accentcolor2 flex items-center text-3xl font-sans'
             >
               <image href={customIcon} width='60' height='60' />
             </svg>
           ) : (
             <Icon
-              className={`text-accentcolor1 ${
+              className={`text-accentcolor4 ${
                 !centralIcon ? 'h-full w-full' : 'h-12 w-12'
               }`}
             />

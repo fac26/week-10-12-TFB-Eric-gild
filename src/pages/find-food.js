@@ -58,7 +58,7 @@ export default function FindFood({ filters, collaborators, availableFood }) {
         filters={filters}
       />
       <div className='flex flex-col m-4 items-center'>
-        <p className='text-accentcolor2 text-center font-sans text-lg leading-1.5 m-0 max-w-30rem px-6 mx-auto'>
+        <p className='text-accentcolor3 text-center font-sans text-lg leading-1.5 m-0 max-w-30rem px-6 mx-auto'>
           Look through the available foods to find the best food for you.
         </p>
       </div>
