@@ -22,28 +22,44 @@ export default function MoreInfo() {
 
   const session = useSession();
   console.log(session);
-  const handleReservation = () => {
+  const handleReservation = async () => {
     //if there is no session, redirect them to log in user page/sign up,if not, then run the code below
     if (!session) {
       router.push('/sign-in-user');
     } else {
       const userEmail = session.user.email;
-      setReservationMade(true);
-      const newCode = Math.floor(Math.random() * 9000) + 1000;
-      setPickUpCode(newCode);
-      foodreservation.push(name, Name, Address, newCode);
-      localStorage.setItem('orderedItem', foodreservation);
-      console.log(foodreservation);
-      airtableModule.createReservation({
-        name: name,
-        Name: Name,
-        Address: Address,
-        newCode: newCode,
-        userEmail: userEmail,
-      });
+      // Check if the user's email is in the collaborator table
+      const collaboratorRecords = await airtableModule.getRecords(
+        'Collaborators'
+      );
+      const collaboratorEmails = collaboratorRecords.map((record) =>
+        record.Email.toLowerCase()
+      );
+      if (collaboratorEmails.includes(userEmail.toLowerCase())) {
+        alert('Sorry! You can not reserve as a vendor');
+        router.push('/');
+        return;
+      } else {
+        setReservationMade(true);
+        const newCode = Math.floor(Math.random() * 9000) + 1000;
+        setPickUpCode(newCode);
+        foodreservation.push(name, Name, Address, newCode);
+        localStorage.setItem('orderedItem', foodreservation);
+        console.log(foodreservation);
+        airtableModule.createReservation({
+          name: name,
+          Name: Name,
+          Address: Address,
+          newCode: newCode,
+          userEmail: userEmail,
+        });
+      }
     }
   };
-  //
+
+  // if userEmail in collaborator table
+  // then prevent SignIn, rendor another page instead
+
   const handleModal = () => {
     setModalOpen(true);
   };
