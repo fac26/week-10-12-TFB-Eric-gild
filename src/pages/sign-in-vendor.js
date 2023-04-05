@@ -13,15 +13,16 @@ export default function SignIn() {
 
   useEffect(() => {
     async function checkCollaborator() {
-      if (session) {
+      if (session && session.user && session.user.email) {
         const userEmail = session.user.email;
         const collaboratorRecords = await airtableModule.getRecords(
           'Collaborators'
         );
-        const collaboratorEmails = collaboratorRecords.map((record) =>
-          record.Email.toLowerCase()
+        const collaboratorEmails = collaboratorRecords.map(
+          (record) => record.Email
         );
-        if (collaboratorEmails.includes(userEmail.toLowerCase())) {
+        if (collaboratorEmails.includes(userEmail)) {
+          console.log('its here');
           router.push('/manage-food');
         } else {
           router.push('/vendor-upload-form');
