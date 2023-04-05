@@ -24,7 +24,7 @@ export default function MoreInfo() {
     if (!session) {
       router.push('/sign-in-user');
     } else {
-      //session.user.email;
+      const userEmail = session.user.email;
       setReservationMade(true);
       const newCode = Math.floor(Math.random() * 9000) + 1000;
       setPickUpCode(newCode);
@@ -36,6 +36,7 @@ export default function MoreInfo() {
         Name: Name,
         Address: Address,
         newCode: newCode,
+        userEmail: userEmail,
       });
     }
   };
