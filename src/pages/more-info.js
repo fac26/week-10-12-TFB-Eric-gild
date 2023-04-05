@@ -33,10 +33,10 @@ export default function MoreInfo() {
       const collaboratorRecords = await airtableModule.getRecords(
         'Collaborators'
       );
-      const collaboratorEmails = collaboratorRecords.map((record) =>
-        record.Email.toLowerCase()
+      const collaboratorEmails = collaboratorRecords.map(
+        (record) => record.Email
       );
-      if (collaboratorEmails.includes(userEmail.toLowerCase())) {
+      if (collaboratorEmails.includes(userEmail)) {
         handleWarningModal();
         setTimeout(() => router.push('/'), 5000);
         return;
@@ -100,7 +100,7 @@ export default function MoreInfo() {
                 CONGRATULATIONS!
               </h1>
               <p className={cards.normalText}>
-                You have successfully reserved this {name.toLowerCase()}!
+                You have successfully reserved this {name}!
               </p>
               <h2 className={`${cards.heading} text-2xl`}>
                 Your Pick Up code is: {pickUpCode}
