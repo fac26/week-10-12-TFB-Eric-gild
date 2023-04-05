@@ -58,9 +58,6 @@ export default function MoreInfo() {
     }
   };
 
-  // if userEmail in collaborator table
-  // then prevent SignIn, rendor another page instead
-
   const handleModal = () => {
     setModalOpen(true);
   };

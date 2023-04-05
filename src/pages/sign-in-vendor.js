@@ -3,6 +3,7 @@ import { useSession, useSupabaseClient } from '@supabase/auth-helpers-react';
 import { useRouter } from 'next/router';
 import { useEffect } from 'react';
 import Layout from 'components/Layout';
+import airtableModule from 'utils/airtable';
 import { signIn, cards } from '@styles/index.js';
 
 export default function SignIn() {
@@ -11,9 +12,23 @@ export default function SignIn() {
   const router = useRouter();
 
   useEffect(() => {
-    if (session) {
-      router.push('/vendor-upload-form');
+    async function checkCollaborator() {
+      if (session) {
+        const userEmail = session.user.email;
+        const collaboratorRecords = await airtableModule.getRecords(
+          'Collaborators'
+        );
+        const collaboratorEmails = collaboratorRecords.map((record) =>
+          record.Email.toLowerCase()
+        );
+        if (collaboratorEmails.includes(userEmail.toLowerCase())) {
+          router.push('/manage-food');
+        } else {
+          router.push('/vendor-upload-form');
+        }
+      }
     }
+    checkCollaborator();
   }, [session]);
 
   return (
