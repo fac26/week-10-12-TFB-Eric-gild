@@ -283,7 +283,11 @@ The team had used the tech stack before and were comfortable with it therefore a
 
 `Review and justify their contribution to building, managing and deploying code into the relevant environment in accordance with the project specification (S10)`
 
+We deployed to vercel. Vercel was chosen because it is a next.js app. Vercel provides a simple and easy-to-use deployment process for Next.js applications. We were able to deploy the application in just a few clicks with Vercel taking care of the rest, including building and deploying the application. As Vercel integrates seamlessly with Git, we could utilise automatic deployments and preview builds of feature branch.
+
 #### What problems did you encounter during deployment?
+
+We didn't encounter any issues with deployment. With the preview feature on branches, we could check whether the deployment succeeded and integrate any fixes before merging with the production branch.
 
 </details>
 
