@@ -2,8 +2,6 @@ import LogoLandingPage from '@components/LogoLandingPage';
 import Layout from '@components/Layout';
 import ButtonLink from '@components/ButtonLink';
 import ButtonSmall from '@components/ButtonSmall';
-import Head from 'next/head';
-import Image from 'next/image';
 
 export default function Home() {
   const source = '/logoLandingPage.png';
