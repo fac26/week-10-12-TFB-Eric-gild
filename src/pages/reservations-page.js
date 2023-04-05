@@ -14,10 +14,8 @@ export default function ReservationsPage() {
     }
     fetchReservations();
   }, []);
-  console.log(reservations);
 
   const removeReservation = async (recordId) => {
-    console.log(recordId);
     await airtableModule.removeAReservation(recordId);
     setReservations(
       reservations.filter((reservation) => reservation.ID !== recordId)

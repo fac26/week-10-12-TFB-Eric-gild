@@ -22,7 +22,7 @@ export default function MoreInfo() {
     setPickUpCode(newCode);
     foodreservation.push(name, Name, Address, newCode);
     localStorage.setItem('orderedItem', foodreservation);
-    console.log(foodreservation);
+
     airtableModule.createReservation({
       name: name,
       Name: Name,
