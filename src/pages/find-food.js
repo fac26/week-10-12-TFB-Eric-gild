@@ -3,6 +3,7 @@ import Layout from 'components/Layout';
 import airtableModule from 'utils/airtable';
 import Filter from 'components/Filter';
 import { useState } from 'react';
+import { useSession, useSupabaseClient } from '@supabase/auth-helpers-react';
 
 export async function getServerSideProps() {
   const getFoodFiltersPromise = airtableModule.getRecords('Dietary Options');

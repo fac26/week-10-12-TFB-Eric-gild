@@ -3,6 +3,7 @@ import { useRouter } from 'next/router';
 import Modal from 'react-modal';
 import { useState } from 'react';
 import airtableModule from 'utils/airtable';
+import { useSession } from '@supabase/auth-helpers-react';
 
 export default function MoreInfo() {
   const router = useRouter();
@@ -16,21 +17,30 @@ export default function MoreInfo() {
   const [pickUpCode, setPickUpCode] = useState(0);
   const foodreservation = [];
 
+  const session = useSession();
+  console.log(session);
   const handleReservation = () => {
-    setReservationMade(true);
-    const newCode = Math.floor(Math.random() * 9000) + 1000;
-    setPickUpCode(newCode);
-    foodreservation.push(name, Name, Address, newCode);
-    localStorage.setItem('orderedItem', foodreservation);
-
-    airtableModule.createReservation({
-      name: name,
-      Name: Name,
-      Address: Address,
-      newCode: newCode,
-    });
+    //if there is no session, redirect them to log in user page/sign up,if not, then run the code below
+    if (!session) {
+      router.push('/sign-in-user');
+    } else {
+      const userEmail = session.user.email;
+      setReservationMade(true);
+      const newCode = Math.floor(Math.random() * 9000) + 1000;
+      setPickUpCode(newCode);
+      foodreservation.push(name, Name, Address, newCode);
+      localStorage.setItem('orderedItem', foodreservation);
+      console.log(foodreservation);
+      airtableModule.createReservation({
+        name: name,
+        Name: Name,
+        Address: Address,
+        newCode: newCode,
+        userEmail: userEmail,
+      });
+    }
   };
-
+  //
   const handleModal = () => {
     setModalOpen(true);
   };

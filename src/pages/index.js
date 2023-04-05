@@ -2,8 +2,6 @@ import LogoLandingPage from '@components/LogoLandingPage';
 import Layout from '@components/Layout';
 import ButtonLink from '@components/ButtonLink';
 import ButtonSmall from '@components/ButtonSmall';
-import Head from 'next/head';
-import Image from 'next/image';
 
 export default function Home() {
   const source = '/logoLandingPage.png';
@@ -13,7 +11,7 @@ export default function Home() {
   return (
     <Layout home>
       <div className='flex flex-row justify-between gap-6 px-2 py-2'>
-        <ButtonSmall buttonName={'Vendor'} buttonLink='/sign-in' />
+        <ButtonSmall buttonName={'Vendor'} buttonLink='/sign-in-vendor' />
         <ButtonSmall buttonName={'Support Us'} buttonLink='/' />
       </div>
       <div className='flex flex-col m-16 gap-6 px-2 py-2 items-center'>
@@ -24,7 +22,7 @@ export default function Home() {
         <p className='text-accentcolor2 text-center font-cursive text-6xl leading-1.5 m-0 max-w-40rem mx-auto'>
           READY FOR FOOD?
         </p>
-        <ButtonLink buttonName={'Go'} buttonLink='/find-food' />
+        <ButtonLink buttonName={'Go'} buttonLink='find-food' />
       </div>
     </Layout>
   );
