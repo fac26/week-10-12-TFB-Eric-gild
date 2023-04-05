@@ -101,6 +101,7 @@ async function createReservation(data) {
           restaurantName: data.Name,
           Address: data.Address,
           pickupcode: data.newCode,
+          userEmail: data.userEmail,
         },
       },
     ],
