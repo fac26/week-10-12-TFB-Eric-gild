@@ -50,37 +50,35 @@ export default function ManageStockCard(props) {
 
   return item ? (
     <div className={cards.containerDiv}>
-      <div className={cards.infoDiv}>
-        <h3 className={cards.heading}>{foodItemName.toUpperCase()}</h3>
-        <div className={cards.flexRowDiv}>
-          <div className={cards.imageDiv}>
-            <img
-              src={item.fields.image[0].url}
-              className=''
-              alt='chicken sandwich'
-              width={200}
-              height={200}
+      <h3 className={cards.headingSmall}>{foodItemName.toUpperCase()}</h3>
+      <div className={cards.flexRowDiv}>
+        <div className='flex flex-col gap-2 w-full items-center justify-between'>
+          <div className='flex flex-row items-center my-auto'>
+            <ButtonSmall
+              whiteBackground={'true'}
+              buttonName={'-'}
+              onClick={handleDecrease}
+              quantity={quantity}
+              setQuantity={setQuantity}
+            />
+            <p className='font-sans text-l mx-4'>{quantity}</p>
+            <ButtonSmall
+              whiteBackground={'true'}
+              buttonName={'+'}
+              onClick={handleIncrease}
+              quantity={quantity}
+              setQuantity={setQuantity}
             />
           </div>
-          <div className='flex flex-col gap-2 w-full items-center justify-between'>
-            <div className='flex flex-row items-center my-auto'>
-              <ButtonSmall
-                whiteBackground={'true'}
-                buttonName={'-'}
-                onClick={handleDecrease}
-                quantity={quantity}
-                setQuantity={setQuantity}
-              />
-              <p className='font-sans text-l mx-4'>{quantity}</p>
-              <ButtonSmall
-                whiteBackground={'true'}
-                buttonName={'+'}
-                onClick={handleIncrease}
-                quantity={quantity}
-                setQuantity={setQuantity}
-              />
-            </div>
-          </div>
+        </div>
+        <div className={cards.imageDiv}>
+          <img
+            src={item.fields.image[0].url}
+            className=''
+            alt='chicken sandwich'
+            width={200}
+            height={200}
+          />
         </div>
       </div>
     </div>

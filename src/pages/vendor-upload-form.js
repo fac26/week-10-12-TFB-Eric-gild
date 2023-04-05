@@ -10,7 +10,7 @@ export default function App() {
   const session = useSession();
   const supabase = useSupabaseClient();
   const router = useRouter();
-  const errorMessage = ' * Required field';
+  const errorMessage = '* Required';
   const {
     register,
     handleSubmit,

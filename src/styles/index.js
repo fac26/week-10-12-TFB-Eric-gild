@@ -10,25 +10,28 @@ export const forms = {
 
 export const buttons = {
   standard:
-    'flex items-center justify-center max-w-xs w-40 bg-dim-black font-cursive text-accentcolor2 tracking-widest text-3xl bg-accentcolor4 py-2 px-2 rounded-lg hover:scale-110 border shadow-custom',
+    'flex items-center justify-center max-w-xs w-40 bg-dim-black font-cursive text-accentcolor2 tracking-widest text-3xl bg-accentcolor4 py-2 px-2 rounded-lg hover:scale-110 transition duration-300 border shadow-custom',
   whiteBackground:
-    'flex items-center justify-center max-w-xs w-40 bg-dim-black font-cursive text-accentcolor2 tracking-widest text-3xl bg-accentcolor4 py-2 px-2 rounded-lg hover:scale-110 shadow-lg',
+    'flex items-center justify-center max-w-xs bg-dim-black font-cursive text-accentcolor2 tracking-widest text-xl bg-accentcolor4 py-2 px-2 rounded-lg hover:scale-110 transition duration-300 shadow-lg',
   disabled: 'opacity-50 cursor-not-allowed',
   small:
-    'flex items-center justify-center max-w-xs bg-dim-black font-cursive text-accentcolor2 tracking-widest text-2xl bg-accentcolor4 py-1 px-4 rounded-lg hover:scale-110 h-8 border shadow-custom',
+    'flex items-center justify-center max-w-xs bg-dim-black font-cursive text-accentcolor2 tracking-widest text-2xl bg-accentcolor4 py-1 px-4 rounded-lg hover:scale-110 transition duration-300 h-8 border shadow-custom',
   whiteBackgroundSmall:
-    'flex items-center justify-center max-w-xs bg-dim-black font-cursive text-accentcolor2 tracking-widest text-2xl bg-accentcolor4 px-2 pt-1 rounded-lg hover:scale-110 shadow-lg',
+    'flex items-center justify-center max-w-xs bg-dim-black font-cursive text-accentcolor2 tracking-widest text-2xl bg-accentcolor4 px-2 pt-1 rounded-lg hover:scale-110 transition duration-300 shadow-lg',
 };
 
 export const cards = {
+  flexDiv: 'flex flex-col m-4 items-center gap-4',
   containerDiv:
     'w-11/12 mx-auto max-w-screen-sm text-accentcolor4 tracking-widest bg-accentcolor2 font-cursive py-6 px-6 rounded-lg shadow-custom',
   infoDiv: 'mx-auto max-w-md text-center text-accentcolor4',
-  heading: 'font-cursive text-5xl',
+  heading: 'font-cursive text-5xl tracking-widest',
+  headingSmall: 'font-cursive text-4xl',
+  headingXSmall: 'font-cursive text-3xl',
   headingWithinImage: 'absolute bottom-1 left-4 text-accentcolor4 ',
-  flexRowDiv: 'flex flex-row gap-6 w-5/6 h-5/6 mx-auto',
+  flexRowDiv: 'flex flex-row gap-4  mx-auto',
   imageDiv: 'flex items-center justify-center',
-  normalText: 'text-left text-sm mb-2',
+  normalText: 'font-sans text-left text-sm mb-2',
   boldText: 'text-left text-sm mb-2',
   underlineLink: 'text-left font-cursive text-3xl underline',
   line: 'h-px mx-auto bg-accentcolor1 border-0 my-4',

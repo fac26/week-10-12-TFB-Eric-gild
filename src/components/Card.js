@@ -28,32 +28,28 @@ export default function Card(props) {
 
   return (
     <div className={cards.containerDiv}>
-      <div className={cards.infoDiv}>
-        <h3 className={cards.heading}>
-          {item && item.name && item.name.toUpperCase()}
-        </h3>
-        <div className={cards.flexRowDiv}>
-          <div className={cards.imageDiv}>
-            <img
-              src={item.image[0].url}
-              className=''
-              alt={foodItemName}
-              width={200}
-              height={200}
-            />
+      <h3 className={cards.headingSmall}>
+        {item && item.name && item.name.toUpperCase()}
+      </h3>
+      <div className={cards.flexRowDiv}>
+        <div className='flex flex-col gap-1 w-full'>
+          <div className=''>
+            <p className={cards.normalText}>{collaborator.Name}</p>
           </div>
-          <div className='flex flex-col gap-2 w-full items-center'>
-            <div className='flex-grow'>
-              <p className='text-l font-sans overflow-hidden'>
-                {collaborator.Name}
-              </p>
-            </div>
-            <ButtonSmall
-              whiteBackground={'true'}
-              buttonName={'More Info'}
-              onClick={handleMoreInfoClick}
-            />
-          </div>
+          <ButtonSmall
+            whiteBackground={'true'}
+            buttonName={'More Info'}
+            onClick={handleMoreInfoClick}
+          />
+        </div>
+        <div className={cards.imageDiv}>
+          <img
+            src={item.image[0].url}
+            className=''
+            alt={foodItemName}
+            width={200}
+            height={200}
+          />
         </div>
       </div>
     </div>
