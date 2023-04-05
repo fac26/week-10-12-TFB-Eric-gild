@@ -42,7 +42,7 @@ export default function VendorDetails({ collaborators }) {
             </p>
           </div>
           <div className='flex flex-col m-4 items-center gap-4'></div>
-          <div className='w-11/12 mx-auto max-w-screen-sm text-accentcolor1 tracking-widest bg-accentcolor2 font-cursive py-6 px-6 rounded-lg'>
+          <div className='w-11/12 mx-auto max-w-screen-sm text-accentcolor1 tracking-widest bg-accentcolor2 font-cursive py-6 px-6 rounded-lg mb-40'>
             <h3 className='text-4xl'>Description</h3>
             <p className='text-l font-sans overflow-hidden'>
               <div>Description: {collaborator.Description}</div>
