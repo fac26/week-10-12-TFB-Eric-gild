@@ -32,7 +32,46 @@ export const cards = {
   flexRowDiv: 'flex flex-row gap-4  mx-auto',
   imageDiv: 'flex items-center justify-center',
   normalText: 'font-sans text-left text-sm mb-2',
+  normalTextCenter: 'font-sans text-center text-sm mb-2',
   boldText: 'text-left text-sm mb-2',
   underlineLink: 'text-left font-cursive text-3xl underline',
   line: 'h-px mx-auto bg-accentcolor1 border-0 my-4',
+};
+
+export const signIn = {
+  div: 'flex items-center justify-center font-sans text-cutom',
+  supabase: {
+    style: {
+      button: {
+        padding: 0,
+        borderColor: 'white',
+        borderWidth: 1,
+        backgroundColor: '#540375',
+        borderRadius: 15,
+        width: 300,
+        alignItems: 'center',
+        justifyContent: 'center',
+        color: 'white',
+        fontFamily: 'Jomhuria',
+        fontSize: 40,
+        textTransform: 'upperCase',
+      },
+      input: {
+        padding: 5,
+        borderColor: '#F5E8DA',
+        backgroundColor: '#F5E8DA',
+        borderRadius: 15,
+        color: 'black',
+        textAlign: 'centre',
+        fontSize: 14,
+        width: 300,
+      },
+      label: {
+        display: 'none',
+      },
+      anchor: {
+        color: '#F5E8DA',
+      },
+    },
+  },
 };

@@ -26,7 +26,7 @@ export default function Layout({
       <header>
         {home || noTopBar ? null : (
           <>
-            <TopBar />
+            <TopBar isBusinessPage={isBusinessPage} />
           </>
         )}
         {pageTitle != null && (

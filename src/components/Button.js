@@ -3,7 +3,7 @@ import { buttons } from '@styles/index.js';
 
 export default function Button(props) {
   const { whiteBackground, quantity, buttonName } = props;
-  const title = props.buttonName || 'placeholder';
+  const title = buttonName || 'placeholder';
   return (
     <button
       className={`${!whiteBackground && buttons.standard}
