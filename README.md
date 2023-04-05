@@ -269,11 +269,11 @@ The team had used the tech stack before and were comfortable with it therefore a
 
 #### How did you verify your project worked correctly?
 
-- We used Cypress end-to-end testing to verify that our project functions correctly.
+- We used Cypress end-to-end testing to verify that our project functions correctly. We ran tests on the vendor Sign-In and Vendor Details upload form; both passed successfully. 
 
 #### Did writing automated tests catch any bugs?
 
-</details>
+- No bugs were picked up. 
 
 ### Deploy
 
