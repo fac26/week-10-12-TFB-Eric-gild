@@ -37,10 +37,10 @@ export default function SignIn() {
           ) : (
             <>
               <p className={cards.normalTextCenter}>
-                Sorry, you are currently signed.
+                Sorry, you are currently signed in.
               </p>
               <p className={cards.normalTextCenter}>
-                Please sign-out before signing in.
+                Please sign-out before returning to this page.
               </p>
             </>
           )}
