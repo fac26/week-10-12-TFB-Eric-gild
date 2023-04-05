@@ -65,7 +65,7 @@ export default function NavBar({ isBusinessPage }) {
               icon={BookmarkIcon}
               data-cy='bookmark'
             />
-            <NavItem href='/' icon={UserIcon} data-cy='profile' />
+            <NavItem href='/sign-out-user' icon={UserIcon} data-cy='profile' />
           </>
         ) : (
           <>
