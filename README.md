@@ -4,6 +4,8 @@ We have created an app called Hope. It puts those in need of food directly in to
 
 Contributors [Laura Keating](https://github.com/LauraK0), [Iman Ghellache](https://github.com/ighellache), [Dominic Simpson](https://github.com/DominicSimpson), [Gal K Jones](https://github.com/GalKJ)
 
+We have kept a [daily log](https://hackmd.io/SumkcfMyTmSD-zuLZZk1uQ) that goes into detail on how the app evolved. 
+
 ## Deployment
 
 Please follow this link to our [deployed site](https://week-10-12-tfb-eric-gild.vercel.app)
