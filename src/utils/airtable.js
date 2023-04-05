@@ -159,5 +159,3 @@ const airtableModule = {
 };
 
 export default airtableModule;
-
-//
