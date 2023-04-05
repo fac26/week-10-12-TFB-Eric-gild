@@ -1,10 +1,8 @@
 # HOPE THE APP
 
-
 We have created an app called Hope. It puts those in need of food directly in touch with retailers that find themselves with excess stock at the end of the day. We are building Hope as our Tech for Better Project for [Founders & Coders FAC26](https://github.com/fac26).
 
 Contributors [Laura Keating](https://github.com/LauraK0), [Iman Ghellache](https://github.com/ighellache), [Dominic Simpson](https://github.com/DominicSimpson), [Gal K Jones](https://github.com/GalKJ)
-
 
 ## Deployment
 
@@ -31,11 +29,10 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
     Next.JS - Framework
 
     VsCode - The code editor used
-    
+
     Airtable - database
 
     Vercel - The deployment platform used
-
 
 # PROJECT DOCUMENTATION
 
@@ -59,7 +56,7 @@ We are building it because there is a cost of living crisis and more and more fi
 
 #### What are you not building?
 
-We are not building a React Native app nor are we building a delivery/ geolocation app. 
+We are not building a React Native app nor are we building a delivery/ geolocation app.
 
 #### How did you decide what features were important?
 
@@ -87,7 +84,7 @@ Our tech stack includes:
 
 #### How did user research inform your plan?
 
-We conducted user research and usability testing. Our users gave us valuable feedback which helped us refine our initial concept. In some instances that meant intergrating new features which we hadn't considered before and in other instances removing features that we had initialy thought essential. 
+We conducted user research and usability testing. Our users gave us valuable feedback which helped us refine our initial concept. In some instances that meant intergrating new features which we hadn't considered before and in other instances removing features that we had initialy thought essential.
 
 </details>
 
@@ -116,11 +113,11 @@ Safe and secure storage of data ie. GDPR.
 
 #### Did your team work effectively?
 
-Clear communication when creating the Kanban board made us more effective at meeting tasks and completing them, timeboxing tasks enabled us to laser focus and not fall down rabbit holes, pair programming meant we could rely on one another when hitting challenges.      
+Clear communication when creating the Kanban board made us more effective at meeting tasks and completing them, timeboxing tasks enabled us to laser focus and not fall down rabbit holes, pair programming meant we could rely on one another when hitting challenges.
 
 #### What would you do differently next time?
 
-Ask for help earlier rather then struggle by ourselves and make best use of mentors and Discord help and soloutions channel. Read documentation more thourougly before starting work rather than being put off by it's dense and sometimes messy nature.   
+Ask for help earlier rather then struggle by ourselves and make best use of mentors and Discord help and soloutions channel. Read documentation more thourougly before starting work rather than being put off by it's dense and sometimes messy nature.
 
 </details>
 
@@ -150,6 +147,8 @@ We learned that:
 
 #### Were your assumptions right or wrong?
 
+We assumed correctly that the team would not have enough time during the 2 week build to add geolocation and delivery features. We also assumed correctly that the team would not have enough time to build a React Native app.
+
 </details>
 
 ## Recommendations and conclusions
@@ -158,7 +157,11 @@ We learned that:
 
 #### What features would you prioritise to build next?
 
+We would prioritise building a React Native app and geolocation and delivery features.
+
 #### Was the project a success?
+
+The project was a success in that we were able to build a functioning MVP for our product owner and we were able to learn a lot about the software development lifecycle and the tech stack we used.
 
 </details>
 
@@ -170,11 +173,27 @@ We learned that:
 
 #### What roles did your team take on?
 
-`Explain the roles and responsibilities of all people working within the software development lifecycle, and how they relate to the project (K2)`
+Eric - Product Owner
+
+Gal - Scrum Facilitator
+
+Gal, as the scrum facilitator, was responsible for creating the Kanban board, issues, user stories, estimating issues, keeping the team on track, facilitating standups, retrospectives, and sprint planning, as well as maintaining clear communication between the team and the product owner.
+
+Laura - UX/UI Designer
+
+As the UX lead on the project, Laura was responsible for guiding the user experience strategy and design. She collaborated with the team and product owner during the design phase to create wireframes, conduct user research, and develop high-fidelity prototypes using Figma. During the build phase, Laura configured Tailwind CSS and maintained consistency in the project's style.
+
+Dominic - QA
+
+Dominic's proficiency in Quality Assurance was evident in his adept use of Cypress Testing while working on the HOPE app, as well as ensuring that the code generally was not only clean and legible but also functional and reliable.
+
+Iman - DevOps
+
+As a DevOps lead, Iman was responsible for installing Prettier and ESLint configurations to improve the code quality. Iman resolved merge conflicts on VSCode when doing Git merges from the main branch to their branch. Iman also reviewed pull requests from other team members to ensure the code made sense before merging to main. Additionally, Iman deployed the code to Vercel and set up the initial file structure of the codebase.
 
 #### Did these roles help your team work effectively?
 
-`Outline how teams work effectively to produce software and how to contribute appropriately (K6) Compare and contrast the requirements of a software development team, and how they would ensure that each member (including themselves) were able to make a contribution (K6)`
+Teams produce software effectively by collaborating and utilizing each member's skills to achieve their goals. To contribute appropriately, team members need to understand their role and responsibilities, communicate effectively, and maintain clear goals and expectations. The requirements of a software development team vary based on the project, but it's crucial to have a diverse range of skills, maintain open communication, and prioritize teamwork to ensure success.
 
 </details>
 
@@ -184,6 +203,8 @@ We learned that:
 
 #### What might be the intended and unintended consequences of building this product?
 
+The intended consequences of building this product are to help people who are struggling to get food and to help people who have food to give. The unintended consequences of building this product are that it could be used by people who are not in need of food and could be used by people who are not giving food but the team doesn't expect this to be the case.
+
 </details>
 
 ### Design
@@ -192,7 +213,25 @@ We learned that:
 
 #### How did you plan a user experience?
 
+We planned a user experience by:
+
+- conducting user research
+- conducting usability testing
+- creating wireframes
+- creating high fidelity prototypes
+
 #### What technical decisions did you make?
+
+We decided to use the following tech stack:
+
+- React
+- Tailwind CSS
+- Supabase
+- Cypress
+- Vercel
+- Airtable
+
+The team had used the tech stack before and were comfortable with it therefore allowing us to focus on the project rather than learning a new tech stack. We wanted to use a CSS framework to speed up the styling process so chose Tailwind CSS as it is a utility-first CSS framework. We used Airtable as a database since we felt it would an accessible choice for our product owner moving forward with the product. Airtable is a spreadsheet-database hybrid that allows users to create databases without having to learn SQL.
 
 #### Server-render vs client-render vs both
 
@@ -232,11 +271,7 @@ We learned that:
 
 - We used Cypress end-to-end testing to verify that our project functions correctly.
 
-
-
 #### Did writing automated tests catch any bugs?
-
-
 
 </details>
 
@@ -267,5 +302,3 @@ Describes how they have maintained a productive, professional and secure working
 `
 
 </details>
-
-
