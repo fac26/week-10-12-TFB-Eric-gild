@@ -29,7 +29,7 @@ export default function App() {
         <p>Please tell us some details about your company?</p>
       </div>
       <form className={forms.form}>
-        <div classname={forms.labelDiv}>
+        <div className={forms.labelDiv}>
           <label className={forms.label}>COMPANY NAME</label>
           {errors.companyname && (
             <span className={forms.error}>{errorMessage}</span>
@@ -69,7 +69,7 @@ export default function App() {
           {...register('address', { required: true })}
           className={forms.input}
         />
-        <div classname={forms.labelDiv}>
+        <div className={forms.labelDiv}>
           <label className={forms.label}>PHONE NUMBER</label>
           {errors.phonenumber && (
             <span className={forms.error}>{errorMessage}</span>
