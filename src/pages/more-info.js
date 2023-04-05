@@ -16,6 +16,7 @@ export default function MoreInfo() {
     ? JSON.parse(collaborator)
     : {};
   const [modalOpen, setModalOpen] = useState(false);
+  const [warningModal, setWarningModal] = useState(false);
   const [reservationMade, setReservationMade] = useState(false);
   const [pickUpCode, setPickUpCode] = useState(0);
   const foodreservation = [];
@@ -36,8 +37,8 @@ export default function MoreInfo() {
         record.Email.toLowerCase()
       );
       if (collaboratorEmails.includes(userEmail.toLowerCase())) {
-        alert('Sorry! You can not reserve as a vendor');
-        router.push('/');
+        handleWarningModal();
+        setTimeout(() => router.push('/'), 5000);
         return;
       } else {
         setReservationMade(true);
@@ -64,13 +65,23 @@ export default function MoreInfo() {
     setModalOpen(true);
   };
 
+  const handleWarningModal = () => {
+    setWarningModal(true);
+  };
+
   return (
     <Layout noTopBar>
       <ModalComponent
-        allergens={allergens}
+        message={allergens}
         modalOpen={modalOpen}
         setModalOpen={setModalOpen}
       />
+      <ModalComponent
+        message={'Sorry! You can not reserve as a vendor'}
+        modalOpen={warningModal}
+        setModalOpen={setWarningModal}
+      />
+
       <div className='relative'>
         <img
           src={image?.[0]?.url}
