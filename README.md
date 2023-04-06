@@ -251,7 +251,7 @@ Vercel is a platform-as-a-service.
 
 #### Frontend first vs DB first
 
-
+We built both aspects in syncronicity.
 
 #### Did you create a technical specification?
 
