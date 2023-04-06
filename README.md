@@ -275,7 +275,7 @@ The team had used the tech stack before and were comfortable with it therefore a
 
 #### How did you verify your project worked correctly?
 
-- We used Cypress end-to-end testing to verify that our project functions correctly. We ran tests on the vendor Sign-In and Vendor Details upload form; both passed successfully. 
+- We used Cypress end-to-end testing (E2E) to verify that our project functions correctly (the individual Component testing method was more complicated and was not ultimately employed). We ran tests on the vendor Sign-In and Vendor Details upload form; both passed successfully. 
 
 #### Did writing automated tests catch any bugs?
 
