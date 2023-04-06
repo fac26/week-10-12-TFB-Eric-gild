@@ -111,6 +111,8 @@ We will ensure our project is accessible to as many users as possible by:
 
 Safe and secure storage of data, ie. GDPR.
 
+<details>    
+    
 Airtable is GDPR-compliant.
 
 ## Project learnings
