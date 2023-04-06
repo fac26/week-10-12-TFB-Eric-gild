@@ -117,11 +117,11 @@ Safe and secure storage of data, ie. GDPR. Airtable is GDPR-compliant. Secure ve
 
 #### Did your team work effectively?
 
-Clear communication when creating the Kanban board made us more effective at meeting tasks and completing them, timeboxing tasks enabled us to laser focus and not fall down rabbit holes, pair programming meant we could rely on one another when hitting challenges.
+Clear communication when creating the Kanban board made us more effective at meeting tasks and completing them; timeboxing tasks enabled us to laser focus and not fall down rabbit holes; pair programming meant that we could rely on one another when hitting challenges.
 
 #### What would you do differently next time?
 
-Ask for help earlier rather then struggle by ourselves and make best use of mentors and Discord help and soloutions channel. Read documentation more thourougly before starting work rather than being put off by it's dense and sometimes messy nature.
+Asking for help earlier rather then struggle by ourselves, and make best use of mentors and the Discord help and solutions channel. Read documentation more thorougly before starting work rather than being put off by its dense and sometimes messy nature.
 
 </details>
 
@@ -161,7 +161,7 @@ We assumed correctly that the team would not have enough time during the 2 week 
 
 #### What features would you prioritise to build next?
 
-We would prioritise building a React Native app and geolocation and delivery features.
+We would prioritise building a React Native app, along with geolocation and delivery features.
 
 #### Was the project a success?
 
@@ -207,7 +207,7 @@ Teams produce software effectively by collaborating and utilizing each member's 
 
 #### What might be the intended and unintended consequences of building this product?
 
-The intended consequences of building this product are to help people who are struggling to get food and to help people who have food to give. The unintended consequences of building this product are that it could be used by people who are not in need of food and could be used by people who are not giving food but the team doesn't expect this to be the case.
+The intended consequences of building this product are to help people who are struggling to get food and to help people who have food to give. The unintended consequences of building this product are that it could be used by people who are not in need of food and could be used by people who are not giving food; but the team doesn't expect this to be the case.
 
 </details>
 
@@ -235,15 +235,23 @@ We decided to use the following tech stack:
 - Vercel
 - Airtable
 
-The team had used the tech stack before and were comfortable with it therefore allowing us to focus on the project rather than learning a new tech stack. We wanted to use a CSS framework to speed up the styling process so chose Tailwind CSS as it is a utility-first CSS framework. We used Airtable as a database since we felt it would an accessible choice for our product owner moving forward with the product. Airtable is a spreadsheet-database hybrid that allows users to create databases without having to learn SQL.
+The team had used the tech stack before and were comfortable with it, therefore allowing us to focus on the project rather than learning a new tech stack. We wanted to use a CSS framework to speed up the styling process so chose Tailwind CSS as it is a utility-first CSS framework. We used Airtable as a database since we felt it would an accessible choice for our product owner moving forward with the product. Airtable is a spreadsheet-database hybrid that allows users to create databases without having to learn SQL.
 
 #### Server-render vs client-render vs both
+    
+We used Next.JS alongside React, which ensured a full-stack experience, utilising both server-side and client-side.
 
 #### Relational or non-relational or no DB
+    
+Airtable is a relational database. 
 
 #### Self-hosted or platform-as-a-service
+    
+Vercel is a platform-as-a-service.
 
 #### Frontend first vs DB first
+
+
 
 #### Did you create a technical specification?
 
@@ -296,10 +304,14 @@ We didn't encounter any issues with deployment. With the preview feature on bran
 </details>
 
 ### Maintain
+    
+By passing our codebase details to our Product Owner, we have ensured that the project is maintainable. 
 
 <details>
 
 #### Is it easy for someone make changes to the codebase?
+    
+Yes. We have ensured that our codebase has a logical structure, and can be navigated relatively easily. Our [daily log](https://hackmd.io/SumkcfMyTmSD-zuLZZk1uQ), which we updated regularly throughout the project, provides a detailed context of the app's evolution. 
 
 #### Could a new person quickly be onboarded to contribute?
 
