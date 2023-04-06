@@ -109,11 +109,7 @@ We will ensure our project is accessible to as many users as possible by:
 
 #### Are there any legal or regulatory requirements you should consider?
 
-Safe and secure storage of data, ie. GDPR.
-
-<details>    
-    
-Airtable is GDPR-compliant.
+Safe and secure storage of data, ie. GDPR. Airtable is GDPR-compliant.
 
 ## Project learnings
 
