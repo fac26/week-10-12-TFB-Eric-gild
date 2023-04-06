@@ -62,11 +62,11 @@ We are building it because there is a cost of living crisis and more and more fi
 
 #### What are you not building?
 
-We are not building a React Native app nor are we building a delivery/ geolocation app.
+We are not building a React Native app, nor are we building a delivery/ geolocation app.
 
 #### How did you decide what features were important?
 
-We consulted the Product Owner and then during sprint planning creating issues pulled from two main and essential user stories.
+We consulted the Product Owner and then during sprint planning created issues pulled from two main and essential user stories.
 
 </details>
 
@@ -76,7 +76,7 @@ We consulted the Product Owner and then during sprint planning creating issues p
 
 #### How are you going to structure your sprints?
 
-First week we decided to target completing one user story. That story being the vendor user story. The second week we are targeting the users user story and any stretch goals that we find ourselves having time to incorporate. We tracked our progress using the kanban board and issue estimation.
+During the first week, we decided to target completing one user story - that story being the vendor user story. During this second week, we are targeting the users' user story and any stretch goals that we find ourselves having time to incorporate. We tracked our progress using the Kanban board and issue estimation.
 
 #### What order are you going to build in?
 
@@ -90,7 +90,7 @@ Our tech stack includes:
 
 #### How did user research inform your plan?
 
-We conducted user research and usability testing. Our users gave us valuable feedback which helped us refine our initial concept. In some instances that meant intergrating new features which we hadn't considered before and in other instances removing features that we had initialy thought essential.
+We conducted user research and usability testing. Our users gave us valuable feedback that helped us refine our initial concept. In some instances, that meant intergrating new features which we hadn't considered before and in other instances removing features that we had initialy thought essential.
 
 </details>
 
@@ -103,15 +103,15 @@ We conducted user research and usability testing. Our users gave us valuable fee
 We will ensure our project is accessible to as many users as possible by:
 
 - ensuring our app is responsive
-- using lighthouse feature to check accessibility
+- using Lighthouse feature to check accessibility
 - using a colour contrast checker to ensure our colour scheme is accessible
 - using semantic HTML to ensure our app is accessible to screen readers
 
 #### Are there any legal or regulatory requirements you should consider?
 
-Safe and secure storage of data ie. GDPR.
+Safe and secure storage of data, ie. GDPR.
 
-</details>
+Airtable is GDPR-compliant.
 
 ## Project learnings
 
