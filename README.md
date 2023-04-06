@@ -35,6 +35,10 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
     Airtable - database
 
     Vercel - The deployment platform used
+    
+    Supabase - Used for authentication
+    
+    Cypress Testing - For testing
 
 # PROJECT DOCUMENTATION
 
